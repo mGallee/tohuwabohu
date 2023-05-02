@@ -17,9 +17,10 @@ export const metadata = {
     siteName: 'Tohuwabohu',
     images: [
       {
-        url: 'https://tohuwabohu.wien/monstera-open-graph.png',
+        url: 'https://tohuwabohu.wien/monstera-open-graph.jpg',
         width: 1200,
         height: 675,
+        type: 'image/jpg',
       },
     ],
     locale: 'en-US',
