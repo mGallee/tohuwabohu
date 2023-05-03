@@ -7,9 +7,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'monstera-leafs': "url('/monstera-leafs.webp')",
-      },
       animation: {
         glow: 'glow 2s ease-in-out infinite alternate',
       },
