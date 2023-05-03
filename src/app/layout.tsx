@@ -37,7 +37,7 @@ export default function RootLayout({
     <html lang="en" className={`${itcWillowFont.variable} font-sans`}>
       <body className="flex flex-col min-h-screen bg-slate-950 bg-monstera-leafs bg-center bg-cover bg-no-repeat text-slate-50 text-center">
         <main className="flex flex-1 flex-col p-8">{children}</main>
-        <footer className="flex flex-row flex-wrap justify-center items-center gap-4 text-2xl p-8">
+        <footer className="flex flex-row flex-wrap justify-center items-center gap-6 text-2xl p-8">
           <a
             className="hover:animate-glow active:animate-glow select-none"
             href="https://www.instagram.com/tohuwabohu.vienna/"
