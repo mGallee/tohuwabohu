@@ -1,5 +1,7 @@
 import './globals.css';
 import localFont from 'next/font/local';
+import Image from 'next/image';
+import BackgroundImage from '../assets/monstera-leafs.webp';
 
 const itcWillowFont = localFont({
   src: '../../public/fonts/ITC-Willow.ttf',
@@ -17,7 +19,7 @@ export const metadata = {
     siteName: 'Tohuwabohu',
     images: [
       {
-        url: 'https://tohuwabohu.wien/monstera-open-graph.jpg',
+        url: 'https://tohuwabohu.wien/images/monstera-open-graph.jpg',
         width: 1200,
         height: 675,
         type: 'image/jpg',
@@ -35,9 +37,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${itcWillowFont.variable} font-sans`}>
-      <body className="flex flex-col bg-slate-950 bg-monstera-leafs bg-cover bg-center bg-no-repeat text-center text-slate-50">
-        <main className="flex flex-1 flex-col p-8">{children}</main>
-        <footer className="flex flex-row flex-wrap items-center justify-center gap-6 p-8 text-2xl">
+      <body className="relative flex flex-col bg-slate-950 text-center text-slate-50">
+        <div className="fixed bottom-0 left-0 right-0 top-0 blur-sm">
+          <Image
+            style={{
+              objectFit: 'cover',
+              objectPosition: 'center',
+            }}
+            src={BackgroundImage}
+            alt="Monstera background image"
+            fill
+            placeholder="blur"
+            draggable={false}
+          />
+        </div>
+        <main className="relative flex flex-1 flex-col p-8">{children}</main>
+        <footer className="relative flex flex-row flex-wrap items-center justify-center gap-6 p-8 text-2xl">
           <a
             className="select-none hover:animate-glow active:animate-glow"
             href="https://www.instagram.com/tohuwabohu.vienna/"
