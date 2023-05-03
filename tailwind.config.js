@@ -17,15 +17,15 @@ module.exports = {
         glow: {
           '0%': {
             'text-shadow':
-              '0 0 10px #ffe798, 0 0 20px #ffe798, 0 0 30px #ffe798, 0 0 40px #ffe798, 0 0 50px #ffe798, 0 0 60px #ffe798, 0 0 70px #ffe798',
+              '0 0 5px #fff, 0 0 10px #ffe798, 0 0 30px #ffe798, 0 0 50px #ffe798, 0 0 70px #ffe798',
           },
           '50%': {
             'text-shadow':
-              '0 0 20px #9FF4F7, 0 0 30px #9FF4F7, 0 0 40px #9FF4F7, 0 0 50px #9FF4F7, 0 0 60px #9FF4F7, 0 0 70px #9FF4F7, 0 0 80px #9FF4F7',
+              '0 0 5px #fff, 0 0 20px #9FF4F7, 0 0 40px #9FF4F7, 0 0 60px #9FF4F7, 0 0 80px #9FF4F7',
           },
           '100%': {
             'text-shadow':
-              '0 0 30px #BB98FF, 0 0 40px #BB98FF, 0 0 50px #BB98FF, 0 0 60px #BB98FF, 0 0 70px #BB98FF, 0 0 80px #BB98FF, 0 0 90px #BB98FF',
+              '0 0 5px #fff, 0 0 30px #BB98FF, 0 0 50px #BB98FF, 0 0 70px #BB98FF, 0 0 90px #BB98FF',
           },
         },
       },
