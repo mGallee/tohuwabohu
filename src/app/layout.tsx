@@ -2,6 +2,7 @@ import './globals.css';
 import localFont from 'next/font/local';
 import Image from 'next/image';
 import BackgroundImage from '../assets/monstera-leafs.webp';
+import { ReactNode } from 'react';
 
 const itcWillowFont = localFont({
   src: '../../public/fonts/ITC-Willow.ttf',
@@ -30,11 +31,7 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${itcWillowFont.variable} font-sans`}>
       <body className="relative flex flex-col bg-slate-950 text-center text-slate-50">
