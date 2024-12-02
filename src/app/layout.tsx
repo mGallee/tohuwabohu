@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <div className="fixed bottom-0 left-0 right-0 top-0 blur-sm">
           <Image
             src={BackgroundImage}
-            className="object-cover	object-center"
+            className="object-cover object-center"
             alt="Monstera background image"
             fill
             placeholder="blur"
