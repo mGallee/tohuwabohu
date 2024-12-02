@@ -1,10 +1,12 @@
 import { MetadataRoute } from 'next';
+import { baseUrl } from '@/utils/url';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'https://tohuwabohu.wien',
-      lastModified: new Date(),
+      url: baseUrl,
+      priority: 0.5,
+      changeFrequency: 'weekly',
     },
   ];
 }
