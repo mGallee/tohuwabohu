@@ -3,24 +3,27 @@ import localFont from 'next/font/local';
 import Image from 'next/image';
 import BackgroundImage from '../assets/monstera-leafs.webp';
 import { ReactNode } from 'react';
+import { Metadata } from 'next';
+import { baseUrl } from '@/utils/url';
+import Footer from '@/components/Footer';
 
 const itcWillowFont = localFont({
-  src: '../../public/fonts/ITC-Willow.ttf',
+  src: '../assets/ITC-Willow.ttf',
   variable: '--font-itc-willow',
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Tohuwabohu',
   description: '🌈 Colorful rave experiences in Vienna 🌈',
   category: 'Collective',
   openGraph: {
     title: 'Tohuwabohu',
     description: '🌈 Colorful rave experiences in Vienna 🌈',
-    url: 'https://tohuwabohu.wien',
+    url: baseUrl,
     siteName: 'Tohuwabohu',
     images: [
       {
-        url: 'https://tohuwabohu.wien/images/monstera-open-graph.jpg',
+        url: `${baseUrl}/images/monstera-open-graph.jpg`,
         width: 1200,
         height: 675,
         type: 'image/jpg',
@@ -46,26 +49,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           />
         </div>
         <main className="relative flex flex-1 flex-col p-8">{children}</main>
-        <footer className="relative flex flex-row flex-wrap items-center justify-center gap-6 p-8 text-2xl">
-          <a
-            className="select-none outline-0 hover:animate-glow active:animate-glow"
-            href="https://www.instagram.com/tohuwabohu.vienna"
-            target="_blank">
-            Instagram
-          </a>
-          <a
-            className="select-none hover:animate-glow active:animate-glow"
-            href="https://www.facebook.com/tohuwabohu.vienna"
-            target="_blank">
-            Facebook
-          </a>
-          <a
-            className="select-none hover:animate-glow active:animate-glow"
-            href="https://t.me/TohuwabohuVienna"
-            target="_blank">
-            Telegram
-          </a>
-        </footer>
+        <Footer />
       </body>
     </html>
   );
