@@ -1,7 +1,7 @@
 import './globals.css';
 import localFont from 'next/font/local';
 import Image from 'next/image';
-import BackgroundImage from '../assets/monstera-leaves.webp';
+import BackgroundImage from '../assets/spiral.webp';
 import { ReactNode } from 'react';
 import { Metadata } from 'next';
 import { baseUrl } from '@/utils/url';
@@ -47,10 +47,10 @@ export const metadata: Metadata = {
     siteName: title,
     images: [
       {
-        url: '/images/monstera-open-graph.jpg',
-        width: 1200,
-        height: 675,
-        type: 'image/jpg',
+        url: '/images/logo-open-graph.png',
+        width: 1080,
+        height: 1080,
+        type: 'image/png',
       },
     ],
     locale: 'en-US',
@@ -61,12 +61,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${itcWillowFont.variable} font-sans`}>
-      <body className="relative flex flex-col bg-slate-950 text-slate-50">
-        <div className="fixed bottom-0 left-0 right-0 top-0 blur-sm">
+      <body className="relative flex flex-col bg-black text-stone-50 selection:bg-slate-950">
+        <div className="fixed inset-0 select-none blur-md brightness-50">
           <Image
             src={BackgroundImage}
-            className="object-cover object-center"
-            alt="Neon monstera leaves"
+            className="pointer-events-none object-cover object-center"
+            alt="Spiral"
             fill
             placeholder="blur"
             draggable={false}
