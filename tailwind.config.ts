@@ -1,8 +1,17 @@
 import type { Config } from 'tailwindcss';
+import { black, white, slate, stone } from 'tailwindcss/colors';
 
 export default {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      black,
+      white,
+      slate,
+      stone,
+    },
     extend: {
       animation: {
         glow: 'glow 2s ease-in-out infinite alternate',
@@ -28,5 +37,4 @@ export default {
       },
     },
   },
-  plugins: [],
 } satisfies Config;
