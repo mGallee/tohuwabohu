@@ -13,7 +13,7 @@ const itcWillowFont = localFont({
 });
 
 const title = 'Tohuwabohu';
-const description = 'We offer safe and colorful rave experiences in Vienna';
+const description = 'Safe*r space thanks to our awareness team';
 
 export const metadata: Metadata = {
   title,
@@ -23,10 +23,9 @@ export const metadata: Metadata = {
     'events',
     'awareness',
     'safe space',
-    'light mapping',
     'visuals',
-    'art',
     'colorful',
+    'decoration',
     'vienna',
     'wien',
   ],
