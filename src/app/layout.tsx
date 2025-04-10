@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     'rave',
     'events',
     'awareness',
-    'safe space',
+    'safer space',
     'visuals',
     'colorful',
     'decoration',
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
         type: 'image/png',
       },
     ],
-    locale: 'en-US',
+    locale: 'de_AT',
     type: 'website',
   },
 };
@@ -61,7 +61,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${itcWillowFont.variable} font-sans`}>
       <body className="relative flex flex-col bg-black text-stone-50 selection:bg-slate-950">
-        <div className="fixed inset-0 select-none blur-md brightness-50">
+        <div className="fixed inset-0 blur-md brightness-50 select-none">
           <Image
             src={BackgroundImage}
             className="pointer-events-none object-cover object-center"
