@@ -62,7 +62,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${itcWillowFont.variable} font-sans`}>
       <body className="relative flex flex-col bg-black text-stone-50 selection:bg-slate-950">
-        <div className="fixed inset-0 blur-md brightness-50 select-none">
+        <div className="fixed inset-0 blur-xs brightness-50 select-none sm:blur-sm">
           <Image
             src={BackgroundImage}
             className="pointer-events-none object-cover object-center"
