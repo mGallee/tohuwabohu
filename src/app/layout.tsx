@@ -1,6 +1,7 @@
 import './globals.css';
 import localFont from 'next/font/local';
 import Image from 'next/image';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import BackgroundImage from '../assets/spiral.webp';
 import { ReactNode } from 'react';
 import { Metadata } from 'next';
@@ -75,6 +76,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           {children}
         </main>
         <Footer />
+        <SpeedInsights />
       </body>
     </html>
   );
