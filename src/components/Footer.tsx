@@ -23,7 +23,7 @@ export default function Footer() {
       {socialMediaItems.map(({ label, href }) => (
         <a
           key={label}
-          className="text-xl outline-0 transition-all hover:animate-glow active:animate-glow md:text-2xl"
+          className="hover:animate-glow active:animate-glow text-xl outline-0 transition-all md:text-2xl"
           href={href}
           target="_blank">
           {label}
