@@ -14,7 +14,7 @@ export default function Home() {
         <Button
           as="a"
           variant="filled"
-          href="https://linktr.ee/tohuwabohu.vienna"
+          href="https://www.facebook.com/tohuwabohu.vienna/events"
           target="_blank">
           Upcoming events
         </Button>
