@@ -15,4 +15,8 @@ export const SOCIAL_MEDIA_ITEMS = [
     label: 'Telegram',
     href: 'https://t.me/TohuwabohuVienna',
   },
+  {
+    label: 'RA',
+    href: 'https://de.ra.co/promoters/138321',
+  },
 ];
