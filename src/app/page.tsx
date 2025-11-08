@@ -5,13 +5,13 @@ export default function Home() {
   return (
     <div className="flex flex-1 flex-col justify-center gap-16 md:gap-32">
       <section className="flex flex-col gap-8 md:gap-16">
-        <h1 className="animate-glow my-2 text-center text-6xl md:text-8xl">
+        <h1 className="animate-glow my-4 text-center text-6xl md:text-8xl">
           Tohuwabohu
         </h1>
         <p className="text-center text-2xl text-balance md:text-4xl">
           Safe*r space thanks to our awareness team
         </p>
-        <div className="flex flex-col items-center gap-4 sm:flex-row md:gap-8">
+        <div className="flex flex-col justify-center gap-4 text-center sm:flex-row md:gap-8">
           <Button as="a" variant="outlined" href="mailto:team@tohuwabohu.wien">
             Booking requests
           </Button>
