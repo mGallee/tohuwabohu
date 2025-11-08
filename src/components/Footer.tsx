@@ -2,7 +2,7 @@ import { SOCIAL_MEDIA_ITEMS } from '@/constants/social-media';
 
 export default function Footer() {
   return (
-    <footer className="relative flex flex-row flex-wrap items-center justify-center gap-3 p-4 text-center md:gap-6 md:p-8">
+    <footer className="flex flex-row flex-wrap items-center justify-center gap-3 p-4 text-center md:gap-6 md:p-8">
       {SOCIAL_MEDIA_ITEMS.map(({ label, href }) => (
         <a
           key={`${label}_${href}`}

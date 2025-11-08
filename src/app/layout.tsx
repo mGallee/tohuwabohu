@@ -62,7 +62,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${itcWillowFont.variable} font-sans`}>
       <body className="relative flex flex-col bg-black text-stone-50 selection:bg-slate-950">
-        <div className="fixed inset-0 blur-xs brightness-50 select-none sm:blur-sm">
+        <div className="fixed inset-0 z-[-99] blur-xs brightness-50 select-none sm:blur-sm">
           <Image
             src={BackgroundImage}
             className="pointer-events-none object-cover object-center"
@@ -72,8 +72,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             draggable={false}
           />
         </div>
-        <main className="relative flex max-w-[1200px] flex-1 flex-col self-center p-4 md:p-8">
-          {children}
+        <main className="flex flex-1 flex-row justify-center">
+          <div className="flex max-w-[800px] flex-1 flex-col p-4 md:p-8">
+            {children}
+          </div>
         </main>
         <Footer />
         <SpeedInsights />

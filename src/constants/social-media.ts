@@ -16,7 +16,7 @@ export const SOCIAL_MEDIA_ITEMS = [
     href: 'https://t.me/TohuwabohuVienna',
   },
   {
-    label: 'RA',
+    label: 'Resident Advisor',
     href: 'https://de.ra.co/promoters/138321',
   },
 ];
