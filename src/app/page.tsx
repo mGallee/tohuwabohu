@@ -3,9 +3,9 @@ import Artist from '@/components/Artist';
 
 export default function Home() {
   return (
-    <div className="flex flex-1 flex-col justify-center gap-16 md:gap-32">
+    <div className="flex flex-1 flex-col justify-center gap-16 py-8 md:gap-32 md:py-16">
       <section className="flex flex-col gap-8 md:gap-16">
-        <h1 className="animate-glow my-4 text-center text-6xl md:text-8xl">
+        <h1 className="animate-glow text-center text-6xl md:text-8xl">
           Tohuwabohu
         </h1>
         <p className="text-center text-2xl text-balance md:text-4xl">
@@ -13,7 +13,7 @@ export default function Home() {
         </p>
         <div className="flex flex-col justify-center gap-4 text-center sm:flex-row md:gap-8">
           <Button as="a" variant="outlined" href="mailto:team@tohuwabohu.wien">
-            Booking requests
+            Booking request
           </Button>
           <Button
             as="a"
@@ -25,7 +25,7 @@ export default function Home() {
         </div>
       </section>
       <section className="flex flex-col gap-8 md:gap-16">
-        <h2 className="my-1 text-center text-4xl md:text-6xl">Artists</h2>
+        <h2 className="text-center text-4xl md:text-6xl">Artists</h2>
         <Artist artist="angiko" />
         <Artist artist="neoom" />
         <Artist artist="stoik" />

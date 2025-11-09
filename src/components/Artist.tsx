@@ -12,7 +12,7 @@ export default function Artist({ artist }: ArtistProps) {
     <div className="flex flex-col gap-2">
       <div className="flex flex-row">
         <a
-          className="hover:animate-glow active:animate-glow flex flex-row items-center gap-2"
+          className="hover:animate-glow active:animate-glow flex flex-row items-center gap-2 outline-0 transition-all"
           href={`https://soundcloud.com/${soundCloud.username}`}
           target="_blank">
           <div>
