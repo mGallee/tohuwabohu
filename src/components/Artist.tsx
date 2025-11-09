@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { ARTIST_MAP, ArtistKey } from '@/constants/artist';
+import Link from '@/components/Link';
 
 interface ArtistProps {
   artist: ArtistKey;
@@ -11,8 +12,8 @@ export default function Artist({ artist }: ArtistProps) {
   return (
     <div className="flex flex-col gap-2">
       <div className="flex flex-row">
-        <a
-          className="hover:animate-glow active:animate-glow flex flex-row items-center gap-2 outline-0 transition-all"
+        <Link
+          className="flex flex-row items-center gap-2"
           href={`https://soundcloud.com/${soundCloud.username}`}
           target="_blank">
           <div>
@@ -27,7 +28,7 @@ export default function Artist({ artist }: ArtistProps) {
           <div>
             <h4 className="mb-1 text-2xl md:mb-2 md:text-4xl">{name}</h4>
           </div>
-        </a>
+        </Link>
       </div>
       <iframe
         className="rounded-xl border-0"

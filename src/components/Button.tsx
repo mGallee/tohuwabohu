@@ -1,5 +1,6 @@
 import { HTMLAttributeAnchorTarget, MouseEventHandler, ReactNode } from 'react';
 import { assertUnreachable } from '@/utils/helper';
+import Link from '@/components/Link';
 
 interface BaseButtonProps {
   children: ReactNode;
@@ -44,13 +45,13 @@ export default function Button(props: ButtonProps) {
     case 'a':
       const anchorProps = props as AnchorElementProps;
       return (
-        <a
+        <Link
           className={combinedClasses}
           href={anchorProps.href}
           target={anchorProps.target}
           onClick={anchorProps.onClick}>
           {anchorProps.children}
-        </a>
+        </Link>
       );
     case 'button':
       const buttonProps = props as ButtonElementProps;
