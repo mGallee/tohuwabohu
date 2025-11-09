@@ -23,6 +23,7 @@ export default function Artist({ artist }: ArtistProps) {
             width="50"
             height="50"
             alt={`Profile picture of ${name}`}
+            draggable={false}
           />
           <span className="mb-1 text-2xl md:mb-2 md:text-4xl">{name}</span>
         </Link>

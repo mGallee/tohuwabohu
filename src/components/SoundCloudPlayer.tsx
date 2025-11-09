@@ -1,6 +1,16 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 
+const SC_PLAYER_URL = new URL('https://w.soundcloud.com/player/');
+SC_PLAYER_URL.searchParams.set('color', encodeURIComponent('#ff5500'));
+SC_PLAYER_URL.searchParams.set('auto_play', 'false');
+SC_PLAYER_URL.searchParams.set('hide_related', 'true');
+SC_PLAYER_URL.searchParams.set('show_comments', 'false');
+SC_PLAYER_URL.searchParams.set('show_user', 'false');
+SC_PLAYER_URL.searchParams.set('show_reposts', 'false');
+SC_PLAYER_URL.searchParams.set('show_teaser', 'true');
+SC_PLAYER_URL.searchParams.set('visual', 'true');
+
 interface SoundCloudPlayerProps {
   url: string;
   title?: string;
@@ -12,6 +22,8 @@ export default function SoundCloudPlayer({
 }: SoundCloudPlayerProps) {
   const [shouldLoad, setShouldLoad] = useState(false);
   const containerRef = useRef(null);
+
+  SC_PLAYER_URL.searchParams.set('url', encodeURIComponent(url));
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -46,7 +58,7 @@ export default function SoundCloudPlayer({
           title={title}
           allow="autoplay; encrypted-media *"
           loading="lazy"
-          src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(url)}&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=true&visual=true`}
+          src={SC_PLAYER_URL.href}
         />
       )}
     </div>
