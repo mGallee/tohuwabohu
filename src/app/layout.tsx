@@ -9,8 +9,16 @@ import { baseUrl } from '@/utils/url';
 import Footer from '@/components/Footer';
 
 const itcWillowFont = localFont({
-  src: '../assets/ITC-Willow.ttf',
+  src: '../assets/ITC-Willow.woff2',
   variable: '--font-itc-willow',
+  display: 'swap',
+  preload: true,
+  fallback: [
+    'Brush Script MT',
+    'Apple Chancery',
+    'Lucida Handwriting',
+    'cursive',
+  ],
 });
 
 const title = 'Tohuwabohu';
