@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 const SC_PLAYER_URL = new URL('https://w.soundcloud.com/player/');
-SC_PLAYER_URL.searchParams.set('color', encodeURIComponent('#ff5500'));
+SC_PLAYER_URL.searchParams.set('color', '#ff5500');
 SC_PLAYER_URL.searchParams.set('auto_play', 'false');
 SC_PLAYER_URL.searchParams.set('hide_related', 'true');
 SC_PLAYER_URL.searchParams.set('show_comments', 'false');
@@ -23,7 +23,7 @@ export default function SoundCloudPlayer({
   const [shouldLoad, setShouldLoad] = useState(false);
   const containerRef = useRef(null);
 
-  SC_PLAYER_URL.searchParams.set('url', encodeURIComponent(url));
+  SC_PLAYER_URL.searchParams.set('url', url);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
