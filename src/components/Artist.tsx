@@ -33,7 +33,7 @@ export default function Artist({ artist }: ArtistProps) {
         className="rounded-xl border-0"
         width="100%"
         height="180"
-        allow="autoplay"
+        allow="autoplay; encrypted-media *"
         src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A${soundCloud.trackId}&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=true&visual=true`}></iframe>
     </div>
   );
