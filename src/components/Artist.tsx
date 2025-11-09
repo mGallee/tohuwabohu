@@ -29,7 +29,7 @@ export default function Artist({ artist }: ArtistProps) {
         </Link>
       </div>
       <SoundCloudPlayer
-        url={`https://api.soundcloud.com/tracks/soundcloud%3Atracks%3A${soundCloud.trackId}`}
+        url={`https://api.soundcloud.com/tracks/soundcloud:tracks:${soundCloud.trackId}`}
         title={`Soundcloud: ${name}`}
       />
     </div>
