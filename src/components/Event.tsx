@@ -13,21 +13,21 @@ export default function Event({ event }: EventProps) {
       className="relative flex flex-col overflow-hidden rounded-xl border-2 border-stone-50 bg-slate-900"
       href={event.url}
       target="_blank">
-      <div className="absolute inset-0 z-0 opacity-50 brightness-50">
+      <div className="pointer-events-none absolute inset-0 z-0 opacity-50 brightness-50">
         <Image
           className="pointer-events-none object-cover object-center"
           src={EventBackground}
-          alt="bg"
+          alt={`Event background for ${event.title}`}
           fill
           placeholder="blur"
           draggable={false}
         />
       </div>
-      <div className="z-10 flex flex-col gap-4 p-4 md:flex-row">
+      <article className="z-10 flex flex-col gap-4 p-4 md:flex-row">
         <div className="flex flex-4 flex-col justify-between gap-2">
           <div className="flex flex-col">
-            <div className="text-2xl md:text-4xl">{event.title}</div>
-            <div className="text-xl">{`${event.startDate.toLocaleString(
+            <h3 className="text-2xl md:text-4xl">{event.title}</h3>
+            <time className="text-xl">{`${event.startDate.toLocaleString(
               'de-AT',
               {
                 year: 'numeric',
@@ -39,8 +39,10 @@ export default function Event({ event }: EventProps) {
             )} - ${event.endDate.toLocaleString('de-AT', {
               hour: 'numeric',
               minute: 'numeric',
-            })}`}</div>
-            <div className="text-xl text-stone-300">{event.location}</div>
+            })}`}</time>
+            <address className="text-xl text-stone-300 not-italic">
+              {event.location}
+            </address>
           </div>
           <div className="flex flex-row gap-2">
             {event.lineup?.map((lineup) => (
@@ -79,7 +81,7 @@ export default function Event({ event }: EventProps) {
             </div>
           </div>
         </div>
-      </div>
+      </article>
     </Link>
   );
 }
