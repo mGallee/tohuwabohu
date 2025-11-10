@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 const SC_PLAYER_URL = new URL('https://w.soundcloud.com/player/');
-SC_PLAYER_URL.searchParams.set('color', '#ff5500');
+SC_PLAYER_URL.searchParams.set('color', '#0f172a');
 SC_PLAYER_URL.searchParams.set('auto_play', 'false');
 SC_PLAYER_URL.searchParams.set('hide_related', 'true');
 SC_PLAYER_URL.searchParams.set('show_comments', 'false');
@@ -54,7 +54,7 @@ export default function SoundCloudPlayer({
         <iframe
           className="rounded-xl border-0"
           width="100%"
-          height="180"
+          height="100%"
           title={title}
           allow="autoplay; encrypted-media *"
           loading="lazy"
