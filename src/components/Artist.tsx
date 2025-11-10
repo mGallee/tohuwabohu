@@ -18,7 +18,7 @@ export default function Artist({
           href={`https://soundcloud.com/${soundCloud.username}`}
           target="_blank">
           <Image
-            className="aspect-square h-[40] w-[40] rounded-full md:h-[50] md:w-[50]"
+            className="aspect-square h-[40] w-[40] rounded-full border-2 border-stone-50 md:h-[50] md:w-[50]"
             src={`/images/artists/${profilePicture}`}
             width="50"
             height="50"
