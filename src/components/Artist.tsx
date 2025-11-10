@@ -1,15 +1,15 @@
 import Image from 'next/image';
-import { ARTIST_MAP, ArtistKey } from '@/constants/artist';
 import Link from '@/components/Link';
 import SoundCloudPlayer from '@/components/SoundCloudPlayer';
+import { ArtistData } from '@/constants/artist';
 
 interface ArtistProps {
-  artist: ArtistKey;
+  artist: ArtistData;
 }
 
-export default function Artist({ artist }: ArtistProps) {
-  const { name, profilePicture, soundCloud } = ARTIST_MAP[artist];
-
+export default function Artist({
+  artist: { name, profilePicture, soundCloud },
+}: ArtistProps) {
   return (
     <div className="flex flex-col gap-2">
       <div className="flex flex-row">

@@ -1,5 +1,8 @@
 import Button from '@/components/Button';
 import Artist from '@/components/Artist';
+import Event from '@/components/Event';
+import { ARTISTS_DATA } from '@/constants/artist';
+import { EVENTS_DATA } from '@/constants/event';
 
 export default function Home() {
   return (
@@ -11,27 +14,29 @@ export default function Home() {
         <p className="text-center text-2xl text-balance md:text-4xl">
           Safe*r space thanks to our awareness team
         </p>
-        <div className="flex flex-col justify-center gap-4 text-center sm:flex-row md:gap-8">
-          <Button as="a" variant="outlined" href="mailto:team@tohuwabohu.wien">
-            Booking request
-          </Button>
-          <Button
-            as="a"
-            variant="filled"
-            href="https://www.facebook.com/tohuwabohu.vienna/events"
-            target="_blank">
-            Upcoming events
-          </Button>
-        </div>
+      </section>
+      <section className="flex flex-col gap-8 md:gap-16">
+        <h2 className="text-center text-4xl md:text-6xl">Upcoming events</h2>
+        {EVENTS_DATA.map((event) => (
+          <Event
+            key={`${event.title}_${event.startDate.toISOString()}`}
+            event={event}
+          />
+        ))}
       </section>
       <section className="flex flex-col gap-8 md:gap-16">
         <h2 className="text-center text-4xl md:text-6xl">Artists</h2>
-        <Artist artist="angiko" />
-        <Artist artist="neoom" />
-        <Artist artist="stoik" />
-        <Artist artist="fullgas" />
-        <Artist artist="bonobros" />
-        <Artist artist="remnant" />
+        {ARTISTS_DATA.map((artist) => (
+          <Artist key={artist.name} artist={artist} />
+        ))}
+      </section>
+      <section className="flex flex-col items-center gap-4 md:gap-8">
+        <p className="text-center text-2xl text-balance md:text-4xl">
+          Interested in collaborating with us?
+        </p>
+        <Button as="a" variant="outlined" href="mailto:team@tohuwabohu.wien">
+          Say hello to the team
+        </Button>
       </section>
     </div>
   );

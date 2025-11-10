@@ -1,12 +1,4 @@
-export type ArtistKey =
-  | 'angiko'
-  | 'neoom'
-  | 'stoik'
-  | 'fullgas'
-  | 'bonobros'
-  | 'remnant';
-
-interface Artist {
+export interface ArtistData {
   name: string;
   profilePicture: string;
   soundCloud: {
@@ -15,8 +7,8 @@ interface Artist {
   };
 }
 
-export const ARTIST_MAP: Record<ArtistKey, Artist> = {
-  angiko: {
+export const ARTISTS_DATA: ArtistData[] = [
+  {
     name: 'Angiko',
     profilePicture: 'angiko.jpg',
     soundCloud: {
@@ -24,7 +16,7 @@ export const ARTIST_MAP: Record<ArtistKey, Artist> = {
       trackId: 2011929343,
     },
   },
-  neoom: {
+  {
     name: 'Neoom',
     profilePicture: 'neoom.jpg',
     soundCloud: {
@@ -32,7 +24,7 @@ export const ARTIST_MAP: Record<ArtistKey, Artist> = {
       trackId: 2012444291,
     },
   },
-  stoik: {
+  {
     name: 'Stoik',
     profilePicture: 'stoik.jpg',
     soundCloud: {
@@ -40,7 +32,7 @@ export const ARTIST_MAP: Record<ArtistKey, Artist> = {
       trackId: 1493767765,
     },
   },
-  fullgas: {
+  {
     name: 'Fullgas',
     profilePicture: 'fullgas.jpg',
     soundCloud: {
@@ -48,7 +40,7 @@ export const ARTIST_MAP: Record<ArtistKey, Artist> = {
       trackId: 2068515188,
     },
   },
-  bonobros: {
+  {
     name: 'Bonobros',
     profilePicture: 'bonobros.jpg',
     soundCloud: {
@@ -56,7 +48,7 @@ export const ARTIST_MAP: Record<ArtistKey, Artist> = {
       trackId: 2046069608,
     },
   },
-  remnant: {
+  {
     name: 'Remnant',
     profilePicture: 'remnant.jpg',
     soundCloud: {
@@ -64,4 +56,4 @@ export const ARTIST_MAP: Record<ArtistKey, Artist> = {
       trackId: 1493243023,
     },
   },
-} as const;
+] as const;

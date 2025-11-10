@@ -26,7 +26,7 @@ type ButtonProps = AnchorElementProps | ButtonElementProps;
 
 export default function Button(props: ButtonProps) {
   const baseClasses =
-    'hover:animate-glow active:animate-glow rounded-xl px-4 py-2 pb-4 text-2xl leading-none transition-all md:text-4xl md:leading-none';
+    'hover:animate-glow active:animate-glow rounded-xl px-4 py-2 pb-4 text-2xl text-center leading-none transition-all md:text-4xl md:leading-none';
 
   const variantClasses = {
     text: 'border-0',
