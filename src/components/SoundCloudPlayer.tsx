@@ -5,10 +5,16 @@ const SC_PLAYER_URL = new URL('https://w.soundcloud.com/player/');
 SC_PLAYER_URL.searchParams.set('color', '#0f172a');
 SC_PLAYER_URL.searchParams.set('auto_play', 'false');
 SC_PLAYER_URL.searchParams.set('hide_related', 'true');
+SC_PLAYER_URL.searchParams.set('show_artwork', 'true');
 SC_PLAYER_URL.searchParams.set('show_comments', 'false');
 SC_PLAYER_URL.searchParams.set('show_user', 'false');
 SC_PLAYER_URL.searchParams.set('show_reposts', 'false');
 SC_PLAYER_URL.searchParams.set('show_teaser', 'true');
+SC_PLAYER_URL.searchParams.set('show_playcount', 'false');
+SC_PLAYER_URL.searchParams.set('download', 'false');
+SC_PLAYER_URL.searchParams.set('sharing', 'false');
+SC_PLAYER_URL.searchParams.set('buying', 'false');
+SC_PLAYER_URL.searchParams.set('single_active', 'true');
 SC_PLAYER_URL.searchParams.set('visual', 'true');
 
 interface SoundCloudPlayerProps {
@@ -46,13 +52,10 @@ export default function SoundCloudPlayer({
   return (
     <div
       ref={containerRef}
-      style={{
-        width: '100%',
-        height: '180px',
-      }}>
+      className="h-[180px] w-full overflow-hidden rounded-xl bg-slate-900 outline-2 outline-offset-[-2px] outline-stone-50">
       {shouldLoad && (
         <iframe
-          className="rounded-xl border-0"
+          className="mt-[-3px] h-[calc(100%+3px)] rounded-xl border-0"
           width="100%"
           height="100%"
           title={title}
