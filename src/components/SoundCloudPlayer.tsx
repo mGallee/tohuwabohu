@@ -52,7 +52,7 @@ export default function SoundCloudPlayer({
   return (
     <div
       ref={containerRef}
-      className="h-[180px] w-full overflow-hidden rounded-xl bg-slate-900 outline-2 outline-offset-[-2px] outline-stone-50">
+      className="h-[180px] w-full overflow-hidden rounded-xl border-2 border-stone-50 bg-slate-900">
       {shouldLoad && (
         <iframe
           className="mt-[-3px] h-[calc(100%+3px)] rounded-xl border-0"
