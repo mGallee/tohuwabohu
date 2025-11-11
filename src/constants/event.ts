@@ -6,7 +6,6 @@ export interface EventData {
   location: string;
   price: number;
   beforeMidnightPrice: number;
-  lineup?: Array<string>;
 }
 
 export const EVENTS_DATA: EventData[] = [

@@ -21,7 +21,7 @@ const itcWillowFont = localFont({
   ],
 });
 
-const title = 'Tohuwabohu';
+const title = 'Tohuwabohu | Kultur- und Musikverein';
 const description = 'Safe*r space thanks to our awareness team';
 
 export const metadata: Metadata = {

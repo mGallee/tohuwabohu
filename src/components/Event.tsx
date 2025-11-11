@@ -44,15 +44,6 @@ export default function Event({ event }: EventProps) {
               {event.location}
             </address>
           </div>
-          <div className="flex flex-row gap-2">
-            {event.lineup?.map((lineup) => (
-              <div
-                key={lineup}
-                className="rounded-xl bg-slate-600 px-2.5 py-1.5 pt-0">
-                {lineup}
-              </div>
-            ))}
-          </div>
         </div>
         <div className="flex flex-1 flex-col justify-between md:items-end">
           <div className="flex flex-col md:items-end">

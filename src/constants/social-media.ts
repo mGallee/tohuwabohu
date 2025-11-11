@@ -19,4 +19,4 @@ export const SOCIAL_MEDIA_ITEMS = [
     label: 'Resident Advisor',
     href: 'https://de.ra.co/promoters/138321',
   },
-];
+] as const;

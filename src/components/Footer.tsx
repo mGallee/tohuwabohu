@@ -16,7 +16,7 @@ export default function Footer() {
         ))}
       </div>
       <div className="text-center text-sm text-stone-300">
-        Tohuwabohu Kultur und Musikverein
+        Tohuwabohu Kultur- und Musikverein
       </div>
     </footer>
   );
