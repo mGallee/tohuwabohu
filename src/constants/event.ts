@@ -10,8 +10,8 @@ export interface EventData {
 
 export const EVENTS_DATA: EventData[] = [
   {
-    title: 'Tohuwabohu - Psychedelic Edition',
-    url: 'https://www.facebook.com/events/1140713441602380',
+    title: 'Tohuwabohu - Technoid Edition',
+    url: 'https://www.facebook.com/events/1211001474178872',
     startDate: new Date('2025/12/12 23:00'),
     endDate: new Date('2025/12/13 06:00'),
     location: 'Club Lucia, Vienna',
