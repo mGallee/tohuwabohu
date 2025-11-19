@@ -41,6 +41,14 @@ export const ARTISTS_DATA: ArtistData[] = [
     },
   },
   {
+    name: 'Mars L',
+    profilePicture: 'mars-l.jpg',
+    soundCloud: {
+      username: 'mars_l_aut',
+      trackId: 2112409140,
+    },
+  },
+  {
     name: 'Bonobros',
     profilePicture: 'bonobros.jpg',
     soundCloud: {
