@@ -32,6 +32,7 @@
   --color-stone-950: #0c0a09;
 
   --animate-glow: glow 2s ease-in-out infinite alternate;
+  --animate-spin-extremely-slow: spin 250s linear infinite;
 
   --font-sans: var(--font-itc-willow);
 
@@ -67,4 +68,16 @@ html,
 body {
   min-height: 100vh;
   min-height: 100svh;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::after,
+  *::before {
+    animation-duration: 1ms !important;
+    animation-delay: -1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    transition-delay: -1ms !important;
+  }
 }
