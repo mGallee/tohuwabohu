@@ -75,8 +75,16 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <div className="pointer-events-none fixed inset-0 z-[-99] opacity-75 blur-sm brightness-50 select-none sm:blur-md md:blur-lg">
           <Image
             src={BackgroundImage}
-            className="pointer-events-none object-cover object-center"
+            className="pointer-events-none aspect-square object-cover object-center"
             alt="Spiral"
+            fill
+            placeholder="blur"
+            draggable={false}
+          />
+          <Image
+            src={BackgroundImage}
+            className="animate-spin-extremely-slow pointer-events-none aspect-square object-cover object-center opacity-50"
+            alt="Spiral spinning overlay"
             fill
             placeholder="blur"
             draggable={false}
