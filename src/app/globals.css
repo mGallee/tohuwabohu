@@ -32,7 +32,7 @@
   --color-stone-950: #0c0a09;
 
   --animate-glow: glow 2s ease-in-out infinite alternate;
-  --animate-spin-extremely-slow: spin 250s linear infinite;
+  --animate-spin-extremely-slow: spin 600s linear infinite;
 
   --font-sans: var(--font-itc-willow);
 
