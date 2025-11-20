@@ -1,12 +1,11 @@
 import './globals.css';
 import localFont from 'next/font/local';
-import Image from 'next/image';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import BackgroundImage from '../assets/spiral.webp';
 import { ReactNode } from 'react';
 import { Metadata } from 'next';
 import { baseUrl } from '@/utils/url';
 import Footer from '@/components/Footer';
+import SpinningBackdrop from '@/components/SpinningBackdrop';
 
 const itcWillowFont = localFont({
   src: '../assets/ITC-Willow.woff2',
@@ -72,24 +71,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${itcWillowFont.variable} font-sans`}>
       <body className="relative flex flex-col bg-black text-stone-50 selection:bg-slate-950">
-        <div className="pointer-events-none fixed inset-0 z-[-99] opacity-75 blur-sm brightness-50 select-none sm:blur-md md:blur-lg">
-          <Image
-            src={BackgroundImage}
-            className="pointer-events-none aspect-square object-cover object-center"
-            alt="Spiral"
-            fill
-            placeholder="blur"
-            draggable={false}
-          />
-          <Image
-            src={BackgroundImage}
-            className="animate-spin-extremely-slow pointer-events-none aspect-square object-cover object-center opacity-50"
-            alt="Spiral spinning overlay"
-            fill
-            placeholder="blur"
-            draggable={false}
-          />
-        </div>
+        <SpinningBackdrop className="fixed inset-0 z-[-99]" />
         <main className="flex flex-1 flex-row justify-center">
           <div className="flex max-w-[800px] flex-1 flex-col p-4 md:p-8">
             {children}
