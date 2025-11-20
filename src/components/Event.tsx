@@ -14,9 +14,9 @@ export default function Event({ event }: EventProps) {
       className="hover:animate-box-glow active:animate-box-glow relative flex flex-col overflow-hidden rounded-xl border-2 border-stone-50 bg-slate-900"
       href={event.url}
       target="_blank">
-      <div className="pointer-events-none absolute inset-0 z-0 opacity-50 brightness-50">
+      <div className="absolute inset-0 z-0 opacity-50 brightness-50">
         <Image
-          className="pointer-events-none object-cover object-center"
+          className="object-cover object-center"
           src={EventBackground}
           alt={`Event background for ${event.title}`}
           fill

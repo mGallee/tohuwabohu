@@ -2,10 +2,16 @@ import Image from 'next/image';
 import BackgroundImage from '@/assets/spiral.webp';
 import { HTMLAttributes } from 'react';
 
+interface SpinningBackdropProps
+  extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
+  preload?: boolean;
+}
+
 export default function SpinningBackdrop({
   className,
+  preload,
   ...rest
-}: Omit<HTMLAttributes<HTMLDivElement>, 'children'>) {
+}: SpinningBackdropProps) {
   return (
     <div
       className={`blur-sm brightness-50 select-none sm:blur-md md:blur-lg ${className}`}
@@ -16,6 +22,7 @@ export default function SpinningBackdrop({
         alt="Spiral spinning 0deg"
         fill
         placeholder="blur"
+        preload={preload}
         draggable={false}
       />
       <Image
@@ -24,6 +31,7 @@ export default function SpinningBackdrop({
         alt="Spiral spinning 45deg"
         fill
         placeholder="blur"
+        preload={preload}
         draggable={false}
       />
       <Image
@@ -32,6 +40,7 @@ export default function SpinningBackdrop({
         alt="Spiral spinning 90deg"
         fill
         placeholder="blur"
+        preload={preload}
         draggable={false}
       />
       <Image
@@ -40,6 +49,7 @@ export default function SpinningBackdrop({
         alt="Spiral spinning 135deg"
         fill
         placeholder="blur"
+        preload={preload}
         draggable={false}
       />
     </div>
