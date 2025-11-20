@@ -31,12 +31,40 @@
   --color-stone-900: #1c1917;
   --color-stone-950: #0c0a09;
 
-  --animate-glow: glow 2s ease-in-out infinite alternate;
+  --animate-box-glow: box-glow 2s ease-in-out infinite alternate;
+  --animate-text-glow: text-glow 2s ease-in-out infinite alternate;
   --animate-spin-extremely-slow: spin 600s linear infinite;
 
   --font-sans: var(--font-itc-willow);
 
-  @keyframes glow {
+  @keyframes box-glow {
+    0% {
+      box-shadow:
+        0 0 5px #fff,
+        0 0 10px #ffe798,
+        0 0 30px #ffe798,
+        0 0 50px #ffe798,
+        0 0 70px #ffe798;
+    }
+    50% {
+      box-shadow:
+        0 0 5px #fff,
+        0 0 20px #9ff4f7,
+        0 0 40px #9ff4f7,
+        0 0 60px #9ff4f7,
+        0 0 80px #9ff4f7;
+    }
+    100% {
+      box-shadow:
+        0 0 5px #fff,
+        0 0 30px #bb98ff,
+        0 0 50px #bb98ff,
+        0 0 70px #bb98ff,
+        0 0 90px #bb98ff;
+    }
+  }
+
+  @keyframes text-glow {
     0% {
       text-shadow:
         0 0 5px #fff,

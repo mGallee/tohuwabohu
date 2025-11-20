@@ -1,8 +1,8 @@
-import Link from '@/components/Link';
 import { EventData } from '@/constants/event';
 import EventBackground from '../assets/event-background.webp';
 import Image from 'next/image';
 import { Clock10, MapPin } from 'lucide-react';
+import Link from 'next/link';
 
 interface EventProps {
   event: EventData;
@@ -11,7 +11,7 @@ interface EventProps {
 export default function Event({ event }: EventProps) {
   return (
     <Link
-      className="relative flex flex-col overflow-hidden rounded-xl border-2 border-stone-50 bg-slate-900"
+      className="hover:animate-box-glow active:animate-box-glow relative flex flex-col overflow-hidden rounded-xl border-2 border-stone-50 bg-slate-900"
       href={event.url}
       target="_blank">
       <div className="pointer-events-none absolute inset-0 z-0 opacity-50 brightness-50">
