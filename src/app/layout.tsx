@@ -71,7 +71,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${itcWillowFont.variable} font-sans`}>
       <body className="relative flex flex-col bg-black text-stone-50 selection:bg-slate-700">
-        <SpinningBackdrop className="fixed inset-0 z-[-99]" preload={true} />
+        <SpinningBackdrop
+          className="fixed inset-0 z-[-99]"
+          preload={true}
+          loading="eager"
+          quality={25}
+        />
         <main className="flex flex-1 flex-row justify-center">
           <div className="flex max-w-[800px] flex-1 flex-col p-4 md:p-8">
             {children}
