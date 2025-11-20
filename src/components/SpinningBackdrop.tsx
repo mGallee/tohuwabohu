@@ -5,11 +5,15 @@ import { HTMLAttributes } from 'react';
 interface SpinningBackdropProps
   extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
   preload?: boolean;
+  loading?: 'eager' | 'lazy';
+  quality?: number | `${number}`;
 }
 
 export default function SpinningBackdrop({
   className,
   preload,
+  loading,
+  quality,
   ...rest
 }: SpinningBackdropProps) {
   return (
@@ -23,6 +27,8 @@ export default function SpinningBackdrop({
         fill
         placeholder="blur"
         preload={preload}
+        loading={loading}
+        quality={quality}
         draggable={false}
       />
       <Image
@@ -32,6 +38,8 @@ export default function SpinningBackdrop({
         fill
         placeholder="blur"
         preload={preload}
+        loading={loading}
+        quality={quality}
         draggable={false}
       />
       <Image
@@ -41,6 +49,8 @@ export default function SpinningBackdrop({
         fill
         placeholder="blur"
         preload={preload}
+        loading={loading}
+        quality={quality}
         draggable={false}
       />
       <Image
@@ -50,6 +60,8 @@ export default function SpinningBackdrop({
         fill
         placeholder="blur"
         preload={preload}
+        loading={loading}
+        quality={quality}
         draggable={false}
       />
     </div>
