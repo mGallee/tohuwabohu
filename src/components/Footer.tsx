@@ -8,7 +8,7 @@ export default function Footer() {
         {SOCIAL_MEDIA_ITEMS.map(({ label, href }) => (
           <Link
             key={`${label}_${href}`}
-            className="hover:animate-glow active:animate-glow text-xl outline-0 transition-all md:text-2xl"
+            className="text-xl md:text-2xl"
             href={href}
             target="_blank">
             {label}

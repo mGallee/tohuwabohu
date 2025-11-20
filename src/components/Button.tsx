@@ -1,6 +1,6 @@
 import { HTMLAttributeAnchorTarget, MouseEventHandler, ReactNode } from 'react';
 import { assertUnreachable } from '@/utils/helper';
-import Link from '@/components/Link';
+import Link from 'next/link';
 
 interface BaseButtonProps {
   children: ReactNode;
@@ -26,7 +26,7 @@ type ButtonProps = AnchorElementProps | ButtonElementProps;
 
 export default function Button(props: ButtonProps) {
   const baseClasses =
-    'hover:animate-glow active:animate-glow rounded-xl px-4 py-2 pb-4 text-2xl text-center leading-none transition-all md:text-4xl md:leading-none';
+    'hover:animate-text-glow active:animate-text-glow rounded-xl px-4 py-2 pb-4 text-2xl text-center leading-none md:text-4xl md:leading-none';
 
   const variantClasses = {
     text: 'border-0',
