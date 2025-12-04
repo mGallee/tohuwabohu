@@ -8,5 +8,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
       changeFrequency: 'weekly',
     },
+    {
+      url: `${baseUrl}/imprint`,
+      priority: 0.5,
+      changeFrequency: 'weekly',
+    },
   ];
 }

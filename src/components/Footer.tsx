@@ -15,8 +15,13 @@ export default function Footer() {
           </Link>
         ))}
       </div>
-      <div className="text-center text-sm text-stone-300">
-        Tohuwabohu Kultur- und Musikverein
+      <div className="flex flex-col items-center gap-2">
+        <Link className="text-center text-lg text-stone-300" href="/imprint">
+          Imprint
+        </Link>
+        <div className="text-center text-sm text-stone-300">
+          Tohuwabohu Kultur- und Musikverein
+        </div>
       </div>
     </footer>
   );
