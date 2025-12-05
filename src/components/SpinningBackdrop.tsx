@@ -2,8 +2,10 @@ import Image from 'next/image';
 import BackgroundImage from '@/assets/spiral.webp';
 import { HTMLAttributes } from 'react';
 
-interface SpinningBackdropProps
-  extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
+interface SpinningBackdropProps extends Omit<
+  HTMLAttributes<HTMLDivElement>,
+  'children'
+> {
   preload?: boolean;
   loading?: 'eager' | 'lazy';
   quality?: number | `${number}`;
