@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
+import { LoaderCircle } from 'lucide-react';
 
 const SC_PLAYER_URL = new URL('https://w.soundcloud.com/player/');
 SC_PLAYER_URL.searchParams.set('color', '#0f172a');
@@ -26,7 +27,7 @@ export default function SoundCloudPlayer({
   url,
   title,
 }: SoundCloudPlayerProps) {
-  const [shouldLoad, setShouldLoad] = useState(false);
+  const [showPlayer, setShowPlayer] = useState(false);
   const containerRef = useRef(null);
 
   SC_PLAYER_URL.searchParams.set('url', url);
@@ -35,7 +36,7 @@ export default function SoundCloudPlayer({
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          setShouldLoad(true);
+          setShowPlayer(true);
           observer.disconnect();
         }
       },
@@ -53,7 +54,7 @@ export default function SoundCloudPlayer({
     <div
       ref={containerRef}
       className="h-[180px] w-full overflow-hidden rounded-xl border-2 border-stone-50 bg-slate-900">
-      {shouldLoad && (
+      {showPlayer ? (
         <iframe
           className="mt-[-3px] h-[calc(100%+3px)] rounded-xl border-0"
           width="100%"
@@ -63,6 +64,11 @@ export default function SoundCloudPlayer({
           loading="lazy"
           src={SC_PLAYER_URL.href}
         />
+      ) : (
+        <div className="flex h-full w-full flex-col items-center justify-center gap-2 rounded-xl p-2">
+          <LoaderCircle className="animate-spin" size={28} />
+          <div className="text-lg md:text-xl">Loading SoundCloud Track</div>
+        </div>
       )}
     </div>
   );
