@@ -1,5 +1,5 @@
 import { EventData } from '@/constants/event';
-import EventBackground from '../assets/event-background.webp';
+import EventBackground from '@/assets/event-background.webp';
 import Image from 'next/image';
 import { Clock10, MapPin } from 'lucide-react';
 import Link from 'next/link';
