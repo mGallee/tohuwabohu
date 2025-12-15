@@ -4,6 +4,8 @@ import Event from '@/components/Event';
 import { ARTISTS_DATA } from '@/constants/artist';
 import { EVENTS_DATA } from '@/constants/event';
 
+export const revalidate = 21600;
+
 export default function Home() {
   const UPCOMING_EVENTS_DATA = EVENTS_DATA.filter(
     (event) => event.endDate.getTime() - new Date().getTime() > 0,
