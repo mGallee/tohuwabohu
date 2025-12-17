@@ -27,7 +27,7 @@ export default function Event({ event }: EventProps) {
       <article className="z-10 flex flex-col gap-4 p-4 md:flex-row">
         <div className="flex flex-4 flex-col justify-between gap-2">
           <div className="flex flex-col md:gap-1">
-            <h3 className="text-2xl md:text-4xl">{event.title}</h3>
+            <div className="text-2xl md:text-4xl">{event.title}</div>
             <div className="flex flex-row items-center gap-1">
               <Clock10 className="mt-1.5" size={20} strokeWidth={2.2} />
               <time className="flex text-xl">

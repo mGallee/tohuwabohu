@@ -37,7 +37,7 @@ export const ARTISTS_DATA: ArtistData[] = [
   },
   {
     slug: 'stoik',
-    name: 'Stoik',
+    name: 'STOIK',
     description:
       'As one of the most versatile producer/Djs around, STOIK can provide authentically minimalistic, magically playful and aggressively rough beats. What all his sets have in common though, is a combination of variety and continuity.\n\n' +
       'STOIKs diverse productions are mainly released on the Dutch label The Funky Cat.\n' +
