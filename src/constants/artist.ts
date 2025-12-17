@@ -15,7 +15,7 @@ export const ARTISTS_DATA: ArtistData[] = [
     name: 'Angiko',
     description:
       'Hailing from Vienna, Angiko originally moved to the city to pursue a classical music education in 2017.\n\n' +
-      "However, it wasn't long before she fell in love with the vibrant electronic music scene. Drawing inspiration from a wide range of musical styles, Angiko has adopted a genre-fluid approach that aims to create an ecstatic atmosphere. Embracing hard trancy and industrial sounds, Angiko also brings a fierce passion for epic, orchestral tracks to her performances.\n" +
+      "However, it wasn't long before she fell in love with the vibrant electronic music scene. Drawing inspiration from a wide range of musical styles, Angiko has adopted a genre-fluid approach that aims to create an ecstatic atmosphere. Embracing hard trancy and industrial sounds, Angiko also brings a fierce passion for epic, orchestral tracks to her performances.\n\n" +
       'Her sound is also infused with polyrhythms and tribal melodies, allowing her to tell wild stories while exploring the avant-garde.',
     profilePicture: 'angiko.jpg',
     soundCloud: {
@@ -28,7 +28,7 @@ export const ARTISTS_DATA: ArtistData[] = [
     name: 'Neoom',
     description:
       'Neoom’s sound moves between Dark Progressive Psytrance, Psytechno, bushprog, and hypnotic technoid soundscapes, united by consistently darker atmospheres. This diverse approach blends psychedelic textures with modern synth work, creating deep, swampy but driving vibes that keep the dance floor moving.\n\n' +
-      'The project crosses genre boundaries fluidly, with no single style taking precedence over others. The result is a distinctive sonic fingerprint where driving beats meet hypnotic patterns and swirling atmospherics - instantly recognizable yet constantly evolving.',
+      'Unbound by genre, the project moves fluidly between styles. The result is a distinctive sonic fingerprint where driving beats meet hypnotic patterns and evolving atmospheres.',
     profilePicture: 'neoom.jpg',
     soundCloud: {
       username: 'neoom_vienna',
@@ -75,7 +75,7 @@ export const ARTISTS_DATA: ArtistData[] = [
     name: 'Bonobros',
     description:
       'In the depth of the jungle, T and P united as the ultimate duo... the Bonobros.\n\n' +
-      'As they mashed up, the beat of the heart and the trance of the soul merged into a wild tune that broke all the rules.\n' +
+      'As they mashed up, the beat of the heart and the trance of the soul merged into a wild tune that broke all the rules.\n\n' +
       'Now they entertain their primate counterparts in clubs and their show is guaranteed to be bananas.... Uhhh! 🙈🙉🙊',
     profilePicture: 'bonobros.jpg',
     soundCloud: {
@@ -88,7 +88,7 @@ export const ARTISTS_DATA: ArtistData[] = [
     name: 'Remnant',
     description:
       'Join the Techno Ritual with DJ Remnant: Hypnotic Beats, Dark Vibes, and Unforgettable Ceremonies!\n\n' +
-      "Expect a unique blend of dark, brooding techno and ethereal soundscapes. Remnant's sets are carefully crafted journeys that take the listener on a ride through a universe of sound.\n" +
+      "Expect a unique blend of dark, brooding techno and ethereal soundscapes. Remnant's sets are carefully crafted journeys that take the listener on a ride through a universe of sound.\n\n" +
       "His deep, pulsing beats are designed to connect with the audience on a primal level, while his use of intricate melodies and haunting vocal samples creates an otherworldly atmosphere that's hard to resist.",
     profilePicture: 'remnant.jpg',
     soundCloud: {
