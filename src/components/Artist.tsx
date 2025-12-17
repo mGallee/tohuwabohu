@@ -14,7 +14,7 @@ export default function Artist({
     <article className="flex flex-col gap-2">
       <div className="flex flex-row">
         <Link
-          className="group flex flex-row items-center gap-2"
+          className="group font-healine flex flex-row items-center gap-2"
           href={`/artist/${slug}`}>
           <Image
             className="group-hover:animate-box-glow group-active:animate-box-glow aspect-square h-[40] w-[40] rounded-full border-2 border-stone-50 md:h-[50] md:w-[50]"
@@ -24,7 +24,7 @@ export default function Artist({
             alt={`Profile picture of ${name}`}
             draggable={false}
           />
-          <div className="mb-1 text-2xl md:mb-2 md:text-4xl">{name}</div>
+          <div className="mb-1.5 text-2xl md:mb-2.5 md:text-4xl">{name}</div>
         </Link>
       </div>
       <SoundCloudPlayer

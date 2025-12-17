@@ -8,7 +8,7 @@ export const SOCIAL_MEDIA_ITEMS = [
     href: 'https://www.facebook.com/tohuwabohu.vienna',
   },
   {
-    label: 'Soundcloud',
+    label: 'SoundCloud',
     href: 'https://soundcloud.com/tohuwabohu-vienna',
   },
   {

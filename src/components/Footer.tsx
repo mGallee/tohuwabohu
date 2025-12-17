@@ -3,7 +3,7 @@ import Link from '@/components/Link';
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col items-center gap-3 p-4 md:gap-6 md:p-8">
+    <footer className="flex flex-col items-center gap-4 p-4 md:gap-8 md:p-8">
       <div className="flex flex-row flex-wrap items-center justify-center gap-3 text-center md:gap-6">
         {SOCIAL_MEDIA_ITEMS.map(({ label, href }) => (
           <Link
@@ -15,11 +15,11 @@ export default function Footer() {
           </Link>
         ))}
       </div>
-      <div className="flex flex-col items-center gap-2">
+      <div className="flex flex-col items-center gap-1">
         <Link className="text-center text-lg text-stone-300" href="/imprint">
           Imprint
         </Link>
-        <div className="text-center text-sm text-stone-300">
+        <div className="text-center text-xs text-stone-300">
           Tohuwabohu Kultur- und Musikverein
         </div>
       </div>
