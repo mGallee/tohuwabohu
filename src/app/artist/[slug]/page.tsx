@@ -68,7 +68,7 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
           </Button>
         </div>
         <Button as="a" href="/" variant="outlined">
-          Go to homepage
+          Go to Homepage
         </Button>
       </section>
     </div>

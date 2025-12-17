@@ -1,5 +1,6 @@
 import './globals.css';
 import localFont from 'next/font/local';
+import { Roboto } from 'next/font/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { ReactNode } from 'react';
 import { Metadata } from 'next';
@@ -18,6 +19,13 @@ const itcWillowFont = localFont({
     'Lucida Handwriting',
     'cursive',
   ],
+});
+
+const robotoFont = Roboto({
+  variable: '--font-roboto',
+  display: 'swap',
+  preload: true,
+  subsets: ['latin'],
 });
 
 const title = 'Tohuwabohu | Kultur- und Musikverein';
@@ -69,7 +77,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${itcWillowFont.variable} font-sans`}>
+    <html
+      lang="en"
+      className={`${itcWillowFont.variable} ${robotoFont.variable}`}>
       <body className="relative flex flex-col bg-black text-stone-50 selection:bg-slate-700">
         <SpinningBackdrop
           className="fixed inset-0 z-[-99]"
