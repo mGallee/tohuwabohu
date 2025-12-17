@@ -1,5 +1,7 @@
 export interface ArtistData {
+  slug: string;
   name: string;
+  description: string;
   profilePicture: string;
   soundCloud: {
     username: string;
@@ -9,7 +11,12 @@ export interface ArtistData {
 
 export const ARTISTS_DATA: ArtistData[] = [
   {
+    slug: 'angiko',
     name: 'Angiko',
+    description:
+      'Hailing from Vienna, Angiko originally moved to the city to pursue a classical music education in 2017.\n\n' +
+      "However, it wasn't long before she fell in love with the vibrant electronic music scene. Drawing inspiration from a wide range of musical styles, Angiko has adopted a genre-fluid approach that aims to create an ecstatic atmosphere. Embracing hard trancy and industrial sounds, Angiko also brings a fierce passion for epic, orchestral tracks to her performances.\n" +
+      'Her sound is also infused with polyrhythms and tribal melodies, allowing her to tell wild stories while exploring the avant-garde.',
     profilePicture: 'angiko.jpg',
     soundCloud: {
       username: 'angi-ko',
@@ -17,7 +24,11 @@ export const ARTISTS_DATA: ArtistData[] = [
     },
   },
   {
+    slug: 'neoom',
     name: 'Neoom',
+    description:
+      'Neoom’s sound moves between Dark Progressive Psytrance, Psytechno, bushprog, and hypnotic technoid soundscapes, united by consistently darker atmospheres. This diverse approach blends psychedelic textures with modern synth work, creating deep, swampy but driving vibes that keep the dance floor moving.\n\n' +
+      'The project crosses genre boundaries fluidly, with no single style taking precedence over others. The result is a distinctive sonic fingerprint where driving beats meet hypnotic patterns and swirling atmospherics - instantly recognizable yet constantly evolving.',
     profilePicture: 'neoom.jpg',
     soundCloud: {
       username: 'neoom_vienna',
@@ -25,7 +36,12 @@ export const ARTISTS_DATA: ArtistData[] = [
     },
   },
   {
+    slug: 'stoik',
     name: 'Stoik',
+    description:
+      'As one of the most versatile producer/Djs around, STOIK can provide authentically minimalistic, magically playful and aggressively rough beats. What all his sets have in common though, is a combination of variety and continuity.\n\n' +
+      'STOIKs diverse productions are mainly released on the Dutch label The Funky Cat.\n' +
+      'As a DJ he has played many national and international gigs, looking back at no less than 10 years on stage.',
     profilePicture: 'stoik.jpg',
     soundCloud: {
       username: 'iamstoik',
@@ -33,7 +49,9 @@ export const ARTISTS_DATA: ArtistData[] = [
     },
   },
   {
+    slug: 'fullgass',
     name: 'Fullgas',
+    description: '',
     profilePicture: 'fullgas.jpg',
     soundCloud: {
       username: 'fullgas_psy',
@@ -41,7 +59,11 @@ export const ARTISTS_DATA: ArtistData[] = [
     },
   },
   {
+    slug: 'mars-l',
     name: 'Mars L',
+    description:
+      '"It all started with the big bang."\n\n' +
+      'With a focus on dark minimal textures and driving psytechno, Mars L crafts a steady, immersive atmosphere wherever he plays.',
     profilePicture: 'mars-l.jpg',
     soundCloud: {
       username: 'mars_l_aut',
@@ -49,7 +71,12 @@ export const ARTISTS_DATA: ArtistData[] = [
     },
   },
   {
+    slug: 'bonobros',
     name: 'Bonobros',
+    description:
+      'In the depth of the jungle, T and P united as the ultimate duo... the Bonobros.\n\n' +
+      'As they mashed up, the beat of the heart and the trance of the soul merged into a wild tune that broke all the rules.\n' +
+      'Now they entertain their primate counterparts in clubs and their show is guaranteed to be bananas.... Uhhh! 🙈🙉🙊',
     profilePicture: 'bonobros.jpg',
     soundCloud: {
       username: 'bonobros-aut',
@@ -57,7 +84,12 @@ export const ARTISTS_DATA: ArtistData[] = [
     },
   },
   {
+    slug: 'remnant',
     name: 'Remnant',
+    description:
+      'Join the Techno Ritual with DJ Remnant: Hypnotic Beats, Dark Vibes, and Unforgettable Ceremonies!\n\n' +
+      "Expect a unique blend of dark, brooding techno and ethereal soundscapes. Remnant's sets are carefully crafted journeys that take the listener on a ride through a universe of sound.\n" +
+      "His deep, pulsing beats are designed to connect with the audience on a primal level, while his use of intricate melodies and haunting vocal samples creates an otherworldly atmosphere that's hard to resist.",
     profilePicture: 'remnant.jpg',
     soundCloud: {
       username: 'djremnant',

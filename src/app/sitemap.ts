@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { baseUrl } from '@/utils/url';
+import { ARTISTS_DATA } from '@/constants/artist';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -13,5 +14,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
       changeFrequency: 'weekly',
     },
+    ...ARTISTS_DATA.map((artist) => ({
+      url: `${baseUrl}/artist/${artist.slug}`,
+      priority: 0.5,
+      changeFrequency: 'weekly' as const,
+    })),
   ];
 }
