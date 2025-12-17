@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Imprint - Tohuwabohu | Kultur- und Musikverein',
 };
 
-export default function Imprint() {
+export default function ImprintPage() {
   return (
     <div className="flex flex-1 flex-col justify-center gap-16 py-8 md:gap-32 md:py-16">
       <section className="flex flex-col gap-8 md:gap-16">
