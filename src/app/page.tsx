@@ -6,7 +6,7 @@ import { EVENTS_DATA } from '@/constants/event';
 
 export const revalidate = 21600;
 
-export default function Home() {
+export default function HomePage() {
   const UPCOMING_EVENTS_DATA = EVENTS_DATA.filter(
     (event) => event.endDate.getTime() - new Date().getTime() > 0,
   ).sort((a, b) => a.startDate.getTime() - b.startDate.getTime());
