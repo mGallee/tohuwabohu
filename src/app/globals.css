@@ -35,7 +35,8 @@
   --animate-text-glow: text-glow 2s ease-in-out infinite alternate;
   --animate-spin-extremely-slow: spin 600s linear infinite;
 
-  --font-sans: var(--font-itc-willow);
+  --font-healine: var(--font-itc-willow);
+  --font-sans: var(--font-roboto);
 
   @keyframes box-glow {
     0% {
@@ -92,24 +93,36 @@
   }
 }
 
-html,
-body {
-  min-height: 100vh;
-  min-height: 100svh;
-}
+@layer base {
+  html,
+  body {
+    min-height: 100vh;
+    min-height: 100svh;
+    font-family: var(--font-sans), sans-serif;
+  }
 
-img[draggable='false'] {
-  user-select: none;
-}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-healine), sans-serif;
+  }
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::after,
-  *::before {
-    animation-duration: 1ms !important;
-    animation-delay: -1ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 1ms !important;
-    transition-delay: -1ms !important;
+  img[draggable='false'] {
+    user-select: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::after,
+    *::before {
+      animation-duration: 1ms !important;
+      animation-delay: -1ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 1ms !important;
+      transition-delay: -1ms !important;
+    }
   }
 }
