@@ -24,7 +24,7 @@ export default function Artist({
             alt={`Profile picture of ${name}`}
             draggable={false}
           />
-          <h3 className="mb-1 text-2xl md:mb-2 md:text-4xl">{name}</h3>
+          <div className="mb-1 text-2xl md:mb-2 md:text-4xl">{name}</div>
         </Link>
       </div>
       <SoundCloudPlayer
