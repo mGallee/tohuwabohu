@@ -3,6 +3,7 @@ import Artist from '@/components/Artist';
 import Event from '@/components/Event';
 import { ARTISTS_DATA } from '@/constants/artist';
 import { EVENTS_DATA } from '@/constants/event';
+import Link from '@/components/Link';
 
 export const revalidate = 21600;
 
@@ -12,13 +13,17 @@ export default function HomePage() {
   ).sort((a, b) => a.startDate.getTime() - b.startDate.getTime());
 
   return (
-    <div className="flex flex-1 flex-col justify-center gap-16 py-8 md:gap-32 md:py-16">
+    <div className="flex flex-col justify-center gap-16 md:gap-32">
       <section className="flex flex-col gap-8 md:gap-16">
         <h1 className="animate-text-glow text-center text-6xl md:text-8xl">
           Tohuwabohu
         </h1>
         <p className="text-center text-2xl text-balance md:text-4xl">
-          Safe*r space thanks to our awareness team
+          Safe*r space thanks to our{' '}
+          <Link className="underline" href="/awareness">
+            awareness
+          </Link>{' '}
+          team
         </p>
       </section>
       {UPCOMING_EVENTS_DATA.length > 0 ? (
