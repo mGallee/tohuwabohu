@@ -3,7 +3,7 @@ import localFont from 'next/font/local';
 import { Roboto } from 'next/font/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { ReactNode } from 'react';
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 import { baseUrl } from '@/utils/url';
 import Footer from '@/components/Footer';
 import SpinningBackdrop from '@/components/SpinningBackdrop';
@@ -32,7 +32,10 @@ const title = 'Tohuwabohu | Kultur- und Musikverein';
 const description = 'Safe*r space thanks to our awareness team';
 
 export const metadata: Metadata = {
-  title,
+  title: {
+    template: `%s - ${title}`,
+    default: title,
+  },
   description,
   keywords: [
     'vienna',
@@ -59,7 +62,10 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL(baseUrl),
   openGraph: {
-    title,
+    title: {
+      template: `%s - ${title}`,
+      default: title,
+    },
     description,
     siteName: title,
     images: [
@@ -72,6 +78,11 @@ export const metadata: Metadata = {
     ],
     type: 'website',
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: 'black',
+  colorScheme: 'dark',
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

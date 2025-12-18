@@ -9,7 +9,7 @@ export async function generateMetadata(
   const parentMetadata = await parent;
   const parentOpenGraph = parentMetadata.openGraph || {};
 
-  const title = 'Imprint - Tohuwabohu | Kultur- und Musikverein';
+  const title = 'Imprint';
 
   return {
     title,

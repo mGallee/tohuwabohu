@@ -25,7 +25,7 @@ export async function generateMetadata(
   const parentMetadata = await parent;
   const parentOpenGraph = parentMetadata.openGraph || {};
 
-  const title = `${artist.name} - Tohuwabohu | Kultur- und Musikverein`;
+  const title = `${artist.name}`;
   const description = artist.description;
 
   return {
