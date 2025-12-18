@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
     },
     ...ARTISTS_DATA.map((artist) => ({
-      url: `${baseUrl}/artist/${artist.slug}`,
+      url: `${baseUrl}/artists/${artist.slug}`,
       priority: 0.5,
       changeFrequency: 'weekly' as const,
     })),
