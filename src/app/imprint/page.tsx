@@ -1,10 +1,24 @@
 import Link from 'next/link';
 import Button from '@/components/Button';
-import { Metadata } from 'next';
+import { Metadata, ResolvingMetadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Imprint - Tohuwabohu | Kultur- und Musikverein',
-};
+export async function generateMetadata(
+  _props: unknown,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const parentMetadata = await parent;
+  const parentOpenGraph = parentMetadata.openGraph || {};
+
+  const title = 'Imprint - Tohuwabohu | Kultur- und Musikverein';
+
+  return {
+    title,
+    openGraph: {
+      ...parentOpenGraph,
+      title,
+    },
+  };
+}
 
 export default function ImprintPage() {
   return (

@@ -3,15 +3,16 @@ import Image from 'next/image';
 import { ARTISTS_DATA } from '@/constants/artist';
 import { notFound } from 'next/navigation';
 import Button from '@/components/Button';
-import { Metadata } from 'next';
+import { Metadata, ResolvingMetadata } from 'next';
 
 interface ArtistPageProps {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateMetadata({
-  params,
-}: ArtistPageProps): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: ArtistPageProps,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
   const { slug } = await params;
   const artist = ARTISTS_DATA.find(
     (value) => value.slug.toLowerCase() === slug.toLowerCase(),
@@ -21,9 +22,20 @@ export async function generateMetadata({
     notFound();
   }
 
+  const parentMetadata = await parent;
+  const parentOpenGraph = parentMetadata.openGraph || {};
+
+  const title = `${artist.name} - Tohuwabohu | Kultur- und Musikverein`;
+  const description = artist.description;
+
   return {
-    title: `${artist.name} - Tohuwabohu | Kultur- und Musikverein`,
-    description: artist.description,
+    title,
+    description,
+    openGraph: {
+      ...parentOpenGraph,
+      title,
+      description,
+    },
   };
 }
 
