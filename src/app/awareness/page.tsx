@@ -8,7 +8,7 @@ export async function generateMetadata(
   const parentMetadata = await parent;
   const parentOpenGraph = parentMetadata.openGraph || {};
 
-  const title = 'Awareness - Tohuwabohu | Kultur- und Musikverein';
+  const title = 'Awareness';
 
   return {
     title,

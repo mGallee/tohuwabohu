@@ -1,5 +1,6 @@
 import { SOCIAL_MEDIA_ITEMS } from '@/constants/social-media';
 import Link from '@/components/Link';
+import { Copyright } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -15,12 +16,15 @@ export default function Footer() {
           </Link>
         ))}
       </div>
-      <div className="flex flex-col items-center gap-1">
-        <Link className="text-center text-lg text-stone-300" href="/imprint">
+      <div className="flex flex-col items-center gap-1 text-stone-300">
+        <Link className="text-center text-lg" href="/imprint">
           Imprint
         </Link>
-        <div className="text-center text-xs text-stone-300">
-          Tohuwabohu Kultur- und Musikverein
+        <div className="flex flex-row items-center justify-center gap-1">
+          <Copyright size={12} />
+          <div className="text-center text-xs">
+            Tohuwabohu Kultur- und Musikverein
+          </div>
         </div>
       </div>
     </footer>
