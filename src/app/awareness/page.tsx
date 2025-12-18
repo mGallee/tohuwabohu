@@ -1,4 +1,23 @@
 import Button from '@/components/Button';
+import { Metadata, ResolvingMetadata } from 'next';
+
+export async function generateMetadata(
+  _props: unknown,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const parentMetadata = await parent;
+  const parentOpenGraph = parentMetadata.openGraph || {};
+
+  const title = 'Awareness - Tohuwabohu | Kultur- und Musikverein';
+
+  return {
+    title,
+    openGraph: {
+      ...parentOpenGraph,
+      title,
+    },
+  };
+}
 
 export default function AwarenessPage() {
   return (
