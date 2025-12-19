@@ -1,4 +1,3 @@
-import Button from '@/components/Button';
 import { Metadata, ResolvingMetadata } from 'next';
 
 export async function generateMetadata(
@@ -21,7 +20,7 @@ export async function generateMetadata(
 
 export default function AwarenessPage() {
   return (
-    <section className="flex flex-col items-center gap-16 md:gap-32">
+    <section className="flex flex-col items-center gap-12 md:gap-24">
       <h1 className="text-center text-6xl md:text-8xl">Awareness</h1>
       <div className="flex flex-col items-center gap-4 md:gap-8">
         <h2 className="text-center text-4xl md:text-6xl">
@@ -67,9 +66,6 @@ export default function AwarenessPage() {
           lights.
         </p>
       </div>
-      <Button as="a" href="/" variant="outlined">
-        Go to Homepage
-      </Button>
     </section>
   );
 }

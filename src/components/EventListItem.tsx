@@ -3,17 +3,23 @@ import EventBackground from '@/assets/event-background.webp';
 import Image from 'next/image';
 import { Clock10, MapPin } from 'lucide-react';
 import Link from 'next/link';
+import { HTMLAttributes } from 'react';
 
-interface EventProps {
+interface EventListItemProps extends HTMLAttributes<HTMLAnchorElement> {
   event: EventData;
 }
 
-export default function Event({ event }: EventProps) {
+export default function EventListItem({
+  event,
+  className,
+  ...rest
+}: EventListItemProps) {
   return (
     <Link
-      className="hover:animate-box-glow active:animate-box-glow relative flex flex-col overflow-hidden rounded-xl border-2 border-stone-50 bg-slate-900"
+      className={`hover:animate-box-glow active:animate-box-glow relative flex flex-col overflow-hidden rounded-xl border-2 border-stone-50 bg-black/50 ${className}`}
       href={event.url}
-      target="_blank">
+      target="_blank"
+      {...rest}>
       <div className="absolute inset-0 z-0 opacity-50 brightness-50">
         <Image
           className="object-cover object-center"

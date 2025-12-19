@@ -2,28 +2,31 @@ import Image from 'next/image';
 import Link from '@/components/Link';
 import SoundCloudPlayer from '@/components/SoundCloudPlayer';
 import { ArtistData } from '@/constants/artist';
+import { HTMLAttributes } from 'react';
 
-interface ArtistProps {
+interface ArtistListItemProps extends HTMLAttributes<HTMLElement> {
   artist: ArtistData;
 }
 
-export default function Artist({
+export default function ArtistListItem({
   artist: { slug, name, profilePicture, soundCloud },
-}: ArtistProps) {
+  className,
+  ...rest
+}: ArtistListItemProps) {
   return (
-    <article className="flex flex-col gap-4">
+    <article className={`flex flex-col gap-4 ${className}`} {...rest}>
       <Link
         className="group flex flex-row items-center gap-4 self-start"
         href={`/artists/${slug}`}>
         <Image
-          className="group-hover:animate-box-glow group-active:animate-box-glow aspect-square h-[50] w-[50] rounded-full border-2 border-stone-50 md:h-[60] md:w-[60]"
+          className="group-hover:animate-box-glow group-active:animate-box-glow aspect-square h-[60] w-[60] rounded-full border-2 border-stone-50 md:h-[70] md:w-[70]"
           src={`/images/artists/${profilePicture}`}
-          width="60"
-          height="60"
+          width="70"
+          height="70"
           alt={`Profile picture of ${name}`}
           draggable={false}
         />
-        <div className="font-healine mb-2 text-3xl md:mb-3 md:text-4xl">
+        <div className="font-healine mb-3 text-4xl md:mb-4 md:text-5xl">
           {name}
         </div>
       </Link>

@@ -57,7 +57,7 @@ export default function SpinningBackdrop({
       />
       <Image
         src={BackgroundImage}
-        className="animate-spin-extremely-slow aspect-square rotate-[135deg] object-cover object-center opacity-50"
+        className="animate-spin-extremely-slow aspect-square rotate-135 object-cover object-center opacity-50"
         alt="Spiral spinning 135deg"
         fill
         placeholder="blur"

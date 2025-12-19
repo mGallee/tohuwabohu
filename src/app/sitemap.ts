@@ -10,6 +10,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
     },
     {
+      url: `${baseUrl}/events`,
+      priority: 0.5,
+      changeFrequency: 'weekly',
+    },
+    {
+      url: `${baseUrl}/artists`,
+      priority: 0.5,
+      changeFrequency: 'weekly',
+    },
+    ...ARTISTS_DATA.map((artist) => ({
+      url: `${baseUrl}/artists/${artist.slug}`,
+      priority: 0.5,
+      changeFrequency: 'weekly' as const,
+    })),
+    {
       url: `${baseUrl}/awareness`,
       priority: 0.5,
       changeFrequency: 'weekly',
@@ -19,10 +34,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
       changeFrequency: 'weekly',
     },
-    ...ARTISTS_DATA.map((artist) => ({
-      url: `${baseUrl}/artists/${artist.slug}`,
-      priority: 0.5,
-      changeFrequency: 'weekly' as const,
-    })),
   ];
 }

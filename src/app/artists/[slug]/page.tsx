@@ -52,7 +52,7 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
   return (
     <section className="flex flex-col items-center gap-8 md:gap-16">
       <Image
-        className="aspect-square h-[200] w-[200] rounded-full border-2 border-stone-50 md:h-[300] md:w-[300]"
+        className="aspect-square h-[220] w-[220] rounded-full border-2 border-stone-50 md:h-[300] md:w-[300]"
         src={`/images/artists/${artist.profilePicture}`}
         alt={`Profile picture of ${artist.name}`}
         width={300}
@@ -78,9 +78,6 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
           Visit SoundCloud
         </Button>
       </div>
-      <Button as="a" href="/" variant="outlined">
-        Go to Homepage
-      </Button>
     </section>
   );
 }
