@@ -4,19 +4,23 @@ import { Copyright } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col items-center gap-4 p-4 md:gap-8 md:p-8">
-      <div className="flex flex-row flex-wrap items-center justify-center gap-3 text-center md:gap-6">
-        {SOCIAL_MEDIA_ITEMS.map(({ label, href }) => (
-          <Link
-            key={`${label}_${href}`}
-            className="text-xl md:text-2xl"
-            href={href}
-            target="_blank">
-            {label}
-          </Link>
-        ))}
+    <footer className="flex flex-col items-center gap-4 border-t-2 border-stone-50 bg-black/50 p-4 md:gap-8 md:p-8">
+      <div className="flex flex-col items-center gap-2">
+        <div className="text-lg">Follow us on</div>
+        <div className="flex flex-row flex-wrap items-center justify-center gap-4 gap-y-1 text-center">
+          {SOCIAL_MEDIA_ITEMS.map(({ label, href }) => (
+            <Link
+              key={`${label}_${href}`}
+              className="text-lg"
+              href={href}
+              target="_blank">
+              {label}
+            </Link>
+          ))}
+        </div>
       </div>
-      <div className="flex flex-col items-center gap-1 text-stone-300">
+
+      <div className="flex flex-col items-center gap-2 text-stone-300">
         <Link className="text-center text-lg" href="/imprint">
           Imprint
         </Link>

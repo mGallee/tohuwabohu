@@ -1,55 +1,57 @@
 import Button from '@/components/Button';
-import Artist from '@/components/Artist';
-import Event from '@/components/Event';
-import { ARTISTS_DATA } from '@/constants/artist';
-import { EVENTS_DATA } from '@/constants/event';
 import Link from '@/components/Link';
 
-export const revalidate = 21600;
-
 export default function HomePage() {
-  const UPCOMING_EVENTS_DATA = EVENTS_DATA.filter(
-    (event) => event.endDate.getTime() - new Date().getTime() > 0,
-  ).sort((a, b) => a.startDate.getTime() - b.startDate.getTime());
-
   return (
-    <div className="flex flex-col justify-center gap-16 md:gap-32">
-      <section className="flex flex-col gap-8 md:gap-16">
-        <h1 className="animate-text-glow text-center text-6xl md:text-8xl">
+    <div className="flex flex-col justify-center gap-12 md:gap-24">
+      <section className="flex min-h-[67dvh] flex-col items-center justify-center gap-8 md:min-h-[64dvh] md:gap-16">
+        <h1 className="animate-text-glow text-center text-6xl sm:text-8xl md:text-9xl">
           Tohuwabohu
         </h1>
         <p className="text-center text-2xl text-balance md:text-4xl">
-          Safe*r space thanks to our{' '}
-          <Link className="underline" href="/awareness">
-            awareness
-          </Link>{' '}
-          team
+          Safe*r space thanks to our <Link href="/awareness">awareness</Link>{' '}
+          team!
         </p>
+        <div className="flex flex-row justify-center gap-4 md:gap-8">
+          <Button as="a" variant="filled" href="/events">
+            Events
+          </Button>
+          <Button as="a" variant="outlined" href="/artists">
+            Artists
+          </Button>
+        </div>
       </section>
-      {UPCOMING_EVENTS_DATA.length > 0 ? (
-        <section className="flex flex-col gap-8 md:gap-16">
-          <h2 className="text-center text-4xl md:text-6xl">{`Upcoming event${UPCOMING_EVENTS_DATA.length > 1 ? 's' : ''}`}</h2>
-          {UPCOMING_EVENTS_DATA.map((event) => (
-            <Event
-              key={`${event.title}_${event.startDate.toISOString()}`}
-              event={event}
-            />
-          ))}
-        </section>
-      ) : null}
-      <section className="flex flex-col gap-8 md:gap-16">
-        <h2 className="text-center text-4xl md:text-6xl">Artists</h2>
-        {ARTISTS_DATA.map((artist) => (
-          <Artist key={artist.name} artist={artist} />
-        ))}
-      </section>
-      <section className="flex flex-col items-center gap-4 md:gap-8">
-        <p className="text-center text-2xl text-balance md:text-4xl">
-          Interested in collaborating with us?
+      <section className="flex flex-col items-center gap-8 md:gap-16">
+        <h2 className="text-center text-4xl md:text-6xl">
+          Beautiful chaos, shared together
+        </h2>
+        <p className="text-center text-2xl md:text-4xl">
+          Tohuwabohu is a collective in Vienna that loves music, art, and
+          bringing people together. We throw events that focus on good sound,
+          nice visuals, and an open, respectful atmosphere where everyone should
+          feel welcome.
         </p>
-        <Button as="a" variant="outlined" href="mailto:team@tohuwabohu.wien">
-          Say hello to the team
-        </Button>
+        <p className="text-center text-2xl md:text-4xl">
+          For us it&#39;s not just about partying - it&#39;s about creating a
+          space where people can connect, feel safe, and just be themselves for
+          a night. We work with artists we love, put a lot of care into the
+          details, and try to keep things fun, inclusive, and a little bit
+          chaotic in the best way. If you&#39;re into music, community, and
+          nights that feel a bit different - you&#39;ll probably feel at home
+          with us.
+        </p>
+        <div className="flex flex-col items-center gap-4 md:gap-8">
+          <p className="text-center text-2xl text-balance md:text-4xl">
+            Interested in collaborating with us?
+          </p>
+          <Button
+            as="a"
+            variant="outlined"
+            href="https://ig.me/m/tohuwabohu.vienna"
+            target="_blank">
+            Message us on Instagram
+          </Button>
+        </div>
       </section>
     </div>
   );
