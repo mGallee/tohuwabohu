@@ -102,7 +102,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
         <Navigation />
         <main className="flex flex-1 flex-row justify-center">
-          <div className="flex max-w-[800px] flex-1 flex-col px-4 py-16 md:px-8 md:py-32">
+          <div className="flex max-w-200 flex-1 flex-col px-4 py-16 md:px-8 md:py-32">
             {children}
           </div>
         </main>

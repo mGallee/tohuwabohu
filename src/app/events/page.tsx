@@ -31,6 +31,10 @@ export default function EventsPage() {
     (event) => event.endDate.getTime() - new Date().getTime() > 0,
   ).sort((a, b) => a.startDate.getTime() - b.startDate.getTime());
 
+  const PAST_EVENTS_DATA = EVENTS_DATA.filter(
+    (event) => event.endDate.getTime() - new Date().getTime() <= 0,
+  ).sort((a, b) => b.startDate.getTime() - a.startDate.getTime());
+
   return (
     <section className="flex flex-col gap-12 md:gap-24">
       <div className="flex flex-col items-center gap-8 md:gap-16">
@@ -41,10 +45,11 @@ export default function EventsPage() {
           Sound, light, and atmosphere turn moments into something collective.
         </p>
       </div>
+      <h2 className="text-center text-4xl md:text-6xl">Upcoming Events</h2>
       {UPCOMING_EVENTS_DATA.length > 0 ? (
         UPCOMING_EVENTS_DATA.map((event) => (
           <EventListItem
-            key={`${event.title}_${event.startDate.toISOString()}_${event.endDate.toISOString()}`}
+            key={`UPCOMING_EVENT_${event.title}_${event.startDate.toISOString()}_${event.endDate.toISOString()}`}
             event={event}
           />
         ))
@@ -59,6 +64,18 @@ export default function EventsPage() {
           </p>
         </div>
       )}
+      {PAST_EVENTS_DATA.length > 0 ? (
+        <>
+          <h2 className="text-center text-4xl md:text-6xl">Past Events</h2>
+          {PAST_EVENTS_DATA.map((event) => (
+            <EventListItem
+              className="brightness-75"
+              key={`PAST_EVENT_${event.title}_${event.startDate.toISOString()}_${event.endDate.toISOString()}`}
+              event={event}
+            />
+          ))}
+        </>
+      ) : null}
     </section>
   );
 }
