@@ -55,9 +55,9 @@ export default function EventsPage() {
         ))
       ) : (
         <div className="flex flex-col items-center justify-center gap-4 rounded-xl border-2 border-stone-50 bg-black/50 p-8 md:gap-8 md:p-16">
-          <h2 className="text-center text-2xl md:text-4xl">
+          <h3 className="text-center text-2xl md:text-4xl">
             We don&#39;t have any upcoming events announced just yet!
-          </h2>
+          </h3>
           <p className="text-center text-xl text-stone-300 md:text-2xl">
             We&#39;re planning what&#39;s next. Stay tuned for upcoming events
             and announcements.
