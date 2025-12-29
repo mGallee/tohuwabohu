@@ -1,4 +1,4 @@
-export interface ArtistData {
+export interface Artist {
   slug: string;
   name: string;
   description: string;
@@ -9,7 +9,7 @@ export interface ArtistData {
   };
 }
 
-export const ARTISTS_DATA: ArtistData[] = [
+export const ARTISTS_DATA: Artist[] = [
   {
     slug: 'angiko',
     name: 'Angiko',

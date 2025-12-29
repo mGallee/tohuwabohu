@@ -91,9 +91,9 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
-      lang="en"
+      lang="en-AT"
       className={`${itcWillowFont.variable} ${robotoFont.variable}`}>
-      <body className="relative flex flex-col bg-black text-stone-50 selection:bg-black/80">
+      <body className="relative flex flex-col border-stone-50 bg-black text-stone-50 selection:bg-black/80">
         <SpinningBackdrop
           className="fixed inset-0 z-[-99]"
           preload={true}

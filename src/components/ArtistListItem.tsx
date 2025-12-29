@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import Link from '@/components/Link';
 import SoundCloudPlayer from '@/components/SoundCloudPlayer';
-import { ArtistData } from '@/constants/artist';
+import { Artist } from '@/constants/artist';
 import { HTMLAttributes } from 'react';
 
 interface ArtistListItemProps extends HTMLAttributes<HTMLElement> {
-  artist: ArtistData;
+  artist: Artist;
 }
 
 export default function ArtistListItem({
@@ -21,8 +21,8 @@ export default function ArtistListItem({
         <Image
           className="group-hover:animate-box-glow group-active:animate-box-glow aspect-square h-[60] w-[60] rounded-full border-2 border-stone-50 md:h-[70] md:w-[70]"
           src={`/images/artists/${profilePicture}`}
-          width="70"
-          height="70"
+          width={70}
+          height={70}
           alt={`Profile picture of ${name}`}
           draggable={false}
         />
