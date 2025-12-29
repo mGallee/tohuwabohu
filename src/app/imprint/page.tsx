@@ -23,7 +23,7 @@ export default function ImprintPage() {
   return (
     <section className="flex flex-col gap-12 md:gap-24">
       <h1 className="text-center text-6xl md:text-8xl">Imprint</h1>
-      <div className="flex flex-col gap-8 rounded-xl border-2 border-stone-50 bg-black/50 p-4 text-lg md:text-xl">
+      <div className="flex flex-col gap-8 rounded-xl border-2 bg-black/50 p-4 text-lg md:text-xl">
         <address className="flex flex-col not-italic">
           <div className="font-medium">TOHUWABOHU Kultur- und Musikverein</div>
           <div>Marktgasse 6/1/22-23</div>

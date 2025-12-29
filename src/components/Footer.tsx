@@ -4,7 +4,7 @@ import { Copyright } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col items-center gap-4 border-t-2 border-stone-50 bg-black/50 p-4 md:gap-8 md:p-8">
+    <footer className="flex flex-col items-center gap-4 border-t-2 bg-black/50 p-4 md:gap-8 md:p-8">
       <div className="flex flex-col items-center gap-2">
         <div className="text-lg">Follow us on</div>
         <div className="flex flex-row flex-wrap items-center justify-center gap-4 gap-y-1 text-center">
