@@ -30,7 +30,7 @@ export function PublishedEventListItem({
           draggable={false}
         />
       </div>
-      <article className="z-10 flex flex-col gap-4 p-4 md:flex-row">
+      <article className="z-1 flex flex-col gap-4 p-4 md:flex-row">
         <div className="flex flex-4 flex-col gap-2 md:gap-4">
           <div className="font-healine text-2xl md:text-4xl">{event.title}</div>
           <div className="flex flex-col gap-1">

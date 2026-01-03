@@ -53,10 +53,8 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
     <section className="flex flex-col items-center gap-8 md:gap-16">
       <Image
         className="aspect-square h-[220] w-[220] rounded-full border-2 border-stone-50 md:h-[300] md:w-[300]"
-        src={`/images/artists/${artist.profilePicture}`}
+        src={artist.profilePicture}
         alt={`Profile picture of ${artist.name}`}
-        width={300}
-        height={300}
         draggable={false}
         preload
         loading="eager"
