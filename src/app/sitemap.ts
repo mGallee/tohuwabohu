@@ -30,6 +30,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
     },
     {
+      url: `${baseUrl}/decoration`,
+      priority: 0.5,
+      changeFrequency: 'weekly',
+    },
+    {
       url: `${baseUrl}/imprint`,
       priority: 0.3,
       changeFrequency: 'monthly',

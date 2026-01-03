@@ -27,7 +27,7 @@ export function AnnouncedEventListItem({
           draggable={false}
         />
       </div>
-      <article className="z-10 flex flex-col gap-2 p-4 md:gap-4">
+      <article className="z-1 flex flex-col gap-2 p-4 md:gap-4">
         <div className="flex flex-col gap-1">
           <div className="animate-text-glow self-start rounded-full bg-stone-900 px-2 py-0.5 text-sm">
             Safe the date
