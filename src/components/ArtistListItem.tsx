@@ -20,9 +20,7 @@ export default function ArtistListItem({
         href={`/artists/${slug}`}>
         <Image
           className="group-hover:animate-box-glow group-active:animate-box-glow aspect-square h-[60] w-[60] rounded-full border-2 border-stone-50 md:h-[70] md:w-[70]"
-          src={`/images/artists/${profilePicture}`}
-          width={70}
-          height={70}
+          src={profilePicture}
           alt={`Profile picture of ${name}`}
           draggable={false}
         />
