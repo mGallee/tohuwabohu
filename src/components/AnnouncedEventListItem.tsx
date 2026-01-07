@@ -36,7 +36,7 @@ export function AnnouncedEventListItem({
         </div>
         <div className="flex flex-col gap-1">
           <div className="flex flex-row items-center gap-1">
-            <Clock10 size={20} strokeWidth={2.2} />
+            <Clock10 size={24} />
             <time className="flex text-xl">
               {`${event.startDate.toLocaleString('de-AT', {
                 year: 'numeric',
@@ -51,7 +51,7 @@ export function AnnouncedEventListItem({
             </time>
           </div>
           <div className="flex flex-row items-center gap-1">
-            <MapPin size={20} strokeWidth={2.2} />
+            <MapPin size={24} />
             <address className="flex text-xl not-italic">
               {event.location}
             </address>

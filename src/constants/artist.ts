@@ -1,3 +1,4 @@
+import { StaticImageData } from 'next/image';
 import Angiko from '@/assets/artists/angiko.webp';
 import Neoom from '@/assets/artists/neoom.webp';
 import Stoik from '@/assets/artists/stoik.webp';
@@ -10,7 +11,7 @@ export interface Artist {
   slug: string;
   name: string;
   description: string;
-  profilePicture: typeof Angiko;
+  profilePicture: StaticImageData;
   soundCloud: {
     username: string;
     trackId: number;
