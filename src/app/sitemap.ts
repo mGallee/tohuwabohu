@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next';
 import { baseUrl } from '@/utils/url';
 import { ARTISTS_DATA } from '@/constants/artist';
+import { EVENTS_DATA } from '@/constants/event';
+import { getEventSlug } from '@/utils/helper';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -14,19 +16,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
       changeFrequency: 'weekly',
     },
+    ...EVENTS_DATA.filter((event) => event.type === 'published').map(
+      (event) => ({
+        url: `${baseUrl}/events/${getEventSlug(event)}`,
+        priority: 0.8,
+        changeFrequency: 'weekly' as const,
+      }),
+    ),
     {
       url: `${baseUrl}/artists`,
-      priority: 0.8,
+      priority: 0.7,
       changeFrequency: 'weekly',
     },
     ...ARTISTS_DATA.map((artist) => ({
       url: `${baseUrl}/artists/${artist.slug}`,
-      priority: 0.6,
+      priority: 0.7,
       changeFrequency: 'weekly' as const,
     })),
     {
       url: `${baseUrl}/awareness`,
-      priority: 0.5,
+      priority: 0.6,
       changeFrequency: 'monthly',
     },
     {

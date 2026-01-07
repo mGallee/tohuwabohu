@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import EventBackground from '@/assets/event-background.webp';
 import { Clock10, MapPin } from 'lucide-react';
+import { getEventSlug } from '@/utils/helper';
 
 interface PublishedEventListItemProps extends HTMLAttributes<HTMLAnchorElement> {
   event: PublishedEvent;
@@ -17,8 +18,7 @@ export function PublishedEventListItem({
   return (
     <Link
       className={`hover:animate-box-glow active:animate-box-glow relative flex flex-col overflow-hidden rounded-xl border-2 bg-black ${className}`}
-      href={event.url}
-      target="_blank"
+      href={`/events/${getEventSlug(event)}`}
       {...rest}>
       <div className="absolute inset-0 z-0 opacity-50 brightness-50">
         <Image
@@ -35,7 +35,7 @@ export function PublishedEventListItem({
           <div className="font-healine text-2xl md:text-4xl">{event.title}</div>
           <div className="flex flex-col gap-1">
             <div className="flex flex-row items-center gap-1">
-              <Clock10 size={20} strokeWidth={2.2} />
+              <Clock10 size={24} />
               <time className="flex text-xl">
                 {`${event.startDate.toLocaleString('de-AT', {
                   year: 'numeric',
@@ -50,7 +50,7 @@ export function PublishedEventListItem({
               </time>
             </div>
             <div className="flex flex-row items-center gap-1">
-              <MapPin size={20} strokeWidth={2.2} />
+              <MapPin size={24} />
               <address className="flex text-xl not-italic">
                 {event.location}
               </address>
