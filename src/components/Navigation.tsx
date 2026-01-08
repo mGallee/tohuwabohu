@@ -35,7 +35,7 @@ export default function Navigation() {
 
   return (
     <>
-      <nav className="fixed top-0 right-0 left-0 z-99 flex h-16 w-full flex-row items-center justify-between border-b-2 bg-black/50 backdrop-blur-md md:gap-4 md:px-4">
+      <nav className="fixed top-0 right-0 left-0 z-99 flex h-16 w-full flex-row items-center justify-between border-b-2 bg-black/75 backdrop-blur-md md:gap-4 md:px-4">
         <button
           onClick={toggleMenu}
           className="h-14 w-14 p-4 md:hidden"

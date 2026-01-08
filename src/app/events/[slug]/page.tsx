@@ -31,6 +31,15 @@ export async function generateMetadata(
   return {
     title,
     description,
+    keywords: [
+      ...(parentMetadata.keywords || []),
+      'Tohuwabohu events Wien',
+      `${event.title} at ${event.location} on ${event.startDate.toDateString()}`.replace(
+        ',',
+        '',
+      ),
+      ...(event.lineup?.map((slot) => slot.artist) || []),
+    ],
     openGraph: {
       ...parentOpenGraph,
       title,

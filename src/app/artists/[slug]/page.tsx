@@ -31,6 +31,11 @@ export async function generateMetadata(
   return {
     title,
     description,
+    keywords: [
+      ...(parentMetadata.keywords || []),
+      `Tohuwabohu artist ${artist.name}`,
+      `Tohuwabohu DJ ${artist.name}`,
+    ],
     openGraph: {
       ...parentOpenGraph,
       title,
