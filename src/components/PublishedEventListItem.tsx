@@ -52,7 +52,7 @@ export function PublishedEventListItem({
             <div className="flex flex-row items-center gap-1">
               <MapPin size={24} />
               <address className="flex text-xl not-italic">
-                {event.location}
+                {`${event.location.name}, ${event.location.address.city}`}
               </address>
             </div>
           </div>

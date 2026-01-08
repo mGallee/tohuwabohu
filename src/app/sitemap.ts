@@ -21,6 +21,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: `${baseUrl}/events/${getEventSlug(event)}`,
         priority: 0.8,
         changeFrequency: 'weekly' as const,
+        images: [
+          `${baseUrl}${event.flyer.front.src}`,
+          ...(event.flyer.back ? [`${baseUrl}${event.flyer.back.src}`] : []),
+        ],
       }),
     ),
     {
@@ -32,6 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/artists/${artist.slug}`,
       priority: 0.7,
       changeFrequency: 'weekly' as const,
+      images: [`${baseUrl}${artist.profilePicture.src}`],
     })),
     {
       url: `${baseUrl}/awareness`,

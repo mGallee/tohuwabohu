@@ -2,9 +2,14 @@ import { Clock10, MapPin, Ticket, TicketPercent } from 'lucide-react';
 import Image from 'next/image';
 import { EVENTS_DATA } from '@/constants/event';
 import { notFound } from 'next/navigation';
-import { formatLineupSlot, getEventSlug } from '@/utils/helper';
+import {
+  formatLineupSlot,
+  getEventSlug,
+  getGoogleMapsUrlForEventLocation,
+} from '@/utils/helper';
 import { Metadata, ResolvingMetadata } from 'next';
 import { generateEventJsonLd } from '@/utils/jsonLd';
+import Link from '@/components/Link';
 
 interface EventPageProps {
   params: Promise<{ slug: string }>;
@@ -87,7 +92,11 @@ export default async function EventPage({ params }: EventPageProps) {
           </div>
           <div className="flex flex-row items-center gap-1">
             <MapPin size={24} />
-            <address className="flex not-italic">{event.location}</address>
+            <Link
+              href={getGoogleMapsUrlForEventLocation(event.location)}
+              target="_blank">
+              <address className="flex not-italic">{`${event.location.name} | ${event.location.address.street}, ${event.location.address.city}`}</address>
+            </Link>
           </div>
           <div className="flex flex-row items-center gap-1">
             <Ticket size={24} />
