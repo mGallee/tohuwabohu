@@ -34,6 +34,12 @@ export async function generateMetadata(
   return {
     title,
     description,
+    keywords: [
+      ...(parentMetadata.keywords || []),
+      'Colorful decoration',
+      'Visuals',
+      'Lightmapping',
+    ],
     openGraph: {
       ...parentOpenGraph,
       title,

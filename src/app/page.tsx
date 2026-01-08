@@ -1,5 +1,23 @@
 import Button from '@/components/Button';
 import Link from '@/components/Link';
+import { Metadata, ResolvingMetadata } from 'next';
+
+export async function generateMetadata(
+  _props: unknown,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const parentMetadata = await parent;
+
+  return {
+    keywords: [
+      ...(parentMetadata.keywords || []),
+      'Tohuwabohu Wien music collective',
+      'Vienna artist collective',
+      'community music events Vienna',
+      'collaborate with music collective Vienna',
+    ],
+  };
+}
 
 export default function HomePage() {
   return (

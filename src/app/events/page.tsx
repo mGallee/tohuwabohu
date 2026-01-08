@@ -18,6 +18,14 @@ export async function generateMetadata(
   return {
     title,
     description,
+    keywords: [
+      ...(parentMetadata.keywords || []),
+      'Tohuwabohu events Wien',
+      'upcoming music events Vienna',
+      'upcoming events Wien',
+      'Technoid edition',
+      'Psychedelic edition',
+    ],
     openGraph: {
       ...parentOpenGraph,
       title,

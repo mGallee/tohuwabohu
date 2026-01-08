@@ -8,12 +8,24 @@ export async function generateMetadata(
   const parentOpenGraph = parentMetadata.openGraph || {};
 
   const title = 'Awareness';
+  const description =
+    'Tohuwabohu aims to create a space where all people are respected and treated equally, regardless of their origin, religion, gender, or other characteristics.';
 
   return {
     title,
+    description,
+    keywords: [
+      ...(parentMetadata.keywords || []),
+      'Awareness team',
+      'Safer space',
+      'Discrimination-free zone',
+      'Only YES means YES',
+      'Respectful coexistence',
+    ],
     openGraph: {
       ...parentOpenGraph,
       title,
+      description,
     },
   };
 }
