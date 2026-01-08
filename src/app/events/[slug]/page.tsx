@@ -4,6 +4,7 @@ import { EVENTS_DATA } from '@/constants/event';
 import { notFound } from 'next/navigation';
 import { formatLineupSlot, getEventSlug } from '@/utils/helper';
 import { Metadata, ResolvingMetadata } from 'next';
+import { generateEventJsonLd } from '@/utils/jsonLd';
 
 interface EventPageProps {
   params: Promise<{ slug: string }>;
@@ -60,6 +61,12 @@ export default async function EventPage({ params }: EventPageProps) {
 
   return (
     <section className="flex flex-col gap-8 md:gap-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateEventJsonLd(event)),
+        }}
+      />
       <h1 className="text-center text-6xl md:text-8xl">{event.title}</h1>
       <div className="flex flex-col gap-6 rounded-xl border-2 bg-black/50 p-2 text-xl md:p-4">
         <div className="flex flex-col gap-1">
