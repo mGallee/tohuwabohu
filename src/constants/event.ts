@@ -8,6 +8,15 @@ import Flyer20250906Back from '@/assets/flyers/2025-09-06-back.webp';
 import Flyer20251212Front from '@/assets/flyers/2025-12-12-front.webp';
 import Flyer20251212Back from '@/assets/flyers/2025-12-12-back.webp';
 
+export interface EventLocation {
+  name: string;
+  address: {
+    street: string;
+    city: string;
+    country: string;
+  };
+}
+
 export interface LineupSlot {
   startTime: string;
   artist: string;
@@ -18,7 +27,7 @@ export interface AnnouncedEvent {
   title: string;
   startDate: Date;
   endDate: Date;
-  location: string;
+  location: EventLocation;
 }
 
 export interface PublishedEvent {
@@ -26,7 +35,7 @@ export interface PublishedEvent {
   title: string;
   startDate: Date;
   endDate: Date;
-  location: string;
+  location: EventLocation;
   price: number;
   beforeMidnightPrice: number;
   description: string;
@@ -34,9 +43,6 @@ export interface PublishedEvent {
   flyer: {
     front: StaticImageData;
     back?: StaticImageData;
-  };
-  socialMedia: {
-    facebook: string;
   };
 }
 
@@ -48,7 +54,14 @@ export const EVENTS_DATA: Event[] = [
     title: 'Tohuwabohu - Psychedelic Edition',
     startDate: new Date('2025/02/22 22:00'),
     endDate: new Date('2025/02/23 06:00'),
-    location: 'Flucc Deck, Vienna',
+    location: {
+      name: 'Flucc Deck',
+      address: {
+        street: 'Praterstern 5',
+        city: 'Vienna',
+        country: 'Austria',
+      },
+    },
     price: 12,
     beforeMidnightPrice: 10,
     description:
@@ -82,16 +95,20 @@ export const EVENTS_DATA: Event[] = [
       front: Flyer20250222Front,
       back: Flyer20250222Back,
     },
-    socialMedia: {
-      facebook: 'https://www.facebook.com/events/594969296486680',
-    },
   },
   {
     type: 'published',
     title: 'Tohuwabohu - Technoid Edition',
     startDate: new Date('2025/04/19 22:30'),
     endDate: new Date('2025/04/20 06:00'),
-    location: 'Flucc Deck, Vienna',
+    location: {
+      name: 'Flucc Deck',
+      address: {
+        street: 'Praterstern 5',
+        city: 'Vienna',
+        country: 'Austria',
+      },
+    },
     price: 12,
     beforeMidnightPrice: 10,
     description:
@@ -126,16 +143,20 @@ export const EVENTS_DATA: Event[] = [
       front: Flyer20250419Front,
       back: Flyer20250419Back,
     },
-    socialMedia: {
-      facebook: 'https://www.facebook.com/events/1142069520991474',
-    },
   },
   {
     type: 'published',
     title: 'Tohuwabohu - Technoid Edition',
     startDate: new Date('2025/09/06 23:00'),
     endDate: new Date('2025/09/07 06:00'),
-    location: 'Flucc Deck, Vienna',
+    location: {
+      name: 'Flucc Deck',
+      address: {
+        street: 'Praterstern 5',
+        city: 'Vienna',
+        country: 'Austria',
+      },
+    },
     price: 12,
     beforeMidnightPrice: 10,
     description:
@@ -166,16 +187,20 @@ export const EVENTS_DATA: Event[] = [
       front: Flyer20250906Front,
       back: Flyer20250906Back,
     },
-    socialMedia: {
-      facebook: 'https://www.facebook.com/events/1341430647982443',
-    },
   },
   {
     type: 'published',
     title: 'Tohuwabohu - Technoid Edition',
     startDate: new Date('2025/12/12 23:00'),
     endDate: new Date('2025/12/13 06:00'),
-    location: 'Club Lucia, Vienna',
+    location: {
+      name: 'Club Lucia',
+      address: {
+        street: 'U-Bahnbögen 24/25',
+        city: 'Vienna',
+        country: 'Austria',
+      },
+    },
     price: 12,
     beforeMidnightPrice: 10,
     description:
@@ -209,15 +234,19 @@ export const EVENTS_DATA: Event[] = [
       front: Flyer20251212Front,
       back: Flyer20251212Back,
     },
-    socialMedia: {
-      facebook: 'https://www.facebook.com/events/1211001474178872',
-    },
   },
   {
     type: 'announced',
     title: 'Tohuwabohu - Psychedelic Edition',
     startDate: new Date('2026/02/06 23:00'),
     endDate: new Date('2026/02/07 06:00'),
-    location: 'Flucc Wanne, Vienna',
+    location: {
+      name: 'Flucc Wanne',
+      address: {
+        street: 'Praterstern 5',
+        city: 'Vienna',
+        country: 'Austria',
+      },
+    },
   },
 ] as const;

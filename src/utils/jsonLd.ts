@@ -20,11 +20,12 @@ export function generateEventJsonLd(
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     location: {
       '@type': 'MusicVenue',
-      name: event.location.split(',')[0].trim(),
+      name: event.location.name,
       address: {
         '@type': 'PostalAddress',
-        addressLocality: event.location.split(',')[1]?.trim() || 'Vienna',
-        addressCountry: 'AT',
+        streetAddress: event.location.address.street,
+        addressLocality: event.location.address.city,
+        addressCountry: event.location.address.country,
       },
     },
     organizer: {
