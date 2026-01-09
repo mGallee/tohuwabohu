@@ -14,6 +14,8 @@ export function generateEventJsonLd(
     '@type': 'MusicEvent',
     name: event.title,
     description: event.description,
+    url: eventUrl,
+    inLanguage: 'en-AT',
     startDate: event.startDate.toISOString(),
     endDate: event.endDate.toISOString(),
     eventStatus: 'https://schema.org/EventScheduled',
@@ -37,6 +39,7 @@ export function generateEventJsonLd(
     offers: [
       {
         '@type': 'Offer',
+        url: eventUrl,
         price: event.price.toString(),
         priceCurrency: 'EUR',
         name: 'Regular Entry',
@@ -46,6 +49,7 @@ export function generateEventJsonLd(
       },
       {
         '@type': 'Offer',
+        url: eventUrl,
         price: event.beforeMidnightPrice.toString(),
         priceCurrency: 'EUR',
         name: 'Entry before midnight',
@@ -72,7 +76,5 @@ export function generateEventJsonLd(
       `${baseUrl}${event.flyer.front.src}`,
       ...(event.flyer.back ? [`${baseUrl}${event.flyer.back.src}`] : []),
     ],
-    url: eventUrl,
-    inLanguage: 'en-AT',
   };
 }
