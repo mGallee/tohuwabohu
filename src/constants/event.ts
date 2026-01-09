@@ -7,6 +7,7 @@ import Flyer20250906Front from '@/assets/flyers/2025-09-06-front.webp';
 import Flyer20250906Back from '@/assets/flyers/2025-09-06-back.webp';
 import Flyer20251212Front from '@/assets/flyers/2025-12-12-front.webp';
 import Flyer20251212Back from '@/assets/flyers/2025-12-12-back.webp';
+import Flyer20260206Front from '@/assets/flyers/2026-02-06-front.webp';
 
 export interface EventLocation {
   name: string;
@@ -236,7 +237,7 @@ export const EVENTS_DATA: Event[] = [
     },
   },
   {
-    type: 'announced',
+    type: 'published',
     title: 'Tohuwabohu - Psychedelic Edition',
     startDate: new Date('2026/02/06 23:00'),
     endDate: new Date('2026/02/07 06:00'),
@@ -247,6 +248,16 @@ export const EVENTS_DATA: Event[] = [
         city: 'Vienna',
         country: 'Austria',
       },
+    },
+    price: 18,
+    beforeMidnightPrice: 15,
+    description:
+      'Join us for a wild night @Flucc Wanne with Tohuwabohu and immerse yourself in a diverse mix of sounds within the psychedelic spectrum.\n' +
+      '⭐ Come as you are / come as you wish\n' +
+      '⭐ Decoration & Visuals\n' +
+      '⭐ Awareness-Team',
+    flyer: {
+      front: Flyer20260206Front,
     },
   },
 ] as const;
