@@ -66,12 +66,16 @@ export function generateEventJsonLd(
         ).toISOString(),
       },
     ],
-    ...(event.lineup && {
-      performer: event.lineup.map((slot) => ({
-        '@type': 'Person',
-        name: slot.artist,
-      })),
-    }),
+    performer:
+      event.lineup && event.lineup.length > 0
+        ? event.lineup.map((slot) => ({
+            '@type': 'Person',
+            name: slot.artist,
+          }))
+        : {
+            '@type': 'Person',
+            name: 'To be announced',
+          },
     image: [
       `${baseUrl}${event.flyer.front.src}`,
       ...(event.flyer.back ? [`${baseUrl}${event.flyer.back.src}`] : []),
