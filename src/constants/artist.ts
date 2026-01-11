@@ -15,6 +15,12 @@ export interface Artist {
     username: string;
     trackId: number;
   };
+  instagram?: {
+    username: string;
+  };
+  residentAdvisor?: {
+    username: string;
+  };
 }
 
 export const ARTISTS_DATA: Artist[] = [
@@ -29,6 +35,12 @@ export const ARTISTS_DATA: Artist[] = [
       username: 'angi-ko',
       trackId: 2011929343,
     },
+    instagram: {
+      username: 'angi.ko_',
+    },
+    residentAdvisor: {
+      username: 'angiko-2',
+    },
   },
   {
     name: 'Neoom',
@@ -39,6 +51,12 @@ export const ARTISTS_DATA: Artist[] = [
     soundCloud: {
       username: 'neoom_vienna',
       trackId: 2012444291,
+    },
+    instagram: {
+      username: 'neoom',
+    },
+    residentAdvisor: {
+      username: 'neoom',
     },
   },
   {
@@ -51,6 +69,9 @@ export const ARTISTS_DATA: Artist[] = [
     soundCloud: {
       username: 'iamstoik',
       trackId: 1493767765,
+    },
+    instagram: {
+      username: 'iamstoik',
     },
   },
   {
@@ -85,6 +106,9 @@ export const ARTISTS_DATA: Artist[] = [
       username: 'bonobros-aut',
       trackId: 2046069608,
     },
+    instagram: {
+      username: 'bonobros_vienna',
+    },
   },
   {
     name: 'Remnant',
@@ -96,6 +120,9 @@ export const ARTISTS_DATA: Artist[] = [
     soundCloud: {
       username: 'djremnant',
       trackId: 1493243023,
+    },
+    instagram: {
+      username: 'dj.remnant',
     },
   },
 ] as const;

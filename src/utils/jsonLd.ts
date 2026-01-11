@@ -97,6 +97,14 @@ export function generateArtistJsonLd(artist: Artist): WithContext<Person> {
     url: artistUrl,
     jobTitle: 'Music Artist',
     image: `${baseUrl}${artist.profilePicture.src}`,
-    sameAs: `https://soundcloud.com/${artist.soundCloud.username}`,
+    sameAs: [
+      `https://soundcloud.com/${artist.soundCloud.username}`,
+      ...(artist.instagram
+        ? [`https://www.instagram.com/${artist.instagram.username}`]
+        : []),
+      ...(artist.residentAdvisor
+        ? [`https://ra.co/dj/${artist.residentAdvisor.username}`]
+        : []),
+    ],
   };
 }
