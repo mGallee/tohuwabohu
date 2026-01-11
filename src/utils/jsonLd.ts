@@ -1,8 +1,9 @@
-import { WithContext, MusicEvent } from 'schema-dts';
+import { WithContext, MusicEvent, Person } from 'schema-dts';
 import { PublishedEvent } from '@/constants/event';
 import { SOCIAL_MEDIA_ITEMS } from '@/constants/social-media';
 import { getEventSlug } from '@/utils/helper';
 import { baseUrl } from '@/utils/url';
+import { Artist } from '@/constants/artist';
 
 export function generateEventJsonLd(
   event: PublishedEvent,
@@ -12,6 +13,7 @@ export function generateEventJsonLd(
   return {
     '@context': 'https://schema.org',
     '@type': 'MusicEvent',
+    '@id': eventUrl,
     name: event.title,
     description: event.description,
     url: eventUrl,
@@ -80,5 +82,21 @@ export function generateEventJsonLd(
       `${baseUrl}${event.flyer.front.src}`,
       ...(event.flyer.back ? [`${baseUrl}${event.flyer.back.src}`] : []),
     ],
+  };
+}
+
+export function generateArtistJsonLd(artist: Artist): WithContext<Person> {
+  const artistUrl = `${baseUrl}/artists/${artist.slug}`;
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': artistUrl,
+    name: artist.name,
+    description: artist.description,
+    url: artistUrl,
+    jobTitle: 'Music Artist',
+    image: `${baseUrl}${artist.profilePicture.src}`,
+    sameAs: `https://soundcloud.com/${artist.soundCloud.username}`,
   };
 }
