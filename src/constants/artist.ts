@@ -8,7 +8,6 @@ import Bonobros from '@/assets/artists/bonobros.webp';
 import Remnant from '@/assets/artists/remnant.webp';
 
 export interface Artist {
-  slug: string;
   name: string;
   description: string;
   profilePicture: StaticImageData;
@@ -20,7 +19,6 @@ export interface Artist {
 
 export const ARTISTS_DATA: Artist[] = [
   {
-    slug: 'angiko',
     name: 'Angiko',
     description:
       'Hailing from Vienna, Angiko originally moved to the city to pursue a classical music education in 2017.\n\n' +
@@ -33,7 +31,6 @@ export const ARTISTS_DATA: Artist[] = [
     },
   },
   {
-    slug: 'neoom',
     name: 'Neoom',
     description:
       'Neoom’s sound moves between Dark Progressive Psytrance, Psytechno, bushprog, and hypnotic technoid soundscapes, united by consistently darker atmospheres. This diverse approach blends psychedelic textures with modern synth work, creating deep, swampy but driving vibes that keep the dance floor moving.\n\n' +
@@ -45,7 +42,6 @@ export const ARTISTS_DATA: Artist[] = [
     },
   },
   {
-    slug: 'stoik',
     name: 'STOIK',
     description:
       'As one of the most versatile producer/Djs around, STOIK can provide authentically minimalistic, magically playful and aggressively rough beats. What all his sets have in common though, is a combination of variety and continuity.\n\n' +
@@ -58,7 +54,6 @@ export const ARTISTS_DATA: Artist[] = [
     },
   },
   {
-    slug: 'fullgass',
     name: 'Fullgas',
     description:
       'Attendance mandatory for all Fullon lovers — see you there! ✌️',
@@ -69,7 +64,6 @@ export const ARTISTS_DATA: Artist[] = [
     },
   },
   {
-    slug: 'mars-l',
     name: 'Mars L',
     description:
       '"It all started with the big bang."\n\n' +
@@ -81,7 +75,6 @@ export const ARTISTS_DATA: Artist[] = [
     },
   },
   {
-    slug: 'bonobros',
     name: 'Bonobros',
     description:
       'In the depth of the jungle, T and P united as the ultimate duo... the Bonobros.\n\n' +
@@ -94,7 +87,6 @@ export const ARTISTS_DATA: Artist[] = [
     },
   },
   {
-    slug: 'remnant',
     name: 'Remnant',
     description:
       'Join the Techno Ritual with DJ Remnant: Hypnotic Beats, Dark Vibes, and Unforgettable Ceremonies!\n\n' +

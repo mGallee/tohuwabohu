@@ -1,7 +1,7 @@
 import { WithContext, MusicEvent, Person } from 'schema-dts';
 import { PublishedEvent } from '@/constants/event';
 import { SOCIAL_MEDIA_ITEMS } from '@/constants/social-media';
-import { getEventSlug } from '@/utils/helper';
+import { getArtistSlug, getEventSlug } from '@/utils/helper';
 import { baseUrl } from '@/utils/url';
 import { Artist } from '@/constants/artist';
 
@@ -86,7 +86,7 @@ export function generateEventJsonLd(
 }
 
 export function generateArtistJsonLd(artist: Artist): WithContext<Person> {
-  const artistUrl = `${baseUrl}/artists/${artist.slug}`;
+  const artistUrl = `${baseUrl}/artists/${getArtistSlug(artist)}`;
 
   return {
     '@context': 'https://schema.org',
