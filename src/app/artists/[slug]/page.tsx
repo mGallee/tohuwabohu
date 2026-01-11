@@ -4,6 +4,8 @@ import { ARTISTS_DATA } from '@/constants/artist';
 import { notFound } from 'next/navigation';
 import Button from '@/components/Button';
 import { Metadata, ResolvingMetadata } from 'next';
+import { generateArtistJsonLd } from '@/utils/jsonLd';
+import JsonLd from '@/components/JsonLd';
 
 interface ArtistPageProps {
   params: Promise<{ slug: string }>;
@@ -56,6 +58,7 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
 
   return (
     <section className="flex flex-col items-center gap-8 md:gap-16">
+      <JsonLd data={generateArtistJsonLd(artist)} />
       <Image
         className="aspect-square h-[220] w-[220] rounded-full border-2 border-stone-50 md:h-[300] md:w-[300]"
         src={artist.profilePicture}

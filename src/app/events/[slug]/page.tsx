@@ -10,6 +10,7 @@ import {
 import { Metadata, ResolvingMetadata } from 'next';
 import { generateEventJsonLd } from '@/utils/jsonLd';
 import Link from '@/components/Link';
+import JsonLd from '@/components/JsonLd';
 
 interface EventPageProps {
   params: Promise<{ slug: string }>;
@@ -66,12 +67,7 @@ export default async function EventPage({ params }: EventPageProps) {
 
   return (
     <section className="flex flex-col gap-8 md:gap-16">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(generateEventJsonLd(event)),
-        }}
-      />
+      <JsonLd data={generateEventJsonLd(event)} />
       <h1 className="text-center text-6xl md:text-8xl">{event.title}</h1>
       <div className="flex flex-col gap-6 rounded-xl border-2 bg-black/50 p-2 text-xl md:p-4">
         <div className="flex flex-col gap-1">

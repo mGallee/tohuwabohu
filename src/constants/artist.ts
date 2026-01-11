@@ -60,7 +60,8 @@ export const ARTISTS_DATA: Artist[] = [
   {
     slug: 'fullgass',
     name: 'Fullgas',
-    description: '',
+    description:
+      'Attendance mandatory for all Fullon lovers — see you there! ✌️',
     profilePicture: Fullgas,
     soundCloud: {
       username: 'fullgas_psy',
