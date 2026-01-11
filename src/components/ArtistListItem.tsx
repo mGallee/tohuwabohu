@@ -3,13 +3,14 @@ import Link from '@/components/Link';
 import SoundCloudPlayer from '@/components/SoundCloudPlayer';
 import { Artist } from '@/constants/artist';
 import { HTMLAttributes } from 'react';
+import { getArtistSlug } from '@/utils/helper';
 
 interface ArtistListItemProps extends HTMLAttributes<HTMLElement> {
   artist: Artist;
 }
 
 export default function ArtistListItem({
-  artist: { slug, name, profilePicture, soundCloud },
+  artist: { name, profilePicture, soundCloud },
   className,
   ...rest
 }: ArtistListItemProps) {
@@ -17,7 +18,7 @@ export default function ArtistListItem({
     <article className={`flex flex-col gap-4 ${className}`} {...rest}>
       <Link
         className="group flex flex-row items-center gap-4 self-start"
-        href={`/artists/${slug}`}>
+        href={`/artists/${getArtistSlug({ name })}`}>
         <Image
           className="group-hover:animate-box-glow group-active:animate-box-glow aspect-square h-[60] w-[60] rounded-full border-2 border-stone-50 md:h-[70] md:w-[70]"
           src={profilePicture}

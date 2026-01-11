@@ -6,6 +6,7 @@ import Button from '@/components/Button';
 import { Metadata, ResolvingMetadata } from 'next';
 import { generateArtistJsonLd } from '@/utils/jsonLd';
 import JsonLd from '@/components/JsonLd';
+import { getArtistSlug } from '@/utils/helper';
 
 interface ArtistPageProps {
   params: Promise<{ slug: string }>;
@@ -17,7 +18,7 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { slug } = await params;
   const artist = ARTISTS_DATA.find(
-    (value) => value.slug.toLowerCase() === slug.toLowerCase(),
+    (value) => getArtistSlug(value) === slug.toLowerCase(),
   );
 
   if (artist === undefined) {
@@ -49,7 +50,7 @@ export async function generateMetadata(
 export default async function ArtistPage({ params }: ArtistPageProps) {
   const { slug } = await params;
   const artist = ARTISTS_DATA.find(
-    (value) => value.slug.toLowerCase() === slug.toLowerCase(),
+    (value) => getArtistSlug(value) === slug.toLowerCase(),
   );
 
   if (artist === undefined) {

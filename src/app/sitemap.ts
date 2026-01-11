@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { baseUrl } from '@/utils/url';
 import { ARTISTS_DATA } from '@/constants/artist';
 import { EVENTS_DATA } from '@/constants/event';
-import { getEventSlug } from '@/utils/helper';
+import { getArtistSlug, getEventSlug } from '@/utils/helper';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -33,7 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
     },
     ...ARTISTS_DATA.map((artist) => ({
-      url: `${baseUrl}/artists/${artist.slug}`,
+      url: `${baseUrl}/artists/${getArtistSlug(artist)}`,
       priority: 0.7,
       changeFrequency: 'weekly' as const,
       images: [`${baseUrl}${artist.profilePicture.src}`],

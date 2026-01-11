@@ -28,6 +28,10 @@ export function getEventSlug(event: {
   ].join('-');
 }
 
+export function getArtistSlug(artist: { name: string }) {
+  return slugify(artist.name);
+}
+
 export function formatLineupSlot(slot: LineupSlot, nextSlot?: LineupSlot) {
   const endTime = nextSlot ? nextSlot.startTime : 'END';
   return `${slot.startTime} - ${endTime} ${slot.artist}`;
