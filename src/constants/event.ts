@@ -8,6 +8,7 @@ import Flyer20250906Back from '@/assets/flyers/2025-09-06-back.webp';
 import Flyer20251212Front from '@/assets/flyers/2025-12-12-front.webp';
 import Flyer20251212Back from '@/assets/flyers/2025-12-12-back.webp';
 import Flyer20260206Front from '@/assets/flyers/2026-02-06-front.webp';
+import Flyer20260206Back from '@/assets/flyers/2026-02-06-back.webp';
 
 export interface EventLocation {
   name: string;
@@ -256,8 +257,31 @@ export const EVENTS_DATA: Event[] = [
       '⭐ Come as you are / come as you wish\n' +
       '⭐ Decoration & Visuals\n' +
       '⭐ Awareness-Team',
+    lineup: [
+      {
+        startTime: '23:00',
+        artist: 'Numa B2B Angiko',
+      },
+      {
+        startTime: '00:25',
+        artist: 'Stoik',
+      },
+      {
+        startTime: '01:50',
+        artist: 'Brandmann',
+      },
+      {
+        startTime: '03:15',
+        artist: 'Krawallkasper B2B Exonot',
+      },
+      {
+        startTime: '04:40',
+        artist: 'Neoom B2B Lagos',
+      },
+    ],
     flyer: {
       front: Flyer20260206Front,
+      back: Flyer20260206Back,
     },
   },
 ] as const;
