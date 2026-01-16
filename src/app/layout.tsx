@@ -32,7 +32,7 @@ const robotoFont = Roboto({
 
 const title = 'Tohuwabohu | Kultur- und Musikverein';
 const description =
-  'Tohuwabohu is a collective in Vienna that loves music, art, and bringing people together. We throw events that focus on good sound, nice visuals, and an open, respectful atmosphere where everyone should feel welcome.';
+  'Vienna-based collective creating music and art events with great sound, strong visuals, and an open, inclusive space to connect, feel safe, and be yourself.';
 
 export const metadata: Metadata = {
   title: {

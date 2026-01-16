@@ -29,7 +29,10 @@ export async function generateMetadata(
   const parentOpenGraph = parentMetadata.openGraph || {};
 
   const title = `${artist.name}`;
-  const description = artist.description;
+  const description =
+    artist.description.length > 150
+      ? `${artist.description.slice(0, 150)}...`
+      : artist.description;
 
   return {
     title,

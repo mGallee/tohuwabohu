@@ -29,7 +29,7 @@ export async function generateMetadata(
 
   const title = 'Decoration';
   const description =
-    'Decoration helps set the mood and brings the space to life. With thoughtful visual ideas, lighting and carefully placed details, venues are shaped into environments that feel inviting and immersive.';
+    'Decoration sets the mood by transforming spaces with visual concepts, lighting, and details that create inviting, immersive environments.';
 
   return {
     title,
