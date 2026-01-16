@@ -33,7 +33,10 @@ export async function generateMetadata(
   const parentOpenGraph = parentMetadata.openGraph || {};
 
   const title = `${event.title}`;
-  const description = event.description;
+  const description =
+    event.description.length > 150
+      ? `${event.description.slice(0, 150)}...`
+      : event.description;
 
   return {
     title,
