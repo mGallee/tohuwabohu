@@ -74,7 +74,7 @@ export default function DecorationPage() {
             key={index}
             className="mb-4 w-full rounded-xl border-2 border-stone-50"
             src={image}
-            alt="Tohuwabohu event docoration"
+            alt={`Tohuwabohu event decoration ${index + 1}`}
             draggable={false}
           />
         ))}
