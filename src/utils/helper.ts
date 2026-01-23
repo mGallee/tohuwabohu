@@ -1,4 +1,4 @@
-import { EventLocation, LineupSlot } from '@/constants/event';
+import { EventLocation } from '@/constants/event';
 
 export function assertUnreachable(value: never): never {
   throw new Error(`${value} should be unreachable`);
@@ -30,11 +30,6 @@ export function getEventSlug(event: {
 
 export function getArtistSlug(artist: { name: string }) {
   return slugify(artist.name);
-}
-
-export function formatLineupSlot(slot: LineupSlot, nextSlot?: LineupSlot) {
-  const endTime = nextSlot ? nextSlot.startTime : 'END';
-  return `${slot.startTime} - ${endTime} ${slot.artist}`;
 }
 
 export function getGoogleMapsUrlForEventLocation(location: EventLocation) {

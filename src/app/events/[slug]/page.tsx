@@ -2,11 +2,7 @@ import { Clock10, MapPin, Ticket, TicketPercent } from 'lucide-react';
 import Image from 'next/image';
 import { EVENTS_DATA } from '@/constants/event';
 import { notFound } from 'next/navigation';
-import {
-  formatLineupSlot,
-  getEventSlug,
-  getGoogleMapsUrlForEventLocation,
-} from '@/utils/helper';
+import { getEventSlug, getGoogleMapsUrlForEventLocation } from '@/utils/helper';
 import { Metadata, ResolvingMetadata } from 'next';
 import { generateEventJsonLd } from '@/utils/jsonLd';
 import Link from '@/components/Link';
@@ -73,9 +69,9 @@ export default async function EventPage({ params }: EventPageProps) {
       <JsonLd data={generateEventJsonLd(event)} />
       <h1 className="text-center text-6xl md:text-8xl">{event.title}</h1>
       <div className="flex flex-col gap-6 rounded-xl border-2 bg-black/50 p-2 text-xl md:p-4">
-        <div className="flex flex-col gap-1">
-          <div className="flex flex-row items-center gap-1">
-            <Clock10 size={24} />
+        <div className="flex flex-col gap-2">
+          <div className="flex flex-row gap-2">
+            <Clock10 size={28} />
             <time className="flex">
               {`${event.startDate.toLocaleString('de-AT', {
                 year: 'numeric',
@@ -89,31 +85,42 @@ export default async function EventPage({ params }: EventPageProps) {
               })}`}
             </time>
           </div>
-          <div className="flex flex-row items-center gap-1">
-            <MapPin size={24} />
+          <div className="flex flex-row gap-2">
+            <MapPin size={28} />
             <Link
               href={getGoogleMapsUrlForEventLocation(event.location)}
               target="_blank">
               <address className="flex not-italic">{`${event.location.name} | ${event.location.address.street}, ${event.location.address.city}`}</address>
             </Link>
           </div>
-          <div className="flex flex-row items-center gap-1">
-            <Ticket size={24} />
+          <div className="flex flex-row gap-2">
+            <Ticket size={28} />
             <div className="flex">{`Entry fee: ${event.price}€`}</div>
           </div>
-          <div className="flex flex-row items-center gap-1">
-            <TicketPercent size={24} />
+          <div className="flex flex-row gap-2">
+            <TicketPercent size={28} />
             <div className="flex">{`Entry fee before midnight: ${event.beforeMidnightPrice}€`}</div>
           </div>
         </div>
         <p className="whitespace-pre-wrap">{event.description}</p>
         {event.lineup ? (
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-2">
             <div className="font-medium">Lineup</div>
             {event.lineup.map((slot, index, array) => {
               const nextSlot = array[index + 1];
+              const endTime = nextSlot
+                ? nextSlot.startTime
+                : event.endDate.toLocaleTimeString('de-AT', {
+                    hour: 'numeric',
+                    minute: 'numeric',
+                  });
               return (
-                <div key={slot.artist}>{formatLineupSlot(slot, nextSlot)}</div>
+                <div
+                  key={`${slot.startTime}__${slot.artist}`}
+                  className="flex flex-row gap-2">
+                  <div className="flex flex-nowrap">{`${slot.startTime} - ${endTime}`}</div>
+                  <div className="flex flex-1 flex-wrap">{slot.artist}</div>
+                </div>
               );
             })}
           </div>

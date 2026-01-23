@@ -10,6 +10,11 @@ import Flyer20251212Back from '@/assets/flyers/2025-12-12-back.webp';
 import Flyer20260206Front from '@/assets/flyers/2026-02-06-front.webp';
 import Flyer20260206Back from '@/assets/flyers/2026-02-06-back.webp';
 
+type Digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9';
+type Hours = `0${Digit}` | `1${Digit}` | `2${'0' | '1' | '2' | '3'}`;
+type Minutes = `${'0' | '1' | '2' | '3' | '4' | '5'}${Digit}`;
+type TimeFormat = `${Hours}:${Minutes}`;
+
 export interface EventLocation {
   name: string;
   address: {
@@ -20,7 +25,7 @@ export interface EventLocation {
 }
 
 export interface LineupSlot {
-  startTime: string;
+  startTime: TimeFormat;
   artist: string;
 }
 
