@@ -12,6 +12,10 @@ env:
 jobs:
   eslint:
     runs-on: ubuntu-latest
+    env:
+      PAYLOAD_SECRET: 'dummy-secret'
+      DATABASE_URL: 'postgresql://localhost/dummy'
+      BLOB_READ_WRITE_TOKEN: 'vercel_blob_rw_xxxxxxxxxx_yyyyyyyyyyyy'
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js ${{ env.NODE_VERSION }}
@@ -36,6 +40,10 @@ jobs:
 
   typecheck:
     runs-on: ubuntu-latest
+    env:
+      PAYLOAD_SECRET: 'dummy-secret'
+      DATABASE_URL: 'postgresql://localhost/dummy'
+      BLOB_READ_WRITE_TOKEN: 'vercel_blob_rw_xxxxxxxxxx_yyyyyyyyyyyy'
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js ${{ env.NODE_VERSION }}

@@ -1,10 +1,21 @@
 import { MetadataRoute } from 'next';
 import { baseUrl } from '@/utils/url';
-import { ARTISTS_DATA } from '@/constants/artist';
-import { EVENTS_DATA } from '@/constants/event';
-import { getArtistSlug, getEventSlug } from '@/utils/helper';
+import { getPayload } from 'payload';
+import config from '@payload-config';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const payload = await getPayload({ config });
+  const events = await payload.find({
+    collection: 'events',
+    depth: 1,
+    limit: 0,
+  });
+  const artists = await payload.find({
+    collection: 'artists',
+    depth: 1,
+    limit: 0,
+  });
+
   return [
     {
       url: baseUrl,
@@ -16,27 +27,39 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
       changeFrequency: 'weekly',
     },
-    ...EVENTS_DATA.filter((event) => event.type === 'published').map(
-      (event) => ({
-        url: `${baseUrl}/events/${getEventSlug(event)}`,
-        priority: 0.8,
-        changeFrequency: 'weekly' as const,
-        images: [
-          `${baseUrl}${event.flyer.front.src}`,
-          ...(event.flyer.back ? [`${baseUrl}${event.flyer.back.src}`] : []),
-        ],
-      }),
-    ),
+    ...events.docs.map((event) => ({
+      url: `${baseUrl}/events/${event.slug}`,
+      priority: 0.8,
+      changeFrequency: 'weekly' as const,
+      images: [
+        ...(event.flyer.front &&
+        typeof event.flyer.front === 'object' &&
+        event.flyer.front.url
+          ? [`${baseUrl}${event.flyer.front.url}`]
+          : []),
+        ...(event.flyer.back &&
+        typeof event.flyer.back === 'object' &&
+        event.flyer.back.url
+          ? [`${baseUrl}${event.flyer.back.url}`]
+          : []),
+      ],
+    })),
     {
       url: `${baseUrl}/artists`,
       priority: 0.7,
       changeFrequency: 'weekly',
     },
-    ...ARTISTS_DATA.map((artist) => ({
-      url: `${baseUrl}/artists/${getArtistSlug(artist)}`,
+    ...artists.docs.map((artist) => ({
+      url: `${baseUrl}/artists/${artist.slug}`,
       priority: 0.7,
       changeFrequency: 'weekly' as const,
-      images: [`${baseUrl}${artist.profilePicture.src}`],
+      images: [
+        ...(artist.profilePicture &&
+        typeof artist.profilePicture === 'object' &&
+        artist.profilePicture.url
+          ? [`${baseUrl}${artist.profilePicture.url}`]
+          : []),
+      ],
     })),
     {
       url: `${baseUrl}/awareness`,
