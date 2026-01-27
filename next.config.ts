@@ -1,4 +1,5 @@
 import { NextConfig } from 'next';
+import { withPayload } from '@payloadcms/next/withPayload';
 
 const nextConfig: NextConfig = {
   images: {
@@ -6,4 +7,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-module.exports = nextConfig;
+export default withPayload(nextConfig);

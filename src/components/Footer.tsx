@@ -19,7 +19,6 @@ export default function Footer() {
           ))}
         </div>
       </div>
-
       <div className="flex flex-col items-center gap-2 text-stone-300">
         <Link className="text-center text-lg" href="/imprint">
           Imprint

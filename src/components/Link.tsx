@@ -6,7 +6,7 @@ type LinkProps = ComponentProps<typeof NextLink>;
 export default function Link({ className, ...rest }: LinkProps) {
   return (
     <NextLink
-      className={`hover:animate-text-glow active:animate-text-glow ${className}`}
+      className={`hover:animate-text-glow active:animate-text-glow ${className ?? ''}`}
       {...rest}
     />
   );

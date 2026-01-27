@@ -1,14 +1,10 @@
 import { WithContext, MusicEvent, Person } from 'schema-dts';
-import { PublishedEvent } from '@/constants/event';
-import { SOCIAL_MEDIA_ITEMS } from '@/constants/social-media';
-import { getArtistSlug, getEventSlug } from '@/utils/helper';
 import { baseUrl } from '@/utils/url';
-import { Artist } from '@/constants/artist';
+import { SOCIAL_MEDIA_ITEMS } from '@/constants/social-media';
+import { Event, Artist } from '@/payload-types';
 
-export function generateEventJsonLd(
-  event: PublishedEvent,
-): WithContext<MusicEvent> {
-  const eventUrl = `${baseUrl}/events/${getEventSlug(event)}`;
+export function generateEventJsonLd(event: Event): WithContext<MusicEvent> {
+  const eventUrl = `${baseUrl}/events/${event.slug}`;
 
   return {
     '@context': 'https://schema.org',
@@ -18,8 +14,8 @@ export function generateEventJsonLd(
     description: event.description,
     url: eventUrl,
     inLanguage: 'en-AT',
-    startDate: event.startDate.toISOString(),
-    endDate: event.endDate.toISOString(),
+    startDate: event.startDate,
+    endDate: event.endDate,
     eventStatus: 'https://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     location: {
@@ -46,8 +42,8 @@ export function generateEventJsonLd(
         priceCurrency: 'EUR',
         name: 'Regular Entry',
         availability: 'https://schema.org/InStock',
-        availabilityEnds: event.endDate.toISOString(),
-        validFrom: event.startDate.toISOString(),
+        availabilityEnds: event.endDate,
+        validFrom: event.startDate,
       },
       {
         '@type': 'Offer',
@@ -56,12 +52,12 @@ export function generateEventJsonLd(
         priceCurrency: 'EUR',
         name: 'Entry before midnight',
         availability: 'https://schema.org/InStock',
-        availabilityEnds: event.endDate.toISOString(),
-        validFrom: event.startDate.toISOString(),
+        availabilityEnds: event.endDate,
+        validFrom: event.startDate,
         validThrough: new Date(
-          event.startDate.getFullYear(),
-          event.startDate.getMonth(),
-          event.startDate.getDate(),
+          new Date(event.startDate).getFullYear(),
+          new Date(event.startDate).getMonth(),
+          new Date(event.startDate).getDate(),
           23,
           59,
           59,
@@ -79,14 +75,31 @@ export function generateEventJsonLd(
             name: 'To be announced',
           },
     image: [
-      `${baseUrl}${event.flyer.front.src}`,
-      ...(event.flyer.back ? [`${baseUrl}${event.flyer.back.src}`] : []),
+      ...(event.flyer.front &&
+      typeof event.flyer.front === 'object' &&
+      event.flyer.front.url
+        ? [`${baseUrl}${event.flyer.front.url}`]
+        : []),
+      ...(event.flyer.back &&
+      typeof event.flyer.back === 'object' &&
+      event.flyer.back.url
+        ? [`${baseUrl}${event.flyer.back.url}`]
+        : []),
     ],
   };
 }
 
 export function generateArtistJsonLd(artist: Artist): WithContext<Person> {
-  const artistUrl = `${baseUrl}/artists/${getArtistSlug(artist)}`;
+  const artistUrl = `${baseUrl}/artists/${artist.slug}`;
+
+  let image: undefined | string;
+  if (
+    artist.profilePicture &&
+    typeof artist.profilePicture === 'object' &&
+    artist.profilePicture.url
+  ) {
+    image = artist.profilePicture.url;
+  }
 
   return {
     '@context': 'https://schema.org',
@@ -96,7 +109,7 @@ export function generateArtistJsonLd(artist: Artist): WithContext<Person> {
     description: artist.description,
     url: artistUrl,
     jobTitle: 'Music Artist',
-    image: `${baseUrl}${artist.profilePicture.src}`,
+    image: image,
     sameAs: [
       `https://soundcloud.com/${artist.soundCloud.username}`,
       ...(artist.instagram
