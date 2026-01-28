@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+/.yarn
 
 # testing
 /coverage
@@ -14,18 +15,39 @@
 
 # production
 /build
+/dist
+
+# Payload CMS
+/media
+/public/media
+payload-types.ts
+.payload
+importMap.js
 
 # misc
 .DS_Store
 *.pem
+*~
+*.sw[mnpcod]
+.tmp
+*.tmp
+*.tmp.*
+Thumbs.db
+UserInterfaceState.xcuserstate
+$RECYCLE.BIN/
 
-# debug
+# debug & logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+*.log
+log.txt
 
 # local env files
-.env*.local
+.env*
+.env
+!.env.example
+!.env.template
 
 # vercel
 .vercel
@@ -34,23 +56,13 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-*~
-*.sw[mnpcod]
-.tmp
-*.tmp
-*.tmp.*
-.DS_Store
-Thumbs.db
-UserInterfaceState.xcuserstate
-$RECYCLE.BIN/
-*.log
-log.txt
-npm-debug.log*
-
-### IDE ###
-
+# IDE
 .idea
-/.vscode
+.vscode
 *.sublime-project
 *.sublime-workspace
 .phpunit.result.cache
+
+# Generated files
+/public/build
+/.cache

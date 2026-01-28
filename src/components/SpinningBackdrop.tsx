@@ -20,7 +20,7 @@ export default function SpinningBackdrop({
 }: SpinningBackdropProps) {
   return (
     <div
-      className={`blur-sm brightness-50 select-none sm:blur-md md:blur-lg ${className}`}
+      className={`blur-sm brightness-50 select-none sm:blur-md md:blur-lg ${className ?? ''}`}
       {...rest}>
       <Image
         src={BackgroundImage}
