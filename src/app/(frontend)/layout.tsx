@@ -5,7 +5,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
 import { ReactNode } from 'react';
 import { Metadata, Viewport } from 'next';
-import { baseUrl } from '@/utils/url';
+import { getBaseUrl } from '@/utils/url';
 import Footer from '@/components/Footer';
 import SpinningBackdrop from '@/components/SpinningBackdrop';
 import Navigation from '@/components/Navigation';
@@ -34,46 +34,49 @@ const title = 'Tohuwabohu | Kultur- und Musikverein';
 const description =
   'Vienna-based collective creating music and art events with great sound, strong visuals, and an open, inclusive space to connect, feel safe, and be yourself.';
 
-export const metadata: Metadata = {
-  title: {
-    template: `%s - ${title}`,
-    default: title,
-  },
-  description,
-  keywords: [
-    'Tohuwabohu Wien',
-    'Vienna music collective',
-    'Vienna artist events',
-    'Austrian music collective',
-  ],
-  category: 'Collective',
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-    },
-  },
-  metadataBase: new URL(baseUrl),
-  openGraph: {
+export function generateMetadata(): Metadata {
+  const baseUrl = getBaseUrl();
+  return {
     title: {
       template: `%s - ${title}`,
       default: title,
     },
     description,
-    siteName: title,
-    images: [
-      {
-        url: '/images/logo-open-graph.png',
-        width: 1080,
-        height: 1080,
-        type: 'image/png',
-      },
+    keywords: [
+      'Tohuwabohu Wien',
+      'Vienna music collective',
+      'Vienna artist events',
+      'Austrian music collective',
     ],
-    type: 'website',
-  },
-};
+    category: 'Collective',
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+      },
+    },
+    metadataBase: new URL(baseUrl),
+    openGraph: {
+      title: {
+        template: `%s - ${title}`,
+        default: title,
+      },
+      description,
+      siteName: title,
+      images: [
+        {
+          url: '/images/logo-open-graph.png',
+          width: 1080,
+          height: 1080,
+          type: 'image/png',
+        },
+      ],
+      type: 'website',
+    },
+  };
+}
 
 export const viewport: Viewport = {
   themeColor: 'black',

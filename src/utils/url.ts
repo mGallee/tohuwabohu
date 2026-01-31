@@ -1,5 +1,15 @@
-export const protocol =
-  process.env.NODE_ENV === 'production' ? 'https' : 'http';
-export const domain =
-  process.env.VERCEL_PROJECT_PRODUCTION_URL || 'localhost:3000';
-export const baseUrl = `${protocol}://${domain}`;
+export function getBaseUrl() {
+  if (typeof window !== 'undefined') {
+    return window.location.origin;
+  }
+
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+
+  if (process.env.NEXT_PUBLIC_SITE_URL) {
+    return process.env.NEXT_PUBLIC_SITE_URL;
+  }
+
+  return `http://localhost:${process.env.PORT || 3000}`;
+}

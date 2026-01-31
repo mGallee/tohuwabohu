@@ -1,9 +1,10 @@
 import { MetadataRoute } from 'next';
-import { baseUrl } from '@/utils/url';
+import { getBaseUrl } from '@/utils/url';
 import { getPayload } from 'payload';
 import config from '@payload-config';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const baseUrl = getBaseUrl();
   const payload = await getPayload({ config });
   const events = await payload.find({
     collection: 'events',

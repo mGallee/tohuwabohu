@@ -1,9 +1,10 @@
 import { WithContext, MusicEvent, Person } from 'schema-dts';
-import { baseUrl } from '@/utils/url';
+import { getBaseUrl } from '@/utils/url';
 import { SOCIAL_MEDIA_ITEMS } from '@/constants/social-media';
 import { Event, Artist } from '@/payload-types';
 
 export function generateEventJsonLd(event: Event): WithContext<MusicEvent> {
+  const baseUrl = getBaseUrl();
   const eventUrl = `${baseUrl}/events/${event.slug}`;
 
   return {
@@ -90,6 +91,7 @@ export function generateEventJsonLd(event: Event): WithContext<MusicEvent> {
 }
 
 export function generateArtistJsonLd(artist: Artist): WithContext<Person> {
+  const baseUrl = getBaseUrl();
   const artistUrl = `${baseUrl}/artists/${artist.slug}`;
 
   let image: undefined | string;
