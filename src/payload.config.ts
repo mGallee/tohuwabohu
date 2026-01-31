@@ -1,4 +1,5 @@
 import { postgresAdapter } from '@payloadcms/db-postgres';
+import { resendAdapter } from '@payloadcms/email-resend';
 import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import path from 'path';
 import { buildConfig } from 'payload';
@@ -39,6 +40,21 @@ export default buildConfig({
         })(),
     },
   }),
+  email:
+    process.env.VERCEL_ENV === 'preview' ||
+    process.env.VERCEL_ENV === 'production'
+      ? resendAdapter({
+          defaultFromAddress: 'hello@tohuwabohu.wien',
+          defaultFromName: 'Tohuwabohu',
+          apiKey:
+            process.env.RESEND_API_KEY ??
+            (() => {
+              throw new Error(
+                'RESEND_API_KEY environment variable is required!',
+              );
+            })(),
+        })
+      : undefined,
   sharp,
   plugins: [
     vercelBlobStorage({
