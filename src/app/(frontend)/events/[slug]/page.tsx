@@ -9,7 +9,7 @@ import JsonLd from '@/components/JsonLd';
 import { getPayload } from 'payload';
 import config from '@payload-config';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 60;
 
 interface EventPageProps {
   params: Promise<{ slug: string }>;

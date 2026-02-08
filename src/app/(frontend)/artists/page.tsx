@@ -3,7 +3,7 @@ import { Metadata, ResolvingMetadata } from 'next';
 import config from '@payload-config';
 import { getPayload } from 'payload';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 60;
 
 export async function generateMetadata(
   _props: unknown,
