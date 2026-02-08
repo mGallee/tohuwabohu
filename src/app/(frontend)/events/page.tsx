@@ -3,7 +3,7 @@ import EventListItem from '@/components/EventListItem';
 import { getPayload } from 'payload';
 import config from '@payload-config';
 
-export const revalidate = 21600;
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata(
   _props: unknown,

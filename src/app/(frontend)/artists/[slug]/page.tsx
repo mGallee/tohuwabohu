@@ -8,6 +8,8 @@ import Link from '@/components/Link';
 import { getPayload } from 'payload';
 import config from '@payload-config';
 
+export const dynamic = 'force-dynamic';
+
 interface ArtistPageProps {
   params: Promise<{ slug: string }>;
 }
