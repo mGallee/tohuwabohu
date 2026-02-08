@@ -42,9 +42,11 @@ export default function EventListItem({
                   day: 'numeric',
                   hour: 'numeric',
                   minute: 'numeric',
+                  timeZone: 'Europe/Vienna',
                 })} - ${new Date(event.endDate).toLocaleString('de-AT', {
                   hour: 'numeric',
                   minute: 'numeric',
+                  timeZone: 'Europe/Vienna',
                 })}`}
               </time>
             </div>
