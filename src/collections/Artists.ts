@@ -42,16 +42,15 @@ export const Artists: CollectionConfig = {
       name: 'description',
       type: 'textarea',
       required: true,
+      admin: {
+        rows: 8,
+      },
     },
     {
       name: 'profilePicture',
       type: 'upload',
       relationTo: 'media',
       required: true,
-      hasMany: false,
-      filterOptions: {
-        mimeType: { contains: 'image' },
-      },
     },
     {
       name: 'soundCloud',

@@ -3,6 +3,8 @@ import { getBaseUrl } from '@/utils/url';
 import { getPayload } from 'payload';
 import config from '@payload-config';
 
+export const revalidate = 3600;
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = getBaseUrl();
   const payload = await getPayload({ config });

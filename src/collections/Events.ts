@@ -47,7 +47,12 @@ export const Events: CollectionConfig = {
       required: true,
       admin: {
         date: {
+          displayFormat: 'dd.MM.yyyy HH:mm',
           pickerAppearance: 'dayAndTime',
+          timeFormat: 'HH:mm',
+          overrides: {
+            calendarStartDay: 1,
+          },
         },
       },
     },
@@ -57,8 +62,31 @@ export const Events: CollectionConfig = {
       required: true,
       admin: {
         date: {
+          displayFormat: 'dd.MM.yyyy HH:mm',
           pickerAppearance: 'dayAndTime',
+          timeFormat: 'HH:mm',
+          overrides: {
+            calendarStartDay: 1,
+          },
         },
+      },
+    },
+    {
+      name: 'price',
+      type: 'number',
+      required: true,
+    },
+    {
+      name: 'beforeMidnightPrice',
+      type: 'number',
+      required: true,
+    },
+    {
+      name: 'description',
+      type: 'textarea',
+      required: true,
+      admin: {
+        rows: 8,
       },
     },
     {
@@ -95,21 +123,6 @@ export const Events: CollectionConfig = {
       ],
     },
     {
-      name: 'description',
-      type: 'textarea',
-      required: true,
-    },
-    {
-      name: 'price',
-      type: 'number',
-      required: true,
-    },
-    {
-      name: 'beforeMidnightPrice',
-      type: 'number',
-      required: true,
-    },
-    {
       name: 'lineup',
       type: 'array',
       fields: [
@@ -144,15 +157,15 @@ export const Events: CollectionConfig = {
         {
           name: 'front',
           type: 'upload',
+          label: 'Front Flyer',
           relationTo: 'media',
           required: true,
-          label: 'Front Flyer',
         },
         {
           name: 'back',
           type: 'upload',
-          relationTo: 'media',
           label: 'Back Flyer',
+          relationTo: 'media',
         },
       ],
     },

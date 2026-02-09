@@ -20,6 +20,7 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    dateFormat: 'dd.MM.yyyy HH:mm',
   },
   collections: [Users, Media, Artists, Events],
   editor: lexicalEditor(),
