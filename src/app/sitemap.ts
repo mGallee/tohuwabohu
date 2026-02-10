@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next';
 import { getBaseUrl } from '@/utils/url';
 import { getPayload } from 'payload';
 import config from '@payload-config';
+import { DECO_IMAGES } from '@/constants/decoration';
 
 export const revalidate = 3600;
 
@@ -73,6 +74,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}/decoration`,
       priority: 0.5,
       changeFrequency: 'weekly',
+      images: DECO_IMAGES.map((image) => `${baseUrl}${image.src}`),
     },
     {
       url: `${baseUrl}/imprint`,

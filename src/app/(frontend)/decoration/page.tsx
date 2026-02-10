@@ -1,32 +1,6 @@
 import Image from 'next/image';
 import { Metadata, ResolvingMetadata } from 'next';
-import DecoIMG1 from '@/assets/decorations/IMG_0640.webp';
-import DecoIMG2 from '@/assets/decorations/IMG_0641.webp';
-import DecoIMG3 from '@/assets/decorations/IMG_0732.webp';
-import DecoIMG4 from '@/assets/decorations/IMG_0788.webp';
-import DecoIMG5 from '@/assets/decorations/IMG_7429.webp';
-import DecoIMG6 from '@/assets/decorations/IMG_7834.webp';
-import DecoIMG7 from '@/assets/decorations/IMG_7843.webp';
-import DecoIMG8 from '@/assets/decorations/IMG_4749.webp';
-import DecoIMG9 from '@/assets/decorations/IMG_0014.webp';
-import DecoIMG10 from '@/assets/decorations/IMG_0024.webp';
-import DecoIMG11 from '@/assets/decorations/IMG_0655.webp';
-import DecoIMG12 from '@/assets/decorations/IMG_0676.webp';
-
-const DECO_IMAGES = [
-  DecoIMG1,
-  DecoIMG2,
-  DecoIMG3,
-  DecoIMG4,
-  DecoIMG5,
-  DecoIMG6,
-  DecoIMG7,
-  DecoIMG8,
-  DecoIMG9,
-  DecoIMG10,
-  DecoIMG11,
-  DecoIMG12,
-];
+import { DECO_IMAGES } from '@/constants/decoration';
 
 export async function generateMetadata(
   _props: unknown,
