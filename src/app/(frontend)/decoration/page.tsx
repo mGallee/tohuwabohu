@@ -42,7 +42,7 @@ export default function DecorationPage() {
           venues are shaped into environments that feel inviting and immersive.
         </p>
       </div>
-      <div className="columns-1 gap-4 md:columns-2">
+      <div className="z-0 columns-1 gap-4 md:columns-2">
         {DECO_IMAGES.map((image, index) => (
           <Image
             key={index}
