@@ -46,7 +46,7 @@ export default function DecorationPage() {
         {DECO_IMAGES.map((image, index) => (
           <Image
             key={index}
-            className="mb-4 w-full rounded-xl border-2 border-stone-50"
+            className="z-0 mb-4 w-full rounded-xl border-2 border-stone-50"
             src={image}
             alt={`Tohuwabohu event decoration ${index + 1}`}
             draggable={false}

@@ -16,6 +16,7 @@ import DecoIMG15 from '@/assets/decorations/IMG_1149.webp';
 import DecoIMG16 from '@/assets/decorations/IMG_1150.webp';
 import DecoIMG17 from '@/assets/decorations/IMG_1151.webp';
 import DecoIMG18 from '@/assets/decorations/IMG_1152.webp';
+import DecoIMG19 from '@/assets/decorations/IMG_1153.webp';
 
 export const DECO_IMAGES = [
   DecoIMG1,
@@ -36,4 +37,5 @@ export const DECO_IMAGES = [
   DecoIMG16,
   DecoIMG17,
   DecoIMG18,
+  DecoIMG19,
 ];
