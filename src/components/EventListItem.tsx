@@ -3,7 +3,7 @@ import { HTMLAttributes } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import EventBackground from '@/assets/event-background.webp';
-import { Clock10, MapPin } from 'lucide-react';
+import { Clock10, MapPin, Ticket, TicketPercent } from 'lucide-react';
 
 interface EventListItemProps extends HTMLAttributes<HTMLAnchorElement> {
   event: Event;
@@ -29,61 +29,48 @@ export default function EventListItem({
           draggable={false}
         />
       </div>
-      <article className="z-1 flex flex-col gap-4 p-4 md:flex-row">
-        <div className="flex flex-4 flex-col gap-2 md:gap-4">
-          <div className="font-healine text-2xl md:text-4xl">{event.title}</div>
-          <div className="flex flex-col gap-1">
-            <div className="flex flex-row items-center gap-1">
-              <Clock10 size={24} />
-              <time className="flex text-xl">
-                {`${new Date(event.startDate).toLocaleString('de-AT', {
-                  year: 'numeric',
-                  month: 'numeric',
-                  day: 'numeric',
-                  hour: 'numeric',
-                  minute: 'numeric',
-                  timeZone: 'Europe/Vienna',
-                })} - ${new Date(event.endDate).toLocaleString('de-AT', {
-                  hour: 'numeric',
-                  minute: 'numeric',
-                  timeZone: 'Europe/Vienna',
-                })}`}
-              </time>
-            </div>
-            <div className="flex flex-row items-center gap-1">
-              <MapPin size={24} />
-              <address className="flex text-xl not-italic">
-                {`${event.location.name}, ${event.location.address.city}`}
-              </address>
+      <article className="z-1 flex flex-col gap-2 p-2 md:gap-4 md:p-4">
+        <div className="font-healine text-2xl md:text-4xl">{event.title}</div>
+        <div className="flex flex-col gap-2 text-xl">
+          <div className="flex flex-row gap-2">
+            <Clock10 size={28} />
+            <time className="flex">
+              {`${new Date(event.startDate).toLocaleString('de-AT', {
+                year: 'numeric',
+                month: 'numeric',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric',
+                timeZone: 'Europe/Vienna',
+              })} - ${new Date(event.endDate).toLocaleString('de-AT', {
+                hour: 'numeric',
+                minute: 'numeric',
+                timeZone: 'Europe/Vienna',
+              })}`}
+            </time>
+          </div>
+          <div className="flex flex-row gap-2">
+            <MapPin size={28} />
+            <address className="flex not-italic">
+              {`${event.location.name}, ${event.location.address.city}`}
+            </address>
+          </div>
+          <div className="flex flex-row gap-2">
+            <Ticket size={28} />
+            <div className="flex">
+              {event.price > 0 ? `Entry fee: ${event.price}€` : 'Free entry'}
             </div>
           </div>
-        </div>
-        <div className="flex flex-1 flex-col justify-between gap-2 md:items-end">
-          <div className="flex flex-col gap-1 md:items-end">
-            <div className="text-xl">Entry price</div>
-            <div className="text-2xl md:text-4xl">
-              {event.price
-                .toLocaleString('de-AT', {
-                  style: 'currency',
-                  minimumFractionDigits: 0,
-                  currency: 'EUR',
-                })
-                .replace(/\u00A0/g, ' ')}
+          {typeof event.beforeMidnightPrice === 'number' ? (
+            <div className="flex flex-row gap-2">
+              <TicketPercent size={28} />
+              <div className="flex">
+                {event.beforeMidnightPrice > 0
+                  ? `Entry fee before midnight: ${event.beforeMidnightPrice}€`
+                  : 'Free entry'}
+              </div>
             </div>
-          </div>
-          <hr className="flex w-2/6 md:w-3/4" />
-          <div className="flex flex-col gap-1 text-stone-300 md:items-end">
-            <div className="text-lg">Before midnight</div>
-            <div className="text-xl md:text-2xl">
-              {event.beforeMidnightPrice
-                .toLocaleString('de-AT', {
-                  style: 'currency',
-                  minimumFractionDigits: 0,
-                  currency: 'EUR',
-                })
-                .replace(/\u00A0/g, ' ')}
-            </div>
-          </div>
+          ) : null}
         </div>
       </article>
     </Link>
