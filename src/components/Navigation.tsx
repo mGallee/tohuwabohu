@@ -21,6 +21,10 @@ const NAVIGATION_ITEMS = [
     label: 'Decoration',
     href: '/decoration',
   },
+  {
+    label: 'About Us',
+    href: '/about-us',
+  },
 ] as const;
 
 export default function Navigation() {
@@ -47,18 +51,18 @@ export default function Navigation() {
 
   return (
     <>
-      <nav className="fixed top-0 right-0 left-0 z-99 flex h-16 w-full flex-row items-center justify-between border-b-2 bg-black/75 backdrop-blur-md md:gap-4 md:px-4">
+      <nav className="fixed top-0 right-0 left-0 z-99 flex h-16 w-full flex-row items-center justify-between border-b-2 bg-black/75 backdrop-blur-md md:gap-2 md:px-4">
         <button
           onClick={toggleMenu}
-          className="h-14 w-14 p-4 md:hidden"
+          className="flex w-14 items-center justify-center self-stretch md:hidden"
           aria-label="Toggle menu">
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-        <Link className="font-headline p-4 pt-3 text-2xl" href="/">
+        <Link className="font-headline self-stretch p-4 pt-3 text-2xl" href="/">
           Tohuwabohu
         </Link>
-        <div className="h-14 w-14 p-4 md:hidden" />
-        <div className="hidden flex-row justify-evenly gap-2 self-stretch md:flex">
+        <div className="w-14 self-stretch md:hidden" />
+        <div className="hidden flex-row justify-evenly self-stretch md:flex">
           {NAVIGATION_ITEMS.map((item) => (
             <Link key={item.href} className="p-4 text-xl" href={item.href}>
               {item.label}
@@ -76,7 +80,7 @@ export default function Navigation() {
           onClick={closeMenu}
         />
         <nav
-          className={`flex h-full w-[65%] flex-col border-r-2 bg-black/50 backdrop-blur-md transition-transform duration-150 ease-in-out ${
+          className={`flex h-full w-[65%] min-w-3xs flex-col border-r-2 bg-black/50 py-4 backdrop-blur-md transition-transform duration-150 ease-in-out ${
             isOpen ? 'translate-x-0' : 'translate-x-[calc(-100%-2px)]'
           }`}>
           {NAVIGATION_ITEMS.map((item) => (

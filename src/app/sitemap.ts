@@ -72,9 +72,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${baseUrl}/decoration`,
-      priority: 0.5,
+      priority: 0.6,
       changeFrequency: 'weekly',
       images: DECO_IMAGES.map((image) => `${baseUrl}${image.src}`),
+    },
+    {
+      url: `${baseUrl}/about-us`,
+      priority: 0.5,
+      changeFrequency: 'monthly',
     },
     {
       url: `${baseUrl}/imprint`,
