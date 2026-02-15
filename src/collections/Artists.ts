@@ -37,11 +37,13 @@ export const Artists: CollectionConfig = {
       name: 'name',
       type: 'text',
       required: true,
+      maxLength: 100,
     },
     {
       name: 'description',
       type: 'textarea',
       required: true,
+      maxLength: 2000,
       admin: {
         rows: 8,
       },
@@ -60,6 +62,7 @@ export const Artists: CollectionConfig = {
           name: 'username',
           type: 'text',
           required: true,
+          maxLength: 50,
         },
         {
           name: 'trackId',
@@ -75,6 +78,7 @@ export const Artists: CollectionConfig = {
         {
           name: 'username',
           type: 'text',
+          maxLength: 30,
         },
       ],
     },
@@ -85,6 +89,7 @@ export const Artists: CollectionConfig = {
         {
           name: 'username',
           type: 'text',
+          maxLength: 50,
         },
       ],
     },

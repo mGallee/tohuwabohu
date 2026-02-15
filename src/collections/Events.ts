@@ -40,6 +40,7 @@ export const Events: CollectionConfig = {
       name: 'title',
       type: 'text',
       required: true,
+      maxLength: 150,
     },
     {
       name: 'startDate',
@@ -75,16 +76,44 @@ export const Events: CollectionConfig = {
       name: 'price',
       type: 'number',
       required: true,
+      min: 0,
+      max: 999,
+      admin: {
+        description: 'Entry price in euros (whole numbers only, no cents)',
+        step: 1,
+      },
+      validate: (value: unknown) => {
+        if (typeof value === 'number' && !Number.isInteger(value)) {
+          return 'Price must be a whole number (no cents)';
+        }
+        return true;
+      },
     },
     {
       name: 'beforeMidnightPrice',
       type: 'number',
-      required: true,
+      min: 0,
+      max: 999,
+      admin: {
+        description:
+          'Early entry price in euros (must be less than regular price)',
+        step: 1,
+      },
+      validate: (value: unknown, { data }: { data?: { price?: number } }) => {
+        if (typeof value === 'number' && !Number.isInteger(value)) {
+          return 'Price must be a whole number (no cents)';
+        }
+        if (typeof value === 'number' && data?.price && value >= data.price) {
+          return 'Before midnight price must be less than regular price';
+        }
+        return true;
+      },
     },
     {
       name: 'description',
       type: 'textarea',
       required: true,
+      maxLength: 2000,
       admin: {
         rows: 8,
       },
@@ -97,6 +126,7 @@ export const Events: CollectionConfig = {
           name: 'name',
           type: 'text',
           required: true,
+          maxLength: 100,
           label: 'Venue Name',
         },
         {
@@ -107,16 +137,19 @@ export const Events: CollectionConfig = {
               name: 'street',
               type: 'text',
               required: true,
+              maxLength: 150,
             },
             {
               name: 'city',
               type: 'text',
               required: true,
+              maxLength: 100,
             },
             {
               name: 'country',
               type: 'text',
               required: true,
+              maxLength: 100,
             },
           ],
         },
@@ -130,11 +163,14 @@ export const Events: CollectionConfig = {
           name: 'artist',
           type: 'text',
           required: true,
+          maxLength: 100,
         },
         {
           name: 'startTime',
           type: 'text',
           required: true,
+          minLength: 5,
+          maxLength: 5,
           admin: {
             description: 'Format: HH:MM (e.g., 23:00)',
           },

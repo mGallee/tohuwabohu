@@ -11,6 +11,7 @@ export const Users: CollectionConfig = {
       name: 'name',
       type: 'text',
       required: true,
+      maxLength: 100,
       label: 'Username',
     },
   ],

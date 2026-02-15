@@ -120,12 +120,20 @@ export default async function EventPage({ params }: EventPageProps) {
           </div>
           <div className="flex flex-row gap-2">
             <Ticket size={28} />
-            <div className="flex">{`Entry fee: ${event.price}€`}</div>
+            <div className="flex">
+              {event.price > 0 ? `Entry fee: ${event.price}€` : 'Free entry'}
+            </div>
           </div>
-          <div className="flex flex-row gap-2">
-            <TicketPercent size={28} />
-            <div className="flex">{`Entry fee before midnight: ${event.beforeMidnightPrice}€`}</div>
-          </div>
+          {typeof event.beforeMidnightPrice === 'number' ? (
+            <div className="flex flex-row gap-2">
+              <TicketPercent size={28} />
+              <div className="flex">
+                {event.beforeMidnightPrice > 0
+                  ? `Entry fee before midnight: ${event.beforeMidnightPrice}€`
+                  : 'Free entry'}
+              </div>
+            </div>
+          ) : null}
         </div>
         <p className="whitespace-pre-wrap">{event.description}</p>
         {event.lineup && event.lineup.length > 0 ? (

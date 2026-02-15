@@ -1,4 +1,4 @@
-import { WithContext, MusicEvent, Person } from 'schema-dts';
+import { WithContext, MusicEvent, Person, Offer } from 'schema-dts';
 import { getBaseUrl } from '@/utils/url';
 import { SOCIAL_MEDIA_ITEMS } from '@/constants/social-media';
 import { Event, Artist } from '@/payload-types';
@@ -6,6 +6,38 @@ import { Event, Artist } from '@/payload-types';
 export function generateEventJsonLd(event: Event): WithContext<MusicEvent> {
   const baseUrl = getBaseUrl();
   const eventUrl = `${baseUrl}/events/${event.slug}`;
+  const offers: Offer[] = [
+    {
+      '@type': 'Offer',
+      url: eventUrl,
+      price: event.price.toFixed(2),
+      priceCurrency: 'EUR',
+      name: 'Regular Entry',
+      availability: 'https://schema.org/InStock',
+      availabilityEnds: event.endDate,
+      validFrom: event.startDate,
+    },
+  ];
+  if (typeof event.beforeMidnightPrice === 'number') {
+    offers.push({
+      '@type': 'Offer',
+      url: eventUrl,
+      price: event.beforeMidnightPrice.toFixed(2),
+      priceCurrency: 'EUR',
+      name: 'Entry before midnight',
+      availability: 'https://schema.org/InStock',
+      availabilityEnds: event.endDate,
+      validFrom: event.startDate,
+      validThrough: new Date(
+        new Date(event.startDate).getFullYear(),
+        new Date(event.startDate).getMonth(),
+        new Date(event.startDate).getDate(),
+        23,
+        59,
+        59,
+      ).toISOString(),
+    });
+  }
 
   return {
     '@context': 'https://schema.org',
@@ -35,36 +67,7 @@ export function generateEventJsonLd(event: Event): WithContext<MusicEvent> {
       url: baseUrl,
       sameAs: SOCIAL_MEDIA_ITEMS.map((item) => item.href),
     },
-    offers: [
-      {
-        '@type': 'Offer',
-        url: eventUrl,
-        price: event.price.toString(),
-        priceCurrency: 'EUR',
-        name: 'Regular Entry',
-        availability: 'https://schema.org/InStock',
-        availabilityEnds: event.endDate,
-        validFrom: event.startDate,
-      },
-      {
-        '@type': 'Offer',
-        url: eventUrl,
-        price: event.beforeMidnightPrice.toString(),
-        priceCurrency: 'EUR',
-        name: 'Entry before midnight',
-        availability: 'https://schema.org/InStock',
-        availabilityEnds: event.endDate,
-        validFrom: event.startDate,
-        validThrough: new Date(
-          new Date(event.startDate).getFullYear(),
-          new Date(event.startDate).getMonth(),
-          new Date(event.startDate).getDate(),
-          23,
-          59,
-          59,
-        ).toISOString(),
-      },
-    ],
+    offers: offers,
     performer:
       event.lineup && event.lineup.length > 0
         ? event.lineup.map((slot) => ({
