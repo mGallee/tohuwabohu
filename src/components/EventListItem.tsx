@@ -30,7 +30,7 @@ export default function EventListItem({
         />
       </div>
       <article className="z-1 flex flex-col gap-2 p-2 md:gap-4 md:p-4">
-        <div className="font-healine text-2xl md:text-4xl">{event.title}</div>
+        <div className="font-headline text-2xl md:text-4xl">{event.title}</div>
         <div className="flex flex-col gap-2 text-xl">
           <div className="flex flex-row gap-2">
             <Clock10 size={28} />

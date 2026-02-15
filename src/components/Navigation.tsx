@@ -54,7 +54,7 @@ export default function Navigation() {
           aria-label="Toggle menu">
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-        <Link className="font-healine p-4 pt-3 text-2xl" href="/">
+        <Link className="font-headline p-4 pt-3 text-2xl" href="/">
           Tohuwabohu
         </Link>
         <div className="h-14 w-14 p-4 md:hidden" />

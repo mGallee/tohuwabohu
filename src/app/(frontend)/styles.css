@@ -23,7 +23,7 @@
   --animate-text-glow: text-glow 2s ease-in-out infinite alternate;
   --animate-spin-extremely-slow: spin 600s linear infinite;
 
-  --font-healine: var(--font-itc-willow);
+  --font-headline: var(--font-itc-willow);
   --font-sans: var(--font-roboto);
 
   @keyframes box-glow {
@@ -95,7 +95,7 @@
   h4,
   h5,
   h6 {
-    font-family: var(--font-healine), sans-serif;
+    font-family: var(--font-headline), sans-serif;
   }
 
   img[draggable='false'] {

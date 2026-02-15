@@ -32,7 +32,7 @@ export default function ArtistListItem({
             draggable={false}
           />
         ) : null}
-        <div className="font-healine mb-3 text-4xl md:mb-4 md:text-5xl">
+        <div className="font-headline mb-3 text-4xl md:mb-4 md:text-5xl">
           {artist.name}
         </div>
       </Link>
