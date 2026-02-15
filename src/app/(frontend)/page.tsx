@@ -14,7 +14,6 @@ export async function generateMetadata(
       'Tohuwabohu Wien music collective',
       'Vienna artist collective',
       'community music events Vienna',
-      'collaborate with music collective Vienna',
     ],
   };
 }
@@ -44,30 +43,18 @@ export default function HomePage() {
           Beautiful chaos, shared together
         </h2>
         <p className="text-center text-2xl md:text-4xl">
-          Tohuwabohu is a collective in Vienna that loves music, art, and
-          bringing people together. We throw events that focus on good sound,
-          nice visuals, and an open, respectful atmosphere where everyone should
-          feel welcome.
+          Tohuwabohu is a Vienna-based collective founded by a group of friends
+          who wanted to bring something different to the local scene. We create
+          immersive spaces where music and art collide, focusing on high-quality
+          sound, handcrafted visuals, and an open, respectful atmosphere.
         </p>
         <p className="text-center text-2xl md:text-4xl">
-          For us it&#39;s not just about partying - it&#39;s about creating a
-          space where people can connect, feel safe, and just be themselves for
-          a night. We work with artists we love, put a lot of care into the
-          details, and try to keep things fun, inclusive, and a little bit
-          chaotic in the best way. If you&#39;re into music, community, and
-          nights that feel a bit different - you&#39;ll probably feel at home
-          with us.
+          For us, it&#39;s about more than the party, it&#39;s about connection,
+          safety, and a dancefloor where you can truly be yourself.
         </p>
         <div className="flex flex-col items-center gap-4 md:gap-8">
-          <p className="text-center text-2xl text-balance md:text-4xl">
-            Interested in collaborating with us?
-          </p>
-          <Button
-            as="a"
-            variant="outlined"
-            href="https://ig.me/m/tohuwabohu.vienna"
-            target="_blank">
-            Message us on Instagram
+          <Button as="a" variant="outlined" href="/about-us">
+            Read our Story
           </Button>
         </div>
       </section>
