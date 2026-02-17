@@ -58,7 +58,10 @@ export default function Navigation() {
           aria-label="Toggle menu">
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-        <Link className="font-headline self-stretch p-4 pt-3 text-2xl" href="/">
+        <Link
+          className="font-headline self-stretch p-4 pt-3 text-2xl"
+          href="/"
+          onClick={closeMenu}>
           Tohuwabohu
         </Link>
         <div className="w-14 self-stretch md:hidden" />
