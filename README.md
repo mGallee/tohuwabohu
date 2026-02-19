@@ -1,36 +1,112 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Tohuwabohu Wien
+
+Website for **Tohuwabohu** — a Vienna-based culture and music collective (_Kultur- und Musikverein_) creating immersive spaces where music and art collide.
+
+🌐 **Live:** [tohuwabohu.wien](https://tohuwabohu.wien)
+
+---
+
+## Tech Stack
+
+| Layer      | Technology                                            |
+| ---------- | ----------------------------------------------------- |
+| Framework  | [Next.js](https://nextjs.org/) (App Router)           |
+| Language   | [TypeScript](https://www.typescriptlang.org/)         |
+| CMS        | [Payload CMS](https://payloadcms.com/) (headless)     |
+| Database   | [PostgreSQL 15](https://www.postgresql.org/)          |
+| Styling    | [Tailwind CSS](https://tailwindcss.com/)              |
+| Linting    | [ESLint](https://eslint.org/)                         |
+| Formatting | [Prettier](https://prettier.io/)                      |
+| CI/CD      | [GitHub Actions](https://github.com/features/actions) |
+
+---
+
+## Prerequisites
+
+- [Node.js](https://nodejs.org/) 24+
+- [Docker](https://www.docker.com/) (for the local PostgreSQL database)
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### 1. Start the database
+
+Spin up a local PostgreSQL instance using Docker:
+
+```bash
+docker compose up -d
+```
+
+This starts a `postgres:15` container with the following defaults:
+
+| Setting  | Value            |
+| -------- | ---------------- |
+| Host     | `localhost:5432` |
+| Database | `tohuwabohu`     |
+| User     | `postgres`       |
+| Password | `postgres`       |
+
+### 2. Configure environment
+
+Create a `.env.local` file in the project root and set the required environment variables (database connection, Payload secret, etc.).
+
+### 3. Install dependencies
+
+```bash
+npm install
+```
+
+### 4. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see the site and [http://localhost:3000/admin](http://localhost:3000/admin) to access the Payload CMS admin panel.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-[http://localhost:3000/api/hello](http://localhost:3000/api/hello) is an endpoint that uses [Route Handlers](https://beta.nextjs.org/docs/routing/route-handlers). This endpoint can be edited in `app/api/hello/route.ts`.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The `src/` directory contains the Next.js App Router (`app/`) split into a `(frontend)` route group for the public site and a `(payload)` route group for the CMS admin and API. Payload CMS collection definitions live in `collections/`, shared UI in `components/`, database migrations in `migrations/`, seed scripts in `seed/`, and configuration in `payload.config.ts`.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Command         | Description                  |
+| --------------- | ---------------------------- |
+| `npm run dev`   | Start the development server |
+| `npm run build` | Build for production         |
+| `npm run start` | Start the production server  |
+| `npm run lint`  | Run ESLint                   |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Database
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The project uses **PostgreSQL 15** managed via Docker Compose. Data is persisted in a named volume (`postgres_data`) so it survives container restarts.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+# Start DB
+docker compose up -d
+
+# Stop DB
+docker compose down
+
+# Wipe DB (removes volume)
+docker compose down -v
+```
+
+---
+
+## CMS
+
+Content is managed through [Payload CMS](https://payloadcms.com/), which runs embedded inside the Next.js app. The admin panel is available at `/admin` and connects directly to the PostgreSQL database.
+
+---
+
+## Deployment
+
+The site is deployed via [Vercel](https://vercel.com/) and is live at [tohuwabohu.wien](https://tohuwabohu.wien). CI is handled via GitHub Actions (lint on push). In production, ensure `DATABASE_URI` and the other environment variables from `.env.local` are set in the deployment environment.
