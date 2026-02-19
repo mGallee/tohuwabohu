@@ -1,4 +1,4 @@
-import { ComponentProps, JSX, ReactNode } from 'react';
+import { ComponentProps, JSX } from 'react';
 import { cn } from '@/utils/helper';
 
 type Variant = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
@@ -14,8 +14,6 @@ const VARIANTS: Record<Variant, string> = {
 interface ContainerProps extends ComponentProps<'div'> {
   as?: keyof JSX.IntrinsicElements;
   variant?: Variant;
-  children?: ReactNode;
-  className?: string;
 }
 
 export default function Container({

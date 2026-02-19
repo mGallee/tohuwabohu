@@ -1,5 +1,5 @@
 import { HTMLAttributeAnchorTarget, MouseEventHandler, ReactNode } from 'react';
-import { assertUnreachable } from '@/utils/helper';
+import { assertUnreachable, cn } from '@/utils/helper';
 import Link from 'next/link';
 
 interface BaseButtonProps {
@@ -36,8 +36,11 @@ export default function Button(props: ButtonProps) {
       'border-2 border-stone-50 bg-stone-50 text-black active:border-stone-100 active:bg-stone-100',
   };
 
-  const combinedClasses =
-    `${baseClasses} ${variantClasses[props.variant ?? 'text']} ${props.className}`.trim();
+  const combinedClasses = cn(
+    baseClasses,
+    variantClasses[props.variant ?? 'text'],
+    props.className,
+  );
 
   const as = props.as ?? 'button';
 
