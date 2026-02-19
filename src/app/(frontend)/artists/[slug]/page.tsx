@@ -7,6 +7,7 @@ import JsonLd from '@/components/JsonLd';
 import Link from '@/components/Link';
 import { getPayload } from 'payload';
 import config from '@payload-config';
+import Container from '@/components/Container';
 
 export const revalidate = 60;
 
@@ -83,7 +84,9 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
   const artist = artists.docs[0];
 
   return (
-    <section className="flex flex-col items-center gap-8 md:gap-16">
+    <Container
+      as="section"
+      className="flex flex-col items-center gap-8 md:gap-16">
       <JsonLd data={generateArtistJsonLd(artist)} />
       {typeof artist.profilePicture === 'object' &&
       artist.profilePicture.url &&
@@ -129,6 +132,6 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
           </Link>
         ) : null}
       </div>
-    </section>
+    </Container>
   );
 }

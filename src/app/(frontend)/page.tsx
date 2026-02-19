@@ -1,6 +1,7 @@
 import Button from '@/components/Button';
 import Link from '@/components/Link';
 import { Metadata, ResolvingMetadata } from 'next';
+import Container from '@/components/Container';
 
 export async function generateMetadata(
   _props: unknown,
@@ -20,8 +21,8 @@ export async function generateMetadata(
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col justify-center gap-12 md:gap-24">
-      <section className="flex min-h-[67dvh] flex-col items-center justify-center gap-8 md:min-h-[64dvh] md:gap-16">
+    <Container className="flex flex-col justify-center gap-12 md:gap-24">
+      <section className="flex min-h-[70dvh] flex-col items-center justify-center gap-8 md:min-h-[67dvh] md:gap-16">
         <h1 className="animate-text-glow text-center text-6xl sm:text-8xl md:text-9xl">
           Tohuwabohu
         </h1>
@@ -58,6 +59,6 @@ export default function HomePage() {
           </Button>
         </div>
       </section>
-    </div>
+    </Container>
   );
 }

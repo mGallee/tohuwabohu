@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import EventBackground from '@/assets/event-background.webp';
 import { Clock10, MapPin, Ticket, TicketPercent } from 'lucide-react';
+import { cn } from '@/utils/helper';
 
 interface EventListItemProps extends HTMLAttributes<HTMLAnchorElement> {
   event: Event;
@@ -16,7 +17,10 @@ export default function EventListItem({
 }: EventListItemProps) {
   return (
     <Link
-      className={`hover:animate-box-glow active:animate-box-glow relative flex flex-col overflow-hidden rounded-xl border-2 bg-black ${className ?? ''}`}
+      className={cn(
+        'hover:animate-box-glow active:animate-box-glow relative flex flex-col overflow-hidden rounded-xl border-2 bg-black',
+        className,
+      )}
       href={`/events/${event.slug}`}
       {...rest}>
       <div className="absolute inset-0 z-0 opacity-50 brightness-50">

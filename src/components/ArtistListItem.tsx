@@ -3,6 +3,7 @@ import Link from '@/components/Link';
 import SoundCloudPlayer from '@/components/SoundCloudPlayer';
 import { HTMLAttributes } from 'react';
 import { Artist } from '@/payload-types';
+import { cn } from '@/utils/helper';
 
 interface ArtistListItemProps extends HTMLAttributes<HTMLElement> {
   artist: Artist;
@@ -14,7 +15,7 @@ export default function ArtistListItem({
   ...rest
 }: ArtistListItemProps) {
   return (
-    <article className={`flex flex-col gap-4 ${className ?? ''}`} {...rest}>
+    <article className={cn('flex flex-col gap-4', className)} {...rest}>
       <Link
         className="group flex flex-row items-center gap-4 self-start"
         href={`/artists/${artist.slug}`}>
