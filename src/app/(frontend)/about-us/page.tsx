@@ -2,6 +2,7 @@ import { Metadata, ResolvingMetadata } from 'next';
 import Link from '@/components/Link';
 import { ArrowRight } from 'lucide-react';
 import Button from '@/components/Button';
+import Container from '@/components/Container';
 
 export async function generateMetadata(
   _props: unknown,
@@ -35,7 +36,9 @@ export async function generateMetadata(
 
 export default function AboutUsPage() {
   return (
-    <section className="flex flex-col items-center gap-12 md:gap-24">
+    <Container
+      as="section"
+      className="flex flex-col items-center gap-12 md:gap-24">
       <h1 className="text-center text-6xl md:text-8xl">About Us</h1>
       <div className="flex flex-col items-center gap-4 md:gap-8">
         <h2 className="text-center text-4xl md:text-6xl">
@@ -104,6 +107,6 @@ export default function AboutUsPage() {
           Message us on Instagram
         </Button>
       </div>
-    </section>
+    </Container>
   );
 }

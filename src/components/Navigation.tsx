@@ -3,6 +3,7 @@
 import Link from '@/components/Link';
 import { useCallback, useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { cn } from '@/utils/helper';
 
 const NAVIGATION_ITEMS = [
   {
@@ -75,17 +76,22 @@ export default function Navigation() {
       </nav>
       <div className="flex h-16 w-full" />
       <div
-        className={`fixed top-16 right-0 bottom-0 left-0 z-99 md:hidden ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}>
+        className={cn(
+          'fixed top-16 right-0 bottom-0 left-0 z-99 md:hidden',
+          isOpen ? 'pointer-events-auto' : 'pointer-events-none',
+        )}>
         <div
-          className={`absolute inset-0 bg-black transition-opacity duration-150 ease-in-out ${
-            isOpen ? 'opacity-50' : 'opacity-0'
-          }`}
+          className={cn(
+            'absolute inset-0 bg-black transition-opacity duration-150 ease-in-out',
+            isOpen ? 'opacity-50' : 'opacity-0',
+          )}
           onClick={closeMenu}
         />
         <nav
-          className={`flex h-full w-[65%] min-w-3xs flex-col border-r-2 bg-black/50 py-4 backdrop-blur-md transition-transform duration-150 ease-in-out ${
-            isOpen ? 'translate-x-0' : 'translate-x-[calc(-100%-2px)]'
-          }`}>
+          className={cn(
+            'flex h-full w-[65%] min-w-3xs flex-col border-r-2 bg-black/50 py-4 backdrop-blur-md transition-transform duration-150 ease-in-out',
+            isOpen ? 'translate-x-0' : 'translate-x-[calc(-100%-2px)]',
+          )}>
           {NAVIGATION_ITEMS.map((item) => (
             <Link
               key={item.href}

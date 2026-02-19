@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Metadata, ResolvingMetadata } from 'next';
 import { DECO_IMAGES } from '@/constants/decoration';
+import Container from '@/components/Container';
 
 export async function generateMetadata(
   _props: unknown,
@@ -32,10 +33,13 @@ export async function generateMetadata(
 
 export default function DecorationPage() {
   return (
-    <section className="flex flex-col gap-12 md:gap-24">
+    <Container
+      as="section"
+      variant="lg"
+      className="flex flex-col gap-12 md:gap-24">
       <div className="flex flex-col items-center gap-8 md:gap-16">
         <h1 className="text-center text-6xl md:text-8xl">Decoration</h1>
-        <p className="text-center text-2xl text-balance md:text-4xl">
+        <p className="max-w-4xl text-center text-2xl text-balance md:text-4xl">
           Decoration helps set the mood and brings the space to life.
           <br />
           With thoughtful visual ideas, lighting and carefully placed details,
@@ -53,6 +57,6 @@ export default function DecorationPage() {
           />
         ))}
       </div>
-    </section>
+    </Container>
   );
 }

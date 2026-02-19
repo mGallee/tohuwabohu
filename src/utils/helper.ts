@@ -45,3 +45,7 @@ export function getGoogleMapsUrlForEventLocation(location: {
 }) {
   return `https://www.google.com/maps/search/${encodeURIComponent(`${location.name}, ${location.address.street}, ${location.address.city}, ${location.address.country}`)}`;
 }
+
+export function cn(...classes: (string | undefined)[]) {
+  return classes.filter(Boolean).join(' ').trim();
+}

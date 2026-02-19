@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import BackgroundImage from '@/assets/spiral.webp';
 import { HTMLAttributes } from 'react';
+import { cn } from '@/utils/helper';
 
 interface SpinningBackdropProps extends Omit<
   HTMLAttributes<HTMLDivElement>,
@@ -20,7 +21,10 @@ export default function SpinningBackdrop({
 }: SpinningBackdropProps) {
   return (
     <div
-      className={`blur-sm brightness-50 select-none sm:blur-md md:blur-lg ${className ?? ''}`}
+      className={cn(
+        'blur-sm brightness-50 select-none sm:blur-md md:blur-lg',
+        className,
+      )}
       {...rest}>
       <Image
         src={BackgroundImage}

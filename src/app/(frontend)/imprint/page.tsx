@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Metadata, ResolvingMetadata } from 'next';
+import Container from '@/components/Container';
 
 export async function generateMetadata(
   _props: unknown,
@@ -21,7 +22,7 @@ export async function generateMetadata(
 
 export default function ImprintPage() {
   return (
-    <section className="flex flex-col gap-12 md:gap-24">
+    <Container as="section" className="flex flex-col gap-12 md:gap-24">
       <h1 className="text-center text-6xl md:text-8xl">Imprint</h1>
       <div className="flex flex-col gap-8 rounded-xl border-2 bg-black/50 p-4 text-lg md:text-xl">
         <address className="flex flex-col not-italic">
@@ -43,6 +44,6 @@ export default function ImprintPage() {
           </div>
         </div>
       </div>
-    </section>
+    </Container>
   );
 }

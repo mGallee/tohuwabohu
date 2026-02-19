@@ -6,12 +6,12 @@ export default function Footer() {
   return (
     <footer className="flex flex-col items-center gap-4 border-t-2 bg-black/50 p-4 md:gap-8 md:p-8">
       <div className="flex flex-col items-center gap-2">
-        <div className="text-lg">Follow us on</div>
+        <div className="text-lg md:text-xl">Follow us on</div>
         <div className="flex flex-row flex-wrap items-center justify-center gap-4 gap-y-1 text-center">
           {SOCIAL_MEDIA_ITEMS.map(({ label, href }) => (
             <Link
               key={`${label}_${href}`}
-              className="text-lg"
+              className="text-lg md:text-xl"
               href={href}
               target="_blank">
               {label}
@@ -20,12 +20,12 @@ export default function Footer() {
         </div>
       </div>
       <div className="flex flex-col items-center gap-2 text-stone-300">
-        <Link className="text-center text-lg" href="/imprint">
+        <Link className="text-center text-lg md:text-xl" href="/imprint">
           Imprint
         </Link>
         <div className="flex flex-row items-center justify-center gap-1">
-          <Copyright size={12} />
-          <div className="text-center text-xs">
+          <Copyright size={14} />
+          <div className="text-center text-xs md:text-sm">
             Tohuwabohu Kultur- und Musikverein
           </div>
         </div>

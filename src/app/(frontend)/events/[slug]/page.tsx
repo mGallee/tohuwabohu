@@ -8,6 +8,7 @@ import Link from '@/components/Link';
 import JsonLd from '@/components/JsonLd';
 import { getPayload } from 'payload';
 import config from '@payload-config';
+import Container from '@/components/Container';
 
 export const revalidate = 60;
 
@@ -88,7 +89,7 @@ export default async function EventPage({ params }: EventPageProps) {
   const event = events.docs[0];
 
   return (
-    <section className="flex flex-col gap-8 md:gap-16">
+    <Container as="section" className="flex flex-col gap-8 md:gap-16">
       <JsonLd data={generateEventJsonLd(event)} />
       <h1 className="text-center text-6xl md:text-8xl">{event.title}</h1>
       <div className="flex flex-col gap-6 rounded-xl border-2 bg-black/50 p-2 text-xl md:p-4">
@@ -192,6 +193,6 @@ export default async function EventPage({ params }: EventPageProps) {
           </div>
         ) : null}
       </div>
-    </section>
+    </Container>
   );
 }

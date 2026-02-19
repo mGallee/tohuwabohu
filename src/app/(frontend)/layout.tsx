@@ -9,6 +9,7 @@ import { getBaseUrl } from '@/utils/url';
 import Footer from '@/components/Footer';
 import SpinningBackdrop from '@/components/SpinningBackdrop';
 import Navigation from '@/components/Navigation';
+import { cn } from '@/utils/helper';
 
 const itcWillowFont = localFont({
   src: '../../assets/ITC-Willow.woff2',
@@ -87,7 +88,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en-AT"
-      className={`${itcWillowFont.variable} ${robotoFont.variable}`}>
+      className={cn(itcWillowFont.variable, robotoFont.variable)}>
       <body className="relative flex flex-col border-stone-50 bg-black text-stone-50 selection:bg-black/80">
         <SpinningBackdrop
           className="fixed inset-0 z-[-99]"
@@ -96,11 +97,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           quality={25}
         />
         <Navigation />
-        <main className="flex flex-1 flex-row justify-center">
-          <div className="flex max-w-200 flex-1 flex-col px-4 py-16 md:px-8 md:py-32">
-            {children}
-          </div>
-        </main>
+        <main className="flex flex-1 flex-col py-16 md:py-32">{children}</main>
         <Footer />
         <SpeedInsights />
         <Analytics />
