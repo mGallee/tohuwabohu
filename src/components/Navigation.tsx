@@ -52,11 +52,15 @@ export default function Navigation() {
 
   return (
     <>
-      <nav className="fixed top-0 right-0 left-0 z-99 flex h-16 w-full flex-row items-center justify-between border-b-2 bg-black/75 backdrop-blur-md md:gap-2 md:px-4">
+      <nav
+        aria-label="Navigation"
+        className="fixed top-0 right-0 left-0 z-99 flex h-16 w-full flex-row items-center justify-between border-b-2 bg-black/75 backdrop-blur-md md:gap-2 md:px-4">
         <button
           onClick={toggleMenu}
           className="flex w-14 items-center justify-center self-stretch md:hidden"
-          aria-label="Toggle menu">
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isOpen}
+          aria-controls="mobile-menu">
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
         <Link
@@ -65,8 +69,10 @@ export default function Navigation() {
           onClick={closeMenu}>
           Tohuwabohu
         </Link>
-        <div className="w-14 self-stretch md:hidden" />
-        <div className="hidden flex-row justify-evenly self-stretch md:flex">
+        <div className="w-14 self-stretch md:hidden" aria-hidden="true" />
+        <div
+          className="hidden flex-row justify-evenly self-stretch md:flex"
+          aria-label="Desktop navigation">
           {NAVIGATION_ITEMS.map((item) => (
             <Link key={item.href} className="p-4 text-xl" href={item.href}>
               {item.label}
@@ -74,12 +80,13 @@ export default function Navigation() {
           ))}
         </div>
       </nav>
-      <div className="flex h-16 w-full" />
+      <div className="flex h-16 w-full" aria-hidden="true" />
       <div
         className={cn(
           'fixed top-16 right-0 bottom-0 left-0 z-99 md:hidden',
           isOpen ? 'pointer-events-auto' : 'pointer-events-none',
-        )}>
+        )}
+        aria-hidden={!isOpen}>
         <div
           className={cn(
             'absolute inset-0 bg-black transition-opacity duration-150 ease-in-out',
@@ -89,6 +96,8 @@ export default function Navigation() {
           onClick={closeMenu}
         />
         <nav
+          id="mobile-menu"
+          aria-label="Mobile navigation"
           className={cn(
             'flex h-full w-[65%] min-w-3xs flex-col border-r-2 bg-black/50 py-4 backdrop-blur-md transition-transform duration-150 ease-in-out',
             isOpen ? 'translate-x-0' : 'translate-x-[calc(-100%-2px)]',
