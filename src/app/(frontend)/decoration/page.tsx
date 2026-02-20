@@ -49,7 +49,7 @@ export default function DecorationPage() {
       <div className="z-0 columns-1 gap-4 md:columns-2">
         {DECO_IMAGES.map((image, index) => (
           <Image
-            key={index}
+            key={image.src}
             className="z-0 mb-4 w-full rounded-xl border-2 border-stone-50"
             src={image}
             alt={`Tohuwabohu event decoration ${index + 1}`}

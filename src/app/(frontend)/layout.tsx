@@ -93,6 +93,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <SpinningBackdrop
           className="fixed inset-0 z-[-99]"
           preload={true}
+          fill={true}
+          sizes="100vw"
           loading="eager"
           quality={25}
         />

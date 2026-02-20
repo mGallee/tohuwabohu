@@ -8,6 +8,8 @@ interface SpinningBackdropProps extends Omit<
   'children'
 > {
   preload?: boolean;
+  fill?: boolean;
+  sizes?: string;
   loading?: 'eager' | 'lazy';
   quality?: number | `${number}`;
 }
@@ -15,6 +17,8 @@ interface SpinningBackdropProps extends Omit<
 export default function SpinningBackdrop({
   className,
   preload,
+  fill,
+  sizes,
   loading,
   quality,
   ...rest
@@ -30,7 +34,8 @@ export default function SpinningBackdrop({
         src={BackgroundImage}
         className="animate-spin-extremely-slow aspect-square object-cover object-center opacity-50"
         alt="Spiral spinning 0deg"
-        fill
+        fill={fill}
+        sizes={sizes}
         placeholder="blur"
         preload={preload}
         loading={loading}
@@ -41,7 +46,8 @@ export default function SpinningBackdrop({
         src={BackgroundImage}
         className="animate-spin-extremely-slow aspect-square rotate-45 object-cover object-center opacity-50"
         alt="Spiral spinning 45deg"
-        fill
+        fill={fill}
+        sizes={sizes}
         placeholder="blur"
         preload={preload}
         loading={loading}
@@ -52,7 +58,8 @@ export default function SpinningBackdrop({
         src={BackgroundImage}
         className="animate-spin-extremely-slow aspect-square rotate-90 object-cover object-center opacity-50"
         alt="Spiral spinning 90deg"
-        fill
+        fill={fill}
+        sizes={sizes}
         placeholder="blur"
         preload={preload}
         loading={loading}
@@ -63,7 +70,8 @@ export default function SpinningBackdrop({
         src={BackgroundImage}
         className="animate-spin-extremely-slow aspect-square rotate-135 object-cover object-center opacity-50"
         alt="Spiral spinning 135deg"
-        fill
+        fill={fill}
+        sizes={sizes}
         placeholder="blur"
         preload={preload}
         loading={loading}

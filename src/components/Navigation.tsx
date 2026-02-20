@@ -85,6 +85,7 @@ export default function Navigation() {
             'absolute inset-0 bg-black transition-opacity duration-150 ease-in-out',
             isOpen ? 'opacity-50' : 'opacity-0',
           )}
+          aria-hidden="true"
           onClick={closeMenu}
         />
         <nav
