@@ -20,6 +20,7 @@
     "migrate": "payload migrate",
     "migrate:create": "payload migrate:create",
     "migrate:fresh": "payload migrate:fresh",
+    "migrate:status": "payload migrate:status",
     "seed": "payload run ./src/seed/index.ts"
   },
   "dependencies": {

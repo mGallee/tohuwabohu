@@ -1,5 +1,4 @@
 import { Clock10, MapPin, Ticket, TicketPercent } from 'lucide-react';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getGoogleMapsUrlForEventLocation } from '@/utils/helper';
 import { Metadata, ResolvingMetadata } from 'next';
@@ -9,6 +8,7 @@ import JsonLd from '@/components/JsonLd';
 import { getPayload } from 'payload';
 import config from '@payload-config';
 import Container from '@/components/Container';
+import { PayloadImage } from '@/components/PayloadImage';
 
 export const revalidate = 60;
 
@@ -161,32 +161,19 @@ export default async function EventPage({ params }: EventPageProps) {
         ) : null}
       </div>
       <div className="flex flex-col gap-4 md:flex-row">
-        {typeof event.flyer.front === 'object' &&
-        event.flyer.front.url &&
-        event.flyer.front.width &&
-        event.flyer.front.height ? (
+        <div className="flex flex-1">
+          <PayloadImage
+            className="w-full rounded-xl border-2 border-stone-50"
+            image={event.flyer.front}
+            alt={`Flyer of ${event.title}`}
+            draggable={false}
+          />
+        </div>
+        {event.flyer.back ? (
           <div className="flex flex-1">
-            <Image
+            <PayloadImage
               className="w-full rounded-xl border-2 border-stone-50"
-              src={event.flyer.front.url}
-              width={event.flyer.front.width}
-              height={event.flyer.front.height}
-              alt={`Flyer of ${event.title}`}
-              draggable={false}
-            />
-          </div>
-        ) : null}
-        {event.flyer.back &&
-        typeof event.flyer.back === 'object' &&
-        event.flyer.back.url &&
-        event.flyer.back.width &&
-        event.flyer.back.height ? (
-          <div className="flex flex-1">
-            <Image
-              className="w-full rounded-xl border-2 border-stone-50"
-              src={event.flyer.back.url}
-              width={event.flyer.back.width}
-              height={event.flyer.back.height}
+              image={event.flyer.back}
               alt={`Lineup of ${event.title}`}
               draggable={false}
             />

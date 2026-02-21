@@ -35,6 +35,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}/events/${event.slug}`,
       priority: 0.8,
       changeFrequency: 'weekly' as const,
+      lastModified: event.updatedAt,
       images: [
         ...(event.flyer.front &&
         typeof event.flyer.front === 'object' &&
@@ -57,6 +58,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}/artists/${artist.slug}`,
       priority: 0.7,
       changeFrequency: 'weekly' as const,
+      lastModified: artist.updatedAt,
       images: [
         ...(artist.profilePicture &&
         typeof artist.profilePicture === 'object' &&

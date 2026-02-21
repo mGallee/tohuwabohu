@@ -1,5 +1,4 @@
 import SoundCloudPlayer from '@/components/SoundCloudPlayer';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Metadata, ResolvingMetadata } from 'next';
 import { generateArtistJsonLd } from '@/utils/jsonLd';
@@ -8,6 +7,7 @@ import Link from '@/components/Link';
 import { getPayload } from 'payload';
 import config from '@payload-config';
 import Container from '@/components/Container';
+import { PayloadImage } from '@/components/PayloadImage';
 
 export const revalidate = 60;
 
@@ -88,21 +88,14 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
       as="section"
       className="flex flex-col items-center gap-8 md:gap-16">
       <JsonLd data={generateArtistJsonLd(artist)} />
-      {typeof artist.profilePicture === 'object' &&
-      artist.profilePicture.url &&
-      artist.profilePicture.width &&
-      artist.profilePicture.height ? (
-        <Image
-          className="aspect-square h-[220] w-[220] rounded-full border-2 border-stone-50 md:h-[320] md:w-[320]"
-          src={artist.profilePicture.url}
-          width={artist.profilePicture.width}
-          height={artist.profilePicture.height}
-          alt={`Profile picture of ${artist.name}`}
-          draggable={false}
-          preload
-          loading="eager"
-        />
-      ) : null}
+      <PayloadImage
+        className="aspect-square h-[220] w-[220] rounded-full border-2 border-stone-50 md:h-[320] md:w-[320]"
+        image={artist.profilePicture}
+        alt={`Profile picture of ${artist.name}`}
+        draggable={false}
+        preload
+        loading="eager"
+      />
       <h1 className="text-center text-6xl md:text-8xl">{artist.name}</h1>
       <p className="text-center text-2xl text-balance whitespace-pre-wrap md:text-4xl">
         {artist.description}
