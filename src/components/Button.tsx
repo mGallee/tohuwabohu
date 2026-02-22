@@ -45,7 +45,7 @@ export default function Button(props: ButtonProps) {
   const as = props.as ?? 'button';
 
   switch (as) {
-    case 'a':
+    case 'a': {
       const anchorProps = props as AnchorElementProps;
       return (
         <Link
@@ -56,13 +56,15 @@ export default function Button(props: ButtonProps) {
           {anchorProps.children}
         </Link>
       );
-    case 'button':
+    }
+    case 'button': {
       const buttonProps = props as ButtonElementProps;
       return (
         <button className={combinedClasses} onClick={buttonProps.onClick}>
           {buttonProps.children}
         </button>
       );
+    }
     default:
       assertUnreachable(as);
   }

@@ -19,10 +19,10 @@ interface EventSeedData {
   price: number;
   beforeMidnightPrice: number;
   description: string;
-  lineup?: Array<{
+  lineup?: {
     startTime: string;
     artist: string;
-  }>;
+  }[];
   flyer: {
     frontPath: string;
     backPath?: string;

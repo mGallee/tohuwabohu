@@ -1,37 +1,31 @@
+import { defineConfig, globalIgnores } from 'eslint/config';
+import js from '@eslint/js';
+import typescriptEslint from 'typescript-eslint';
 import nextCoreWebVitals from 'eslint-config-next/core-web-vitals';
 import nextTypescript from 'eslint-config-next/typescript';
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
-import { FlatCompat } from '@eslint/eslintrc';
+import prettier from 'eslint-config-prettier/flat';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-const eslintConfig = [
+export default defineConfig([
+  js.configs.recommended,
   ...nextCoreWebVitals,
   ...nextTypescript,
-  ...compat.extends('prettier'),
-  {
-    ignores: [
-      'node_modules/**',
-      '.next/**',
-      'out/**',
-      'build/**',
-      'next-env.d.ts',
-      'dist/**',
-      '.payload/**',
-      'payload-types.ts',
-      'coverage/**',
-      '.vercel/**',
-      'public/static/**',
-      'public/media/**',
-      'src/migrations/**',
-    ],
-  },
-];
-
-export default eslintConfig;
+  ...typescriptEslint.configs.strict,
+  ...typescriptEslint.configs.stylistic,
+  prettier,
+  globalIgnores([
+    'node_modules/**',
+    '.next/**',
+    'out/**',
+    'build/**',
+    'next-env.d.ts',
+    'dist/**',
+    '.payload/**',
+    'coverage/**',
+    '.vercel/**',
+    'public/static/**',
+    'public/media/**',
+    'src/app/(payload)/**',
+    'src/migrations/**',
+    'src/payload-types.ts',
+  ]),
+]);
