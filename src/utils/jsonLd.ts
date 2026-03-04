@@ -117,10 +117,11 @@ export function generateArtistJsonLd(artist: Artist): WithContext<Person> {
     image: image,
     sameAs: [
       `https://soundcloud.com/${artist.soundCloud.username}`,
-      ...(artist.instagram
+      ...(artist.instagram?.username && artist.instagram.username.length > 0
         ? [`https://www.instagram.com/${artist.instagram.username}`]
         : []),
-      ...(artist.residentAdvisor
+      ...(artist.residentAdvisor?.username &&
+      artist.residentAdvisor.username.length > 0
         ? [`https://ra.co/dj/${artist.residentAdvisor.username}`]
         : []),
     ],

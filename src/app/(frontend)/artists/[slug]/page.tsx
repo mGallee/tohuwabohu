@@ -110,14 +110,15 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
           target="_blank">
           SoundCloud
         </Link>
-        {artist.instagram ? (
+        {artist.instagram?.username && artist.instagram.username.length > 0 ? (
           <Link
             href={`https://www.instagram.com/${artist.instagram.username}`}
             target="_blank">
             Instagram
           </Link>
         ) : null}
-        {artist.residentAdvisor ? (
+        {artist.residentAdvisor?.username &&
+        artist.residentAdvisor.username.length > 0 ? (
           <Link
             href={`https://ra.co/dj/${artist.residentAdvisor.username}`}
             target="_blank">
