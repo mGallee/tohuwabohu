@@ -8,6 +8,11 @@ import { getPayload } from 'payload';
 import config from '@payload-config';
 import Container from '@/components/Container';
 import { PayloadImage } from '@/components/PayloadImage';
+import {
+  getInstagramProfileUrl,
+  getResidentAdvisorDJProfileUrl,
+  getSoundCloudProfileUrl,
+} from '@/utils/helper';
 
 export const revalidate = 60;
 
@@ -106,13 +111,13 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
       />
       <div className="flex flex-col items-center gap-2 text-center text-xl md:flex-row md:justify-evenly md:gap-4 md:self-stretch md:text-2xl">
         <Link
-          href={`https://soundcloud.com/${artist.soundCloud.username}`}
+          href={getSoundCloudProfileUrl(artist.soundCloud.username)}
           target="_blank">
           SoundCloud
         </Link>
         {artist.instagram?.username && artist.instagram.username.length > 0 ? (
           <Link
-            href={`https://www.instagram.com/${artist.instagram.username}`}
+            href={getInstagramProfileUrl(artist.instagram.username)}
             target="_blank">
             Instagram
           </Link>
@@ -120,7 +125,9 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
         {artist.residentAdvisor?.username &&
         artist.residentAdvisor.username.length > 0 ? (
           <Link
-            href={`https://ra.co/dj/${artist.residentAdvisor.username}`}
+            href={getResidentAdvisorDJProfileUrl(
+              artist.residentAdvisor.username,
+            )}
             target="_blank">
             Resident Advisor
           </Link>

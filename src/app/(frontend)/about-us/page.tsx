@@ -3,6 +3,7 @@ import Link from '@/components/Link';
 import { ArrowRight } from 'lucide-react';
 import Button from '@/components/Button';
 import Container from '@/components/Container';
+import { getInstagramMessageUrl } from '@/utils/helper';
 
 export async function generateMetadata(
   _props: unknown,
@@ -102,7 +103,7 @@ export default function AboutUsPage() {
         <Button
           as="a"
           variant="outlined"
-          href="https://ig.me/m/tohuwabohu.vienna"
+          href={getInstagramMessageUrl('tohuwabohu.vienna')}
           target="_blank">
           Message us on Instagram
         </Button>
