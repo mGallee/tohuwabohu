@@ -13,6 +13,7 @@ import {
   getResidentAdvisorDJProfileUrl,
   getSoundCloudProfileUrl,
 } from '@/utils/helper';
+import TextWithLinks from '@/components/TextWithLinks';
 
 export const revalidate = 60;
 
@@ -103,7 +104,7 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
       />
       <h1 className="text-center text-6xl md:text-8xl">{artist.name}</h1>
       <p className="text-center text-2xl text-balance whitespace-pre-wrap md:text-4xl">
-        {artist.description}
+        <TextWithLinks>{artist.description}</TextWithLinks>
       </p>
       <SoundCloudPlayer
         url={`https://api.soundcloud.com/tracks/soundcloud:tracks:${artist.soundCloud.trackId}`}

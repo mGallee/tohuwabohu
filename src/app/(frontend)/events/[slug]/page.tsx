@@ -9,6 +9,7 @@ import { getPayload } from 'payload';
 import config from '@payload-config';
 import Container from '@/components/Container';
 import { PayloadImage } from '@/components/PayloadImage';
+import TextWithLinks from '@/components/TextWithLinks';
 
 export const revalidate = 60;
 
@@ -136,7 +137,9 @@ export default async function EventPage({ params }: EventPageProps) {
             </div>
           ) : null}
         </div>
-        <p className="whitespace-pre-wrap">{event.description}</p>
+        <p className="whitespace-pre-wrap">
+          <TextWithLinks>{event.description}</TextWithLinks>
+        </p>
         {event.lineup && event.lineup.length > 0 ? (
           <div className="flex flex-col gap-2">
             <div className="font-medium">Lineup</div>
