@@ -1,22 +1,30 @@
+import {
+  getFacebookProfileUrl,
+  getInstagramProfileUrl,
+  getResidentAdvisorPromoterProfileUrl,
+  getSoundCloudProfileUrl,
+  getTelegramProfileUrl,
+} from '@/utils/helper';
+
 export const SOCIAL_MEDIA_ITEMS = [
   {
     label: 'Instagram',
-    href: 'https://www.instagram.com/tohuwabohu.vienna',
+    href: getInstagramProfileUrl('tohuwabohu.vienna'),
   },
   {
     label: 'Facebook',
-    href: 'https://www.facebook.com/tohuwabohu.vienna',
+    href: getFacebookProfileUrl('tohuwabohu.vienna'),
   },
   {
     label: 'SoundCloud',
-    href: 'https://soundcloud.com/tohuwabohu-vienna',
+    href: getSoundCloudProfileUrl('tohuwabohu-vienna'),
   },
   {
     label: 'Telegram',
-    href: 'https://t.me/TohuwabohuVienna',
+    href: getTelegramProfileUrl('TohuwabohuVienna'),
   },
   {
     label: 'Resident Advisor',
-    href: 'https://de.ra.co/promoters/138321',
+    href: getResidentAdvisorPromoterProfileUrl('138321'),
   },
 ] as const;

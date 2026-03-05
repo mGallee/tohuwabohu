@@ -1,6 +1,7 @@
 import type { CollectionConfig } from 'payload';
 import { ValidationError } from 'payload';
 import { getArtistSlug } from '@/utils/helper';
+import { extractSoundcloudTrackId } from '@/utils/soundcloud';
 
 export const Artists: CollectionConfig = {
   slug: 'artists',
@@ -57,12 +58,23 @@ export const Artists: CollectionConfig = {
     {
       name: 'soundCloud',
       type: 'group',
+      required: true,
       fields: [
         {
           name: 'username',
           type: 'text',
           required: true,
           maxLength: 50,
+        },
+        {
+          name: 'trackUrl',
+          type: 'text',
+          label: 'Track Url',
+          virtual: true,
+          admin: {
+            description:
+              'Paste a SoundCloud track URL to auto-fill the Track ID below.',
+          },
         },
         {
           name: 'trackId',
@@ -171,6 +183,18 @@ export const Artists: CollectionConfig = {
                 ],
               });
             }
+          }
+        }
+
+        if (data.soundCloud?.trackUrl) {
+          try {
+            const id = await extractSoundcloudTrackId(data.soundCloud.trackUrl);
+            data.soundCloud.trackId = Number(id);
+          } catch (err) {
+            console.warn(
+              '[SoundCloud] Could not extract track ID:',
+              (err as Error).message,
+            );
           }
         }
 

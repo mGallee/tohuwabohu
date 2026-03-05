@@ -2,6 +2,11 @@ import { WithContext, MusicEvent, Person, Offer } from 'schema-dts';
 import { getBaseUrl } from '@/utils/url';
 import { SOCIAL_MEDIA_ITEMS } from '@/constants/social-media';
 import { Event, Artist } from '@/payload-types';
+import {
+  getInstagramProfileUrl,
+  getResidentAdvisorDJProfileUrl,
+  getSoundCloudProfileUrl,
+} from '@/utils/helper';
 
 export function generateEventJsonLd(event: Event): WithContext<MusicEvent> {
   const baseUrl = getBaseUrl();
@@ -116,13 +121,13 @@ export function generateArtistJsonLd(artist: Artist): WithContext<Person> {
     jobTitle: 'Music Artist',
     image: image,
     sameAs: [
-      `https://soundcloud.com/${artist.soundCloud.username}`,
+      getSoundCloudProfileUrl(artist.soundCloud.username),
       ...(artist.instagram?.username && artist.instagram.username.length > 0
-        ? [`https://www.instagram.com/${artist.instagram.username}`]
+        ? [getInstagramProfileUrl(artist.instagram.username)]
         : []),
       ...(artist.residentAdvisor?.username &&
       artist.residentAdvisor.username.length > 0
-        ? [`https://ra.co/dj/${artist.residentAdvisor.username}`]
+        ? [getResidentAdvisorDJProfileUrl(artist.residentAdvisor.username)]
         : []),
     ],
   };
