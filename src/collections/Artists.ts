@@ -189,12 +189,23 @@ export const Artists: CollectionConfig = {
         if (data.soundCloud?.trackUrl) {
           try {
             const id = await extractSoundcloudTrackId(data.soundCloud.trackUrl);
-            data.soundCloud.trackId = Number(id);
-          } catch (err) {
-            console.warn(
-              '[SoundCloud] Could not extract track ID:',
-              (err as Error).message,
-            );
+            const parsedId = Number(id);
+            if (!Number.isInteger(parsedId) || parsedId <= 0) {
+              throw new Error('Extracted SoundCloud track ID is invalid.');
+            }
+            data.soundCloud.trackId = parsedId;
+          } catch (error) {
+            throw new ValidationError({
+              errors: [
+                {
+                  path: 'soundCloud.trackUrl',
+                  message:
+                    error instanceof Error
+                      ? error.message
+                      : 'Could not extract a valid SoundCloud track ID from the provided URL.',
+                },
+              ],
+            });
           }
         }
 

@@ -1,5 +1,14 @@
 export async function extractSoundcloudTrackId(url: string): Promise<string> {
-  const response = await fetch(url, {
+  const parsed = new URL(url);
+  const host = parsed.hostname.toLowerCase();
+  const isSoundCloudHost =
+    host === 'soundcloud.com' || host.endsWith('.soundcloud.com');
+
+  if (parsed.protocol !== 'https:' || !isSoundCloudHost) {
+    throw new Error('Only https://soundcloud.com URLs are allowed.');
+  }
+
+  const response = await fetch(parsed.toString(), {
     headers: {
       'User-Agent':
         'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
@@ -18,13 +27,19 @@ export async function extractSoundcloudTrackId(url: string): Promise<string> {
     /window\.__sc_hydration\s*=\s*(\[[\s\S]+?]);/,
   );
   if (hydrationMatch) {
-    const hydration: {
-      hydratable: string;
-      data: Record<string, unknown>;
-    }[] = JSON.parse(hydrationMatch[1]);
-    const soundEntry = hydration.find((entry) => entry.hydratable === 'sound');
-    if (soundEntry?.data?.id) {
-      return String(soundEntry.data.id);
+    try {
+      const hydration: {
+        hydratable: string;
+        data: Record<string, unknown>;
+      }[] = JSON.parse(hydrationMatch[1]);
+      const soundEntry = hydration.find(
+        (entry) => entry.hydratable === 'sound',
+      );
+      if (soundEntry?.data?.id) {
+        return String(soundEntry.data.id);
+      }
+    } catch {
+      // continue to fallback patterns
     }
   }
 

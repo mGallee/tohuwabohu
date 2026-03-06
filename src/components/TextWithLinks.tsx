@@ -14,6 +14,7 @@ export default function TextWithLinks({
   anchorProps,
 }: TextWithLinksProps) {
   const urlRegex = /https?:\/\/[^\s]+/g;
+  const trailingPunctuationRegex = /[),.;!?]+$/;
   const parts: (string | JSX.Element)[] = [];
   let lastIndex = 0;
   let match: RegExpExecArray | null;
@@ -22,16 +23,22 @@ export default function TextWithLinks({
     if (match.index > lastIndex) {
       parts.push(children.slice(lastIndex, match.index));
     }
+    const rawUrl = match[0];
+    const cleanUrl = rawUrl.replace(trailingPunctuationRegex, '');
+    const trailing = rawUrl.slice(cleanUrl.length);
     parts.push(
       <Link
         key={match.index}
-        href={match[0]}
+        href={cleanUrl}
         target="_blank"
         rel="noopener noreferrer"
         {...anchorProps}>
-        {match[0]}
+        {cleanUrl}
       </Link>,
     );
+    if (trailing) {
+      parts.push(trailing);
+    }
     lastIndex = urlRegex.lastIndex;
   }
 
