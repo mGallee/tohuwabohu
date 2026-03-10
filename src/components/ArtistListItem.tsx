@@ -24,6 +24,7 @@ export default function ArtistListItem({
           image={artist.profilePicture}
           alt={`Profile picture of ${artist.name}`}
           draggable={false}
+          sizes="(max-width: 768px) 60px, 70px"
         />
         <div className="font-headline mb-3 text-4xl md:mb-4 md:text-5xl">
           {artist.name}

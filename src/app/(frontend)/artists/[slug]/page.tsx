@@ -101,6 +101,7 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
         draggable={false}
         preload
         loading="eager"
+        sizes="(max-width: 768px) 220px, 320px"
       />
       <h1 className="text-center text-6xl md:text-8xl">{artist.name}</h1>
       <p className="text-center text-2xl text-balance whitespace-pre-wrap md:text-4xl">

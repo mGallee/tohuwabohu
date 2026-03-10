@@ -170,6 +170,9 @@ export default async function EventPage({ params }: EventPageProps) {
             image={event.flyer.front}
             alt={`Flyer of ${event.title}`}
             draggable={false}
+            sizes={
+              event.flyer.back ? '(max-width: 768px) 100vw, 50vw' : '100vw'
+            }
           />
         </div>
         {event.flyer.back ? (
@@ -179,6 +182,7 @@ export default async function EventPage({ params }: EventPageProps) {
               image={event.flyer.back}
               alt={`Lineup of ${event.title}`}
               draggable={false}
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
         ) : null}
