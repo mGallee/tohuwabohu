@@ -49,6 +49,9 @@ export async function generateMetadata(
       ? `${event.description.slice(0, 150)}...`
       : event.description;
 
+  const flyerFront =
+    typeof event.flyer.front === 'object' ? event.flyer.front : null;
+
   return {
     title,
     description,
@@ -65,6 +68,18 @@ export async function generateMetadata(
       ...parentOpenGraph,
       title,
       description,
+      ...(flyerFront?.url &&
+        flyerFront?.width &&
+        flyerFront?.height && {
+          images: [
+            {
+              url: flyerFront.url,
+              width: flyerFront.width,
+              height: flyerFront.height,
+              alt: `Flyer of ${event.title}`,
+            },
+          ],
+        }),
     },
   };
 }

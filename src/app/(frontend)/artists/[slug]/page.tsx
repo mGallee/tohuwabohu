@@ -53,6 +53,9 @@ export async function generateMetadata(
       ? `${artist.description.slice(0, 150)}...`
       : artist.description;
 
+  const profilePicture =
+    typeof artist.profilePicture === 'object' ? artist.profilePicture : null;
+
   return {
     title,
     description,
@@ -65,6 +68,18 @@ export async function generateMetadata(
       ...parentOpenGraph,
       title,
       description,
+      ...(profilePicture?.url &&
+        profilePicture?.width &&
+        profilePicture?.height && {
+          images: [
+            {
+              url: profilePicture.url,
+              width: profilePicture.width,
+              height: profilePicture.height,
+              alt: `Profile picture of ${artist.name}`,
+            },
+          ],
+        }),
     },
   };
 }
