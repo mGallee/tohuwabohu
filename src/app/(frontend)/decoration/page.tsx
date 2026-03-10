@@ -54,6 +54,8 @@ export default function DecorationPage() {
             src={image}
             alt={`Tohuwabohu event decoration ${index + 1}`}
             draggable={false}
+            sizes="(max-width: 768px) 100vw, 50vw"
+            priority={index < 2}
           />
         ))}
       </div>
