@@ -1,8 +1,4 @@
-export function getBaseUrl() {
-  if (typeof window !== 'undefined') {
-    return window.location.origin;
-  }
-
+function getBaseUrl() {
   if (
     process.env.VERCEL_ENV === 'production' &&
     process.env.VERCEL_PROJECT_PRODUCTION_URL
@@ -16,3 +12,5 @@ export function getBaseUrl() {
 
   return `http://localhost:${process.env.PORT || 3000}`;
 }
+
+export const BASE_URL = getBaseUrl();

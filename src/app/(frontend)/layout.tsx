@@ -5,11 +5,11 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
 import { ReactNode } from 'react';
 import { Metadata, Viewport } from 'next';
-import { getBaseUrl } from '@/utils/url';
 import Footer from '@/components/Footer';
 import SpinningBackdrop from '@/components/SpinningBackdrop';
 import Navigation from '@/components/Navigation';
 import { cn } from '@/utils/helper';
+import { BASE_URL } from '@/constants/url';
 
 const itcWillowFont = localFont({
   src: '../../assets/ITC-Willow.woff2',
@@ -36,7 +36,6 @@ const description =
   'Vienna-based collective creating music and art events with great sound, strong visuals, and an open, inclusive space to connect, feel safe, and be yourself.';
 
 export function generateMetadata(): Metadata {
-  const baseUrl = getBaseUrl();
   return {
     title: {
       template: `%s - ${title}`,
@@ -58,7 +57,7 @@ export function generateMetadata(): Metadata {
         follow: true,
       },
     },
-    metadataBase: new URL(baseUrl),
+    metadataBase: new URL(BASE_URL),
     openGraph: {
       title: {
         template: `%s - ${title}`,
