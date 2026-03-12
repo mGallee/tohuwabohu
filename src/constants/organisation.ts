@@ -1,4 +1,4 @@
-import { getBaseUrl } from '@/utils/url';
+import { BASE_URL } from '@/constants/url';
 
 export const ORGANISATION = {
   name: 'Tohuwabohu',
@@ -6,9 +6,9 @@ export const ORGANISATION = {
   legalName: 'TOHUWABOHU Kultur- und Musikverein',
   description:
     'Vienna-based collective creating music and art events with high-quality sound, handcrafted visuals, and an open, inclusive space to connect, feel safe, and be yourself.',
-  url: getBaseUrl(),
+  url: BASE_URL,
   logo: {
-    url: `${getBaseUrl()}/images/logo-open-graph.png`,
+    url: `${BASE_URL}/images/logo-open-graph.png`,
     width: 1080,
     height: 1080,
   },

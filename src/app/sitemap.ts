@@ -1,13 +1,12 @@
 import { MetadataRoute } from 'next';
-import { getBaseUrl } from '@/utils/url';
 import { getPayload } from 'payload';
 import config from '@payload-config';
 import { DECO_IMAGES } from '@/constants/decoration';
+import { BASE_URL } from '@/constants/url';
 
 export const revalidate = 3600;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = getBaseUrl();
   const payload = await getPayload({ config });
   const events = await payload.find({
     collection: 'events',
@@ -22,17 +21,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     {
-      url: baseUrl,
+      url: BASE_URL,
       priority: 1,
       changeFrequency: 'weekly',
     },
     {
-      url: `${baseUrl}/events`,
+      url: `${BASE_URL}/events`,
       priority: 0.8,
       changeFrequency: 'weekly',
     },
     ...events.docs.map((event) => ({
-      url: `${baseUrl}/events/${event.slug}`,
+      url: `${BASE_URL}/events/${event.slug}`,
       priority: 0.8,
       changeFrequency: 'weekly' as const,
       lastModified: event.updatedAt,
@@ -40,22 +39,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         ...(event.flyer.front &&
         typeof event.flyer.front === 'object' &&
         event.flyer.front.url
-          ? [`${baseUrl}${event.flyer.front.url}`]
+          ? [`${BASE_URL}${event.flyer.front.url}`]
           : []),
         ...(event.flyer.back &&
         typeof event.flyer.back === 'object' &&
         event.flyer.back.url
-          ? [`${baseUrl}${event.flyer.back.url}`]
+          ? [`${BASE_URL}${event.flyer.back.url}`]
           : []),
       ],
     })),
     {
-      url: `${baseUrl}/artists`,
+      url: `${BASE_URL}/artists`,
       priority: 0.7,
       changeFrequency: 'weekly',
     },
     ...artists.docs.map((artist) => ({
-      url: `${baseUrl}/artists/${artist.slug}`,
+      url: `${BASE_URL}/artists/${artist.slug}`,
       priority: 0.7,
       changeFrequency: 'weekly' as const,
       lastModified: artist.updatedAt,
@@ -63,28 +62,28 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         ...(artist.profilePicture &&
         typeof artist.profilePicture === 'object' &&
         artist.profilePicture.url
-          ? [`${baseUrl}${artist.profilePicture.url}`]
+          ? [`${BASE_URL}${artist.profilePicture.url}`]
           : []),
       ],
     })),
     {
-      url: `${baseUrl}/awareness`,
+      url: `${BASE_URL}/awareness`,
       priority: 0.6,
       changeFrequency: 'monthly',
     },
     {
-      url: `${baseUrl}/decoration`,
+      url: `${BASE_URL}/decoration`,
       priority: 0.6,
       changeFrequency: 'weekly',
-      images: DECO_IMAGES.map((image) => `${baseUrl}${image.src}`),
+      images: DECO_IMAGES.map((image) => `${BASE_URL}${image.src}`),
     },
     {
-      url: `${baseUrl}/about-us`,
+      url: `${BASE_URL}/about-us`,
       priority: 0.5,
       changeFrequency: 'monthly',
     },
     {
-      url: `${baseUrl}/imprint`,
+      url: `${BASE_URL}/imprint`,
       priority: 0.3,
       changeFrequency: 'monthly',
     },

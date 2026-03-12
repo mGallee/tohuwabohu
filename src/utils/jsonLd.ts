@@ -1,5 +1,4 @@
 import { WithContext, MusicEvent, Person, Offer } from 'schema-dts';
-import { getBaseUrl } from '@/utils/url';
 import { SOCIAL_MEDIA_ITEMS } from '@/constants/social-media';
 import { Event, Artist } from '@/payload-types';
 import {
@@ -8,10 +7,10 @@ import {
   getSoundCloudProfileUrl,
 } from '@/utils/helper';
 import { ORGANISATION } from '@/constants/organisation';
+import { BASE_URL } from '@/constants/url';
 
 export function generateEventJsonLd(event: Event): WithContext<MusicEvent> {
-  const baseUrl = getBaseUrl();
-  const eventUrl = `${baseUrl}/events/${event.slug}`;
+  const eventUrl = `${BASE_URL}/events/${event.slug}`;
   const offers: Offer[] = [
     {
       '@type': 'Offer',
@@ -70,7 +69,7 @@ export function generateEventJsonLd(event: Event): WithContext<MusicEvent> {
     organizer: {
       '@type': 'Organization',
       name: ORGANISATION.alternateName,
-      url: baseUrl,
+      url: BASE_URL,
       sameAs: SOCIAL_MEDIA_ITEMS.map((item) => item.href),
     },
     offers: offers,
@@ -88,20 +87,19 @@ export function generateEventJsonLd(event: Event): WithContext<MusicEvent> {
       ...(event.flyer.front &&
       typeof event.flyer.front === 'object' &&
       event.flyer.front.url
-        ? [`${baseUrl}${event.flyer.front.url}`]
+        ? [`${BASE_URL}${event.flyer.front.url}`]
         : []),
       ...(event.flyer.back &&
       typeof event.flyer.back === 'object' &&
       event.flyer.back.url
-        ? [`${baseUrl}${event.flyer.back.url}`]
+        ? [`${BASE_URL}${event.flyer.back.url}`]
         : []),
     ],
   };
 }
 
 export function generateArtistJsonLd(artist: Artist): WithContext<Person> {
-  const baseUrl = getBaseUrl();
-  const artistUrl = `${baseUrl}/artists/${artist.slug}`;
+  const artistUrl = `${BASE_URL}/artists/${artist.slug}`;
 
   let image: undefined | string;
   if (
