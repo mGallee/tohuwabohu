@@ -10,6 +10,7 @@ import SpinningBackdrop from '@/components/SpinningBackdrop';
 import Navigation from '@/components/Navigation';
 import { cn } from '@/utils/helper';
 import { BASE_URL } from '@/constants/url';
+import { ORGANISATION } from '@/constants/organisation';
 
 const itcWillowFont = localFont({
   src: '../../assets/ITC-Willow.woff2',
@@ -32,8 +33,7 @@ const robotoFont = Roboto({
 });
 
 const title = 'Tohuwabohu | Techno & Psychedelic Parties in Vienna';
-const description =
-  'Vienna-based collective creating music and art events with great sound, strong visuals, and an open, inclusive space to connect, feel safe, and be yourself.';
+const description = ORGANISATION.description;
 
 export function generateMetadata(): Metadata {
   return {
