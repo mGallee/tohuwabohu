@@ -38,4 +38,4 @@ export const DECO_IMAGES = [
   DecoIMG17,
   DecoIMG18,
   DecoIMG19,
-];
+] as const;

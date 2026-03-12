@@ -7,6 +7,7 @@ import {
   getResidentAdvisorDJProfileUrl,
   getSoundCloudProfileUrl,
 } from '@/utils/helper';
+import { ORGANISATION } from '@/constants/organisation';
 
 export function generateEventJsonLd(event: Event): WithContext<MusicEvent> {
   const baseUrl = getBaseUrl();
@@ -68,7 +69,7 @@ export function generateEventJsonLd(event: Event): WithContext<MusicEvent> {
     },
     organizer: {
       '@type': 'Organization',
-      name: 'Tohuwabohu Kultur- und Musikverein',
+      name: ORGANISATION.alternateName,
       url: baseUrl,
       sameAs: SOCIAL_MEDIA_ITEMS.map((item) => item.href),
     },

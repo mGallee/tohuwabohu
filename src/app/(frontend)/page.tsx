@@ -2,6 +2,9 @@ import Button from '@/components/Button';
 import Link from '@/components/Link';
 import { Metadata, ResolvingMetadata } from 'next';
 import Container from '@/components/Container';
+import JsonLd from '@/components/JsonLd';
+import { SOCIAL_MEDIA_ITEMS } from '@/constants/social-media';
+import { ORGANISATION } from '@/constants/organisation';
 
 export async function generateMetadata(
   _props: unknown,
@@ -22,6 +25,32 @@ export async function generateMetadata(
 export default function HomePage() {
   return (
     <Container className="flex flex-col justify-center gap-12 md:gap-24">
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          '@id': `${ORGANISATION.url}/#organization`,
+          name: ORGANISATION.name,
+          alternateName: ORGANISATION.alternateName,
+          url: ORGANISATION.url,
+          logo: {
+            '@type': 'ImageObject',
+            url: ORGANISATION.logo.url,
+            width: ORGANISATION.logo.width.toString(),
+            height: ORGANISATION.logo.height.toString(),
+          },
+          description: ORGANISATION.description,
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: ORGANISATION.address.streetAddress,
+            addressLocality: ORGANISATION.address.locality,
+            addressRegion: ORGANISATION.address.region,
+            postalCode: ORGANISATION.address.postalCode,
+            addressCountry: ORGANISATION.address.country,
+          },
+          sameAs: [...SOCIAL_MEDIA_ITEMS.map((item) => item.href)],
+        }}
+      />
       <section className="flex min-h-[70dvh] flex-col items-center justify-center gap-8 md:min-h-[67dvh] md:gap-16">
         <h1 className="animate-text-glow text-center text-6xl sm:text-8xl md:text-9xl">
           Tohuwabohu
