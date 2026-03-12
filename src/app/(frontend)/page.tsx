@@ -33,13 +33,13 @@ export default function HomePage() {
           name: ORGANISATION.name,
           alternateName: ORGANISATION.alternateName,
           url: ORGANISATION.url,
+          description: ORGANISATION.description,
           logo: {
             '@type': 'ImageObject',
             url: ORGANISATION.logo.url,
             width: ORGANISATION.logo.width.toString(),
             height: ORGANISATION.logo.height.toString(),
           },
-          description: ORGANISATION.description,
           address: {
             '@type': 'PostalAddress',
             streetAddress: ORGANISATION.address.streetAddress,
@@ -48,7 +48,7 @@ export default function HomePage() {
             postalCode: ORGANISATION.address.postalCode,
             addressCountry: ORGANISATION.address.country,
           },
-          sameAs: [...SOCIAL_MEDIA_ITEMS.map((item) => item.href)],
+          sameAs: SOCIAL_MEDIA_ITEMS.map((item) => item.href),
         }}
       />
       <section className="flex min-h-[70dvh] flex-col items-center justify-center gap-8 md:min-h-[67dvh] md:gap-16">

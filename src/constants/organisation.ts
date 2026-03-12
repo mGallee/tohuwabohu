@@ -5,7 +5,7 @@ export const ORGANISATION = {
   alternateName: 'Tohuwabohu Kultur- und Musikverein',
   legalName: 'TOHUWABOHU Kultur- und Musikverein',
   description:
-    'Vienna-based collective creating music and art events with high-quality sound, handcrafted visuals, and an open, inclusive space to connect, feel safe, and be yourself.',
+    'Vienna-based collective creating music and art events with great sound, strong visuals, and an open, inclusive space to connect, feel safe, and be yourself.',
   url: BASE_URL,
   logo: {
     url: `${BASE_URL}/images/logo-open-graph.png`,
