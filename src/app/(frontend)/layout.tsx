@@ -32,7 +32,7 @@ const robotoFont = Roboto({
   subsets: ['latin'],
 });
 
-const title = 'Tohuwabohu | Techno & Psychedelic Parties in Vienna';
+const title = ORGANISATION.name;
 const description = ORGANISATION.description;
 
 export function generateMetadata(): Metadata {
