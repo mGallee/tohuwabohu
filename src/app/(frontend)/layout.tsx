@@ -31,7 +31,7 @@ const robotoFont = Roboto({
   subsets: ['latin'],
 });
 
-const title = 'Tohuwabohu | Kultur- und Musikverein';
+const title = 'Tohuwabohu | Techno & Psychedelic Parties in Vienna';
 const description =
   'Vienna-based collective creating music and art events with great sound, strong visuals, and an open, inclusive space to connect, feel safe, and be yourself.';
 

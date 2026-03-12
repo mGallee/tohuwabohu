@@ -1,6 +1,7 @@
 import { SOCIAL_MEDIA_ITEMS } from '@/constants/social-media';
 import Link from '@/components/Link';
 import { Copyright } from 'lucide-react';
+import { ORGANISATION } from '@/constants/organisation';
 
 export default function Footer() {
   return (
@@ -26,7 +27,7 @@ export default function Footer() {
         <div className="flex flex-row items-center justify-center gap-1">
           <Copyright size={14} />
           <div className="text-center text-xs md:text-sm">
-            Tohuwabohu Kultur- und Musikverein
+            {ORGANISATION.alternateName}
           </div>
         </div>
       </div>
