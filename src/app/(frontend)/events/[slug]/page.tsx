@@ -110,8 +110,8 @@ export default async function EventPage({ params }: EventPageProps) {
       <h1 className="text-center text-6xl md:text-8xl">{event.title}</h1>
       <div className="flex flex-col gap-6 rounded-xl border-2 bg-black/50 p-2 text-xl md:p-4">
         <div className="flex flex-col gap-2">
-          <div className="flex flex-row gap-2">
-            <Clock10 size={28} />
+          <div className="flex flex-row items-center gap-2">
+            <Clock10 size={26} />
             <time className="flex">
               {`${new Date(event.startDate).toLocaleString('de-AT', {
                 year: 'numeric',
@@ -127,23 +127,23 @@ export default async function EventPage({ params }: EventPageProps) {
               })}`}
             </time>
           </div>
-          <div className="flex flex-row gap-2">
-            <MapPin size={28} />
+          <div className="flex flex-row items-center gap-2">
+            <MapPin size={26} />
             <Link
               href={getGoogleMapsUrlForEventLocation(event.location)}
               target="_blank">
               <address className="flex not-italic">{`${event.location.name} | ${event.location.address.street}, ${event.location.address.city}`}</address>
             </Link>
           </div>
-          <div className="flex flex-row gap-2">
-            <Ticket size={28} />
+          <div className="flex flex-row items-center gap-2">
+            <Ticket size={26} />
             <div className="flex">
               {event.price > 0 ? `Entry fee: ${event.price}€` : 'Free entry'}
             </div>
           </div>
           {typeof event.beforeMidnightPrice === 'number' ? (
-            <div className="flex flex-row gap-2">
-              <TicketPercent size={28} />
+            <div className="flex flex-row items-center gap-2">
+              <TicketPercent size={26} />
               <div className="flex">
                 {event.beforeMidnightPrice > 0
                   ? `Entry fee before midnight: ${event.beforeMidnightPrice}€`

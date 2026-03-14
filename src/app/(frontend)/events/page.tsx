@@ -91,7 +91,7 @@ export default async function EventsPage() {
           <h2 className="text-center text-4xl md:text-6xl">Past Events</h2>
           {pastEvents.docs.map((event) => (
             <EventListItem
-              className="brightness-75"
+              className="brightness-80"
               key={`PAST_EVENT_${event.slug}`}
               event={event}
             />
