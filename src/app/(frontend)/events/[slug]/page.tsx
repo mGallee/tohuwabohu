@@ -152,7 +152,7 @@ export default async function EventPage({ params }: EventPageProps) {
             </div>
           ) : null}
         </div>
-        <p className="whitespace-pre-wrap">
+        <p className="wrap-break-word whitespace-pre-wrap">
           <TextWithLinks>{event.description}</TextWithLinks>
         </p>
         {event.lineup && event.lineup.length > 0 ? (
