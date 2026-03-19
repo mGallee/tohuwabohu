@@ -112,7 +112,9 @@ export default async function EventPage({ params }: EventPageProps) {
         <div className="flex flex-col gap-2">
           <div className="flex flex-row items-center gap-2">
             <Clock10 size={26} />
-            <time className="flex">
+            <time
+              className="flex"
+              dateTime={new Date(event.startDate).toISOString()}>
               {`${new Date(event.startDate).toLocaleString('de-AT', {
                 year: 'numeric',
                 month: 'numeric',

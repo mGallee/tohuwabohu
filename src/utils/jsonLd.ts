@@ -124,7 +124,7 @@ export function generateArtistJsonLd(artist: Artist): WithContext<Person> {
     typeof artist.profilePicture === 'object' &&
     artist.profilePicture.url
   ) {
-    image = artist.profilePicture.url;
+    image = `${BASE_URL}${artist.profilePicture.url}`;
   }
 
   return {
