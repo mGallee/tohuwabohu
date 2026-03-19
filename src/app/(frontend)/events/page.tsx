@@ -1,5 +1,7 @@
 import { Metadata, ResolvingMetadata } from 'next';
 import EventListItem from '@/components/EventListItem';
+import JsonLd from '@/components/JsonLd';
+import { generateEventListJsonLd } from '@/utils/jsonLd';
 import { getPayload } from 'payload';
 import config from '@payload-config';
 import Container from '@/components/Container';
@@ -63,6 +65,12 @@ export default async function EventsPage() {
 
   return (
     <Container as="section" className="flex flex-col gap-12 md:gap-24">
+      <JsonLd
+        data={generateEventListJsonLd([
+          ...upcomingEvents.docs,
+          ...pastEvents.docs,
+        ])}
+      />
       <div className="flex flex-col items-center gap-8 md:gap-16">
         <h1 className="text-center text-6xl md:text-8xl">Events</h1>
         <p className="text-center text-2xl text-balance md:text-4xl">

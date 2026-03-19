@@ -1,4 +1,4 @@
-import { WithContext, MusicEvent, Person, Offer } from 'schema-dts';
+import { WithContext, MusicEvent, Person, Offer, ItemList } from 'schema-dts';
 import { SOCIAL_MEDIA_ITEMS } from '@/constants/social-media';
 import { Event, Artist } from '@/payload-types';
 import {
@@ -112,6 +112,22 @@ export function generateEventJsonLd(event: Event): WithContext<MusicEvent> {
         ? [`${BASE_URL}${event.flyer.back.url}`]
         : []),
     ],
+  };
+}
+
+export function generateEventListJsonLd(
+  events: Event[],
+): WithContext<ItemList> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Tohuwabohu Events',
+    itemListElement: events.map((event, index) => ({
+      '@type': 'ListItem',
+      name: event.title,
+      url: `${BASE_URL}/events/${event.slug}`,
+      position: index + 1,
+    })),
   };
 }
 
