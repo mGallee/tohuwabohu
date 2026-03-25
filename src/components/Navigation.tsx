@@ -1,7 +1,7 @@
 'use client';
 
 import Link from '@/components/Link';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/utils/helper';
 
@@ -30,6 +30,7 @@ const NAVIGATION_ITEMS = [
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const toggleButtonRef = useRef<HTMLButtonElement>(null);
 
   const toggleMenu = useCallback(
     () => setIsOpen((prevState) => !prevState),
@@ -50,12 +51,29 @@ export default function Navigation() {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (
+        toggleButtonRef.current &&
+        getComputedStyle(toggleButtonRef.current).display === 'none'
+      ) {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <>
       <nav
         aria-label="Navigation"
         className="fixed top-0 right-0 left-0 z-99 flex h-16 w-full flex-row items-center justify-between border-b-2 bg-black/75 backdrop-blur-md md:gap-2 md:px-4">
         <button
+          ref={toggleButtonRef}
           onClick={toggleMenu}
           className="flex w-14 items-center justify-center self-stretch md:hidden"
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
