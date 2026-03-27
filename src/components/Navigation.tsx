@@ -104,7 +104,7 @@ export default function Navigation() {
           'fixed top-16 right-0 bottom-0 left-0 z-99 md:hidden',
           isOpen ? 'pointer-events-auto' : 'pointer-events-none',
         )}
-        aria-hidden={!isOpen}>
+        inert={!isOpen || undefined}>
         <div
           className={cn(
             'absolute inset-0 bg-black transition-opacity duration-150 ease-in-out',
