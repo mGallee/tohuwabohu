@@ -4,6 +4,7 @@ import Link from '@/components/Link';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/utils/helper';
+import { useScrollLock } from '@/contexts/ScrollLockContext';
 
 const NAVIGATION_ITEMS = [
   {
@@ -29,6 +30,7 @@ const NAVIGATION_ITEMS = [
 ] as const;
 
 export default function Navigation() {
+  const { lockScroll, unlockScroll } = useScrollLock();
   const [isOpen, setIsOpen] = useState(false);
   const toggleButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -41,15 +43,12 @@ export default function Navigation() {
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.removeProperty('overflow');
+      lockScroll();
+      return () => {
+        unlockScroll();
+      };
     }
-
-    return () => {
-      document.body.style.removeProperty('overflow');
-    };
-  }, [isOpen]);
+  }, [isOpen, lockScroll, unlockScroll]);
 
   useEffect(() => {
     const handleResize = () => {
