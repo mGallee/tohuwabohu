@@ -10,6 +10,7 @@ import config from '@payload-config';
 import Container from '@/components/Container';
 import { PayloadImage } from '@/components/PayloadImage';
 import TextWithLinks from '@/components/TextWithLinks';
+import Lightbox from '@/components/Lightbox';
 
 export const revalidate = 60;
 
@@ -182,25 +183,29 @@ export default async function EventPage({ params }: EventPageProps) {
       </div>
       <div className="flex flex-col gap-4 md:flex-row">
         <div className="flex flex-1">
-          <PayloadImage
-            className="w-full rounded-xl border-2 border-stone-50"
-            image={event.flyer.front}
-            alt={`Flyer of ${event.title}`}
-            draggable={false}
-            sizes={
-              event.flyer.back ? '(max-width: 768px) 100vw, 50vw' : '100vw'
-            }
-          />
+          <Lightbox className="w-full" image={event.flyer.front}>
+            <PayloadImage
+              className="w-full rounded-xl border-2 border-stone-50"
+              image={event.flyer.front}
+              alt={`Flyer of ${event.title}`}
+              draggable={false}
+              sizes={
+                event.flyer.back ? '(max-width: 768px) 100vw, 50vw' : '100vw'
+              }
+            />
+          </Lightbox>
         </div>
         {event.flyer.back ? (
           <div className="flex flex-1">
-            <PayloadImage
-              className="w-full rounded-xl border-2 border-stone-50"
-              image={event.flyer.back}
-              alt={`Lineup of ${event.title}`}
-              draggable={false}
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
+            <Lightbox className="w-full" image={event.flyer.back}>
+              <PayloadImage
+                className="w-full rounded-xl border-2 border-stone-50"
+                image={event.flyer.back}
+                alt={`Lineup of ${event.title}`}
+                draggable={false}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </Lightbox>
           </div>
         ) : null}
       </div>

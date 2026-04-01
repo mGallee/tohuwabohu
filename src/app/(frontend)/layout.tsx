@@ -11,6 +11,8 @@ import Navigation from '@/components/Navigation';
 import { cn } from '@/utils/helper';
 import { BASE_URL } from '@/constants/url';
 import { ORGANISATION } from '@/constants/organisation';
+import { LightboxProvider } from '@/contexts/LightboxContext';
+import { ScrollLockProvider } from '@/contexts/ScrollLockContext';
 
 const itcWillowFont = localFont({
   src: '../../assets/ITC-Willow.woff2',
@@ -85,24 +87,30 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html
-      lang="en-AT"
-      className={cn(itcWillowFont.variable, robotoFont.variable)}>
-      <body className="relative flex flex-col border-stone-50 bg-black text-stone-50 selection:bg-black/80">
-        <SpinningBackdrop
-          className="fixed inset-0 z-[-99]"
-          preload={true}
-          fill={true}
-          sizes="100vw"
-          loading="eager"
-          quality={25}
-        />
-        <Navigation />
-        <main className="flex flex-1 flex-col py-16 md:py-32">{children}</main>
-        <Footer />
-        <SpeedInsights />
-        <Analytics />
-      </body>
-    </html>
+    <ScrollLockProvider>
+      <html
+        lang="en-AT"
+        className={cn(itcWillowFont.variable, robotoFont.variable)}>
+        <body className="relative flex flex-col border-stone-50 bg-black text-stone-50 selection:bg-black/80">
+          <SpinningBackdrop
+            className="fixed inset-0 z-[-99]"
+            preload={true}
+            fill={true}
+            sizes="100vw"
+            loading="eager"
+            quality={25}
+          />
+          <Navigation />
+          <LightboxProvider>
+            <main className="flex flex-1 flex-col py-16 md:py-32">
+              {children}
+            </main>
+          </LightboxProvider>
+          <Footer />
+          <SpeedInsights />
+          <Analytics />
+        </body>
+      </html>
+    </ScrollLockProvider>
   );
 }

@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Metadata, ResolvingMetadata } from 'next';
 import { DECO_IMAGES } from '@/constants/decoration';
 import Container from '@/components/Container';
+import Lightbox from '@/components/Lightbox';
 
 export async function generateMetadata(
   _props: unknown,
@@ -48,15 +49,16 @@ export default function DecorationPage() {
       </div>
       <div className="z-0 columns-1 gap-4 md:columns-2">
         {DECO_IMAGES.map((image, index) => (
-          <Image
-            key={image.src}
-            className="z-0 mb-4 w-full rounded-xl border-2 border-stone-50"
-            src={image}
-            alt={`Tohuwabohu event decoration ${index + 1}`}
-            draggable={false}
-            sizes="(max-width: 768px) 100vw, 50vw"
-            priority={index < 2}
-          />
+          <Lightbox key={image.src} className="z-0 mb-4 w-full" image={image}>
+            <Image
+              className="w-full rounded-xl border-2 border-stone-50"
+              src={image}
+              alt={`Tohuwabohu event decoration ${index + 1}`}
+              draggable={false}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority={index < 2}
+            />
+          </Lightbox>
         ))}
       </div>
     </Container>

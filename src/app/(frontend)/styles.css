@@ -79,6 +79,24 @@
         0 0 90px #bb98ff;
     }
   }
+
+  @keyframes lightbox-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes lightbox-fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
 }
 
 @layer base {
@@ -100,6 +118,16 @@
 
   img[draggable='false'] {
     user-select: none;
+  }
+
+  dialog[open][data-closing='false']::backdrop,
+  dialog[open][data-closing='false'] > * {
+    animation: lightbox-fade-in 200ms ease forwards;
+  }
+
+  dialog[open][data-closing='true']::backdrop,
+  dialog[open][data-closing='true'] > * {
+    animation: lightbox-fade-out 200ms ease forwards;
   }
 
   @media (prefers-reduced-motion: reduce) {
