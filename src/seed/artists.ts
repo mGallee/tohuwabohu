@@ -49,7 +49,7 @@ const ARTISTS_SEED_DATA: ArtistSeedData[] = [
       trackId: 2012444291,
     },
     instagram: {
-      username: 'neoom',
+      username: 'neoom.vienna',
     },
     residentAdvisor: {
       username: 'neoom',
