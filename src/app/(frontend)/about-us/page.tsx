@@ -25,7 +25,7 @@ export async function generateMetadata(
       'Vienna music scene',
       'Immersive experience',
       'Community-driven',
-      'Collaborate with music collective Vienna',
+      'Collaborate with us',
     ],
     openGraph: {
       ...parentOpenGraph,

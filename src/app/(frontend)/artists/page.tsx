@@ -3,6 +3,8 @@ import { Metadata, ResolvingMetadata } from 'next';
 import config from '@payload-config';
 import { getPayload } from 'payload';
 import Container from '@/components/Container';
+import JsonLd from '@/components/JsonLd';
+import { generateArtistListJsonLd } from '@/utils/jsonLd';
 
 export const revalidate = 60;
 
@@ -22,7 +24,10 @@ export async function generateMetadata(
     description,
     keywords: [
       ...(parentMetadata.keywords || []),
-      'Tohuwabohu artists lineup Vienna',
+      'Tohuwabohu artists Wien',
+      'Tohuwabohu artists Vienna',
+      'Tohuwabohu DJ Wien',
+      'Tohuwabohu DJ Vienna',
     ],
     openGraph: {
       ...parentOpenGraph,
@@ -43,6 +48,7 @@ export default async function ArtistsPage() {
 
   return (
     <Container as="section" className="flex flex-col gap-12 md:gap-24">
+      <JsonLd data={generateArtistListJsonLd(artists.docs)} />
       <div className="flex flex-col items-center gap-8 md:gap-16">
         <h1 className="text-center text-6xl md:text-8xl">Artists</h1>
         <p className="text-center text-2xl text-balance md:text-4xl">

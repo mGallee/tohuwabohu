@@ -24,9 +24,12 @@ export async function generateMetadata(
     description,
     keywords: [
       ...(parentMetadata.keywords || []),
+      'Tohuwabohu music events Vienna',
       'Tohuwabohu events Wien',
+      'Tohuwabohu parties Wien',
       'upcoming music events Vienna',
       'upcoming events Wien',
+      'upcoming parties Wien',
       'Technoid edition',
       'Psychedelic edition',
     ],

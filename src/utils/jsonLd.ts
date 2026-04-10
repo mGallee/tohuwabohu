@@ -164,3 +164,19 @@ export function generateArtistJsonLd(artist: Artist): WithContext<Person> {
     ],
   };
 }
+
+export function generateArtistListJsonLd(
+  artists: Artist[],
+): WithContext<ItemList> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Tohuwabohu Artists',
+    itemListElement: artists.map((artist, index) => ({
+      '@type': 'ListItem',
+      name: artist.name,
+      url: `${BASE_URL}/artists/${artist.slug}`,
+      position: index + 1,
+    })),
+  };
+}

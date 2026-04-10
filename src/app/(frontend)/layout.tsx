@@ -49,6 +49,8 @@ export function generateMetadata(): Metadata {
       'Vienna music collective',
       'Vienna artist events',
       'Austrian music collective',
+      'Kunst und Kulturverein',
+      'Wiener Kollektiv',
     ],
     category: 'Collective',
     robots: {

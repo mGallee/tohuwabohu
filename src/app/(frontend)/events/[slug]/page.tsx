@@ -44,7 +44,14 @@ export async function generateMetadata(
   const parentMetadata = await parent;
   const parentOpenGraph = parentMetadata.openGraph || {};
 
-  const title = `${event.title}`;
+  const startDate = new Date(event.startDate).toLocaleString('de-AT', {
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+    timeZone: 'Europe/Vienna',
+  });
+
+  const title = `${event.title} - ${startDate}`;
   const description =
     event.description.length > 150
       ? `${event.description.slice(0, 150)}...`
@@ -58,8 +65,9 @@ export async function generateMetadata(
     description,
     keywords: [
       ...(parentMetadata.keywords || []),
-      'Tohuwabohu events Wien',
-      `${event.title} at ${event.location.name} on ${event.startDate}`.replace(
+      'Tohuwabohu event Wien',
+      'Tohuwabohu party Wien',
+      `${event.title} at ${event.location.name} on ${startDate}`.replace(
         ',',
         '',
       ),
