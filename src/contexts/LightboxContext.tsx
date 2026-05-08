@@ -4,7 +4,6 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
   useRef,
   useState,
   MouseEvent,
@@ -42,6 +41,7 @@ export function useLightbox() {
 export function LightboxProvider({ children }: { children: ReactNode }) {
   const { lockScroll, unlockScroll } = useScrollLock();
   const pathname = usePathname();
+  const [prevPathname, setPrevPathname] = useState(pathname);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [activeImage, setActiveImage] = useState<LightboxImage | null>(null);
   const [isClosing, setIsClosing] = useState(false);
@@ -60,7 +60,8 @@ export function LightboxProvider({ children }: { children: ReactNode }) {
 
   const closeLightbox = useCallback(() => {
     setIsClosing(true);
-  }, []);
+    unlockScroll();
+  }, [unlockScroll]);
 
   const handleCancel = useCallback(
     (event: SyntheticEvent<HTMLDialogElement>) => {
@@ -76,9 +77,8 @@ export function LightboxProvider({ children }: { children: ReactNode }) {
       setIsLoaded(false);
       setActiveImage(null);
       dialogRef.current?.close();
-      unlockScroll();
     }
-  }, [isClosing, unlockScroll]);
+  }, [isClosing]);
 
   const handleImageLoad = useCallback(() => {
     setIsLoaded(true);
@@ -95,12 +95,12 @@ export function LightboxProvider({ children }: { children: ReactNode }) {
     [openLightbox],
   );
 
-  useEffect(() => {
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
     if (activeImage) {
       closeLightbox();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname]);
+  }
 
   return (
     <LightboxContext.Provider value={values}>
