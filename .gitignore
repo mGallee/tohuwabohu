@@ -15,9 +15,8 @@
 /dist
 
 # Environment Variables
-.env*
-.env*.local
 .env
+.env.*
 !.env.example
 !.env.template
 
@@ -29,9 +28,7 @@
 next-env.d.ts
 
 # Payload CMS
-/payload-types.ts
 /src/payload-types.ts
-/public/media
 /media
 
 # Database
@@ -81,3 +78,7 @@ $RECYCLE.BIN/
 # Cache
 .turbo
 .cache
+
+# Local Files
+*.local.*
+*.local

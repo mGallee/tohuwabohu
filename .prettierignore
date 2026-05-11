@@ -1,68 +1,85 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
+# Dependencies
 /node_modules
 /.pnp
 .pnp.js
-/.yarn
 
-# testing
+# Testing
 /coverage
 
-# next.js
+# Next.js
 /.next/
 /out/
 
-# production
+# Production
 /build
 /dist
 
+# Environment Variables
+.env
+.env.*
+!.env.example
+!.env.template
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
 # Payload CMS
+/src/payload-types.ts
 /media
-/public/media
-payload-types.ts
-.payload
 importMap.js
 
-# misc
+# Database
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Logs
+logs
+*.log
+log.txt
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# IDE
+.idea
+/.vscode
+*.sublime-project
+*.sublime-workspace
+.phpunit.result.cache
+
+# OS
 .DS_Store
-*.pem
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+UserInterfaceState.xcuserstate
+$RECYCLE.BIN/
+.Spotlight-V100
+.Trashes
+
+# Temporary Files
 *~
 *.sw[mnpcod]
 .tmp
 *.tmp
 *.tmp.*
-Thumbs.db
-UserInterfaceState.xcuserstate
-$RECYCLE.BIN/
+*.pem
 
-# debug & logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-*.log
-log.txt
+# Cache
+.turbo
+.cache
 
-# local env files
-.env*
-.env
-!.env.example
-!.env.template
-
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
-
-# IDE
-.idea
-.vscode
-*.sublime-project
-*.sublime-workspace
-.phpunit.result.cache
-
-# Generated files
-/public/build
-/.cache
+# Local Files
+*.local.*
+*.local
