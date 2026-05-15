@@ -13,7 +13,7 @@ Website for **Tohuwabohu** — a Vienna-based culture and music collective (_Kul
 | Framework  | [Next.js](https://nextjs.org/) (App Router)           |
 | Language   | [TypeScript](https://www.typescriptlang.org/)         |
 | CMS        | [Payload CMS](https://payloadcms.com/) (headless)     |
-| Database   | [PostgreSQL 15](https://www.postgresql.org/)          |
+| Database   | [PostgreSQL](https://www.postgresql.org/)             |
 | Styling    | [Tailwind CSS](https://tailwindcss.com/)              |
 | Linting    | [ESLint](https://eslint.org/)                         |
 | Formatting | [Prettier](https://prettier.io/)                      |
@@ -38,7 +38,7 @@ Spin up a local PostgreSQL instance using Docker:
 docker compose up -d
 ```
 
-This starts a `postgres:15` container with the following defaults:
+This starts a `postgres` container with the following defaults:
 
 | Setting  | Value            |
 | -------- | ---------------- |
@@ -86,7 +86,7 @@ The `src/` directory contains the Next.js App Router (`app/`) split into a `(fro
 
 ## Database
 
-The project uses **PostgreSQL 15** managed via Docker Compose. Data is persisted in a named volume (`postgres_data`) so it survives container restarts.
+The project uses **PostgreSQL** managed via Docker Compose. Data is persisted in a named volume (`postgres_data`) so it survives container restarts.
 
 ```bash
 # Start DB

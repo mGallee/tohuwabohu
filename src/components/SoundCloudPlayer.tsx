@@ -1,22 +1,7 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
-import { LoaderCircle } from 'lucide-react';
-
-const SC_PLAYER_URL = new URL('https://w.soundcloud.com/player/');
-SC_PLAYER_URL.searchParams.set('color', '#0f172a');
-SC_PLAYER_URL.searchParams.set('auto_play', 'false');
-SC_PLAYER_URL.searchParams.set('hide_related', 'true');
-SC_PLAYER_URL.searchParams.set('show_artwork', 'true');
-SC_PLAYER_URL.searchParams.set('show_comments', 'false');
-SC_PLAYER_URL.searchParams.set('show_user', 'false');
-SC_PLAYER_URL.searchParams.set('show_reposts', 'false');
-SC_PLAYER_URL.searchParams.set('show_teaser', 'true');
-SC_PLAYER_URL.searchParams.set('show_playcount', 'false');
-SC_PLAYER_URL.searchParams.set('download', 'false');
-SC_PLAYER_URL.searchParams.set('sharing', 'false');
-SC_PLAYER_URL.searchParams.set('buying', 'false');
-SC_PLAYER_URL.searchParams.set('single_active', 'true');
-SC_PLAYER_URL.searchParams.set('visual', 'true');
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { getSoundCloudPlayerUrl } from '@/utils/soundcloud';
+import LoaderIcon from '@/components/LoaderIcon';
 
 interface SoundCloudPlayerProps {
   url: string;
@@ -30,7 +15,7 @@ export default function SoundCloudPlayer({
   const [showPlayer, setShowPlayer] = useState(false);
   const containerRef = useRef(null);
 
-  SC_PLAYER_URL.searchParams.set('url', url);
+  const playerUrl = useMemo(() => getSoundCloudPlayerUrl(url), [url]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -62,12 +47,14 @@ export default function SoundCloudPlayer({
           title={title}
           allow="autoplay; encrypted-media *"
           loading="lazy"
-          src={SC_PLAYER_URL.href}
+          src={playerUrl.href}
         />
       ) : (
-        <div className="flex h-full w-full flex-col items-center justify-center gap-2 rounded-xl p-2">
-          <LoaderCircle className="animate-spin" size={28} />
-          <div className="text-lg md:text-xl">Loading SoundCloud Track</div>
+        <div className="flex h-full w-full flex-col items-center justify-center gap-4 rounded-xl p-2">
+          <LoaderIcon size={40} />
+          <div className="text-center text-lg md:text-xl">
+            Loading SoundCloud Track
+          </div>
         </div>
       )}
     </div>

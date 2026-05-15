@@ -1,3 +1,23 @@
+export function getSoundCloudPlayerUrl(urlSearchParam: string) {
+  const url = new URL('https://w.soundcloud.com/player/');
+  url.searchParams.set('color', '#0f172a');
+  url.searchParams.set('auto_play', 'false');
+  url.searchParams.set('hide_related', 'true');
+  url.searchParams.set('show_artwork', 'true');
+  url.searchParams.set('show_comments', 'false');
+  url.searchParams.set('show_user', 'false');
+  url.searchParams.set('show_reposts', 'false');
+  url.searchParams.set('show_teaser', 'true');
+  url.searchParams.set('show_playcount', 'false');
+  url.searchParams.set('download', 'false');
+  url.searchParams.set('sharing', 'false');
+  url.searchParams.set('buying', 'false');
+  url.searchParams.set('single_active', 'true');
+  url.searchParams.set('visual', 'true');
+  url.searchParams.set('url', urlSearchParam);
+  return url;
+}
+
 export async function extractSoundcloudTrackId(url: string): Promise<string> {
   const parsed = new URL(url);
   const host = parsed.hostname.toLowerCase();
