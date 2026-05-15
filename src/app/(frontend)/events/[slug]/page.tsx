@@ -176,6 +176,7 @@ export default async function EventPage({ params }: EventPageProps) {
                 : new Date(event.endDate).toLocaleTimeString('de-AT', {
                     hour: 'numeric',
                     minute: 'numeric',
+                    timeZone: 'Europe/Vienna',
                   });
               return (
                 <div
