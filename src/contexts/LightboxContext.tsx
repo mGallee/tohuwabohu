@@ -15,8 +15,8 @@ import { usePathname } from 'next/navigation';
 import Image, { StaticImageData } from 'next/image';
 import { Media } from '@/payload-types';
 import { PayloadImage } from '@/components/PayloadImage';
-import { LoaderPinwheel } from 'lucide-react';
 import { useScrollLock } from '@/contexts/ScrollLockContext';
+import LoaderIcon from '@/components/LoaderIcon';
 
 export type LightboxImage = StaticImageData | Media | number;
 
@@ -120,7 +120,7 @@ export function LightboxProvider({ children }: { children: ReactNode }) {
             onClick={closeLightbox}>
             {!isLoaded ? (
               <div className="absolute" aria-hidden="true">
-                <LoaderPinwheel className="animate-spin" size={50} />
+                <LoaderIcon size={50} />
               </div>
             ) : null}
             {isMedia(activeImage) ? (
