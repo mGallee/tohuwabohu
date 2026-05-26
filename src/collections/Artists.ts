@@ -69,9 +69,9 @@ export const Artists: CollectionConfig = {
         {
           name: 'trackUrl',
           type: 'text',
-          label: 'Track Url',
           virtual: true,
           admin: {
+            readOnly: false,
             description:
               'Paste a SoundCloud track URL to auto-fill the Track ID below.',
           },
