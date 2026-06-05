@@ -3,7 +3,7 @@ import localFont from 'next/font/local';
 import { Roboto } from 'next/font/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
-import { ReactNode } from 'react';
+import { ReactNode, ViewTransition } from 'react';
 import { Metadata, Viewport } from 'next';
 import Footer from '@/components/Footer';
 import SpinningBackdrop from '@/components/SpinningBackdrop';
@@ -94,21 +94,23 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         lang="en-AT"
         className={cn(itcWillowFont.variable, robotoFont.variable)}>
         <body className="relative flex flex-col border-stone-50 bg-black text-stone-50 selection:bg-black/80">
-          <SpinningBackdrop
-            className="fixed inset-0 z-[-99]"
-            preload={true}
-            fill={true}
-            sizes="100vw"
-            loading="eager"
-            quality={25}
-          />
-          <Navigation />
-          <LightboxProvider>
-            <main className="flex flex-1 flex-col py-16 md:py-32">
-              {children}
-            </main>
-          </LightboxProvider>
-          <Footer />
+          <ViewTransition>
+            <SpinningBackdrop
+              className="fixed inset-0 z-[-99]"
+              preload={true}
+              fill={true}
+              sizes="100vw"
+              loading="eager"
+              quality={25}
+            />
+            <Navigation />
+            <LightboxProvider>
+              <main className="flex flex-1 flex-col py-16 md:py-32">
+                {children}
+              </main>
+            </LightboxProvider>
+            <Footer />
+          </ViewTransition>
           <SpeedInsights />
           <Analytics />
         </body>
